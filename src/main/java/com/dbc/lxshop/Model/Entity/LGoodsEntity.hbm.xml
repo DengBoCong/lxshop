@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LGoodsEntity" table="l_goods" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="title">
+            <column name="title" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="inventory">
+            <column name="inventory" sql-type="int(11)"/>
+        </property>
+        <property name="inventoryUnit">
+            <column name="inventory_unit" sql-type="varchar(15)" length="15"/>
+        </property>
+        <property name="images">
+            <column name="images" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="price">
+            <column name="price" sql-type="decimal(10,2)" precision="10" scale="2"/>
+        </property>
+        <property name="isShelves">
+            <column name="is_shelves" sql-type="tinyint(2)"/>
+        </property>
+        <property name="isHomeRecommended">
+            <column name="is_home_recommended" sql-type="tinyint(2)"/>
+        </property>
+        <property name="content">
+            <column name="content" sql-type="mediumtext"/>
+        </property>
+        <property name="salesCount">
+            <column name="sales_count" sql-type="int(11)"/>
+        </property>
+        <property name="accessCount">
+            <column name="access_count" sql-type="int(11)"/>
+        </property>
+        <property name="homeRecommendedImages">
+            <column name="home_recommended_images" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="addTime">
+            <column name="add_time" sql-type="int(11)"/>
+        </property>
+        <property name="updTime">
+            <column name="upd_time" sql-type="int(11)"/>
+        </property>
+        <property name="afterSalesInstruction">
+            <column name="after_sales_instruction" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="origin">
+            <column name="origin" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="kindName">
+            <column name="kind_name" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="model">
+            <column name="model" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="material">
+            <column name="material" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="structure">
+            <column name="structure" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="style">
+            <column name="style" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="use">
+            <column name="use" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="saleMethod">
+            <column name="sale_method" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="specCode">
+            <column name="spec_code" sql-type="varchar(1000)" length="1000"/>
+        </property>
+    </class>
+</hibernate-mapping>

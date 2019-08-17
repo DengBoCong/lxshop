@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LPowerEntity" table="l_power" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="int(11) unsigned"/>
+        </id>
+        <property name="pid">
+            <column name="pid" sql-type="int(11)"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="varchar(30)" length="30"/>
+        </property>
+        <property name="control">
+            <column name="control" sql-type="varchar(30)" length="30"/>
+        </property>
+        <property name="action">
+            <column name="action" sql-type="varchar(30)" length="30"/>
+        </property>
+        <property name="sort">
+            <column name="sort" sql-type="tinyint(3)"/>
+        </property>
+        <property name="isShow">
+            <column name="is_show" sql-type="tinyint(1)"/>
+        </property>
+        <property name="icon">
+            <column name="icon" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="addTime">
+            <column name="add_time" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

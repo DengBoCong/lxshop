@@ -4,7 +4,9 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!--配置自动扫描的包-->
-    <context:component-scan base-package="com.dbc.lxshop"/>
+    <context:component-scan base-package="com.dbc.lxshop.Service, com.dbc.lxshop.Controller, com.dbc.lxshop.Dao"/>
+    <!--<context:component-scan base-package="com.dbc.lxshop.Controller"/>
+    <context:component-scan base-package="com.dbc.lxshop.Service"/>-->
 
     <!--配置视图解析器：把返回的方法解析为实际视图-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -22,6 +24,8 @@
     <mvc:resources location="/WEB-INF/static/admin/img/" mapping="/static/admin/img/**" />
     <mvc:resources location="/WEB-INF/static/admin/js/" mapping="/static/admin/js/**" />
     <mvc:resources location="/WEB-INF/static/admin/locales/" mapping="/static/admin/locales/**" />
+    <mvc:resources location="/WEB-INF/pages/adminJs/" mapping="/pages/adminJs/**" />
+    <mvc:resources location="/WEB-INF/upload/admin/images/" mapping="/upload/admin/images/**" />
 
     <!--两个必要配置-->
     <mvc:default-servlet-handler/>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LRoleEntity" table="l_role" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="int(11) unsigned"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(30)" length="30"/>
+        </property>
+        <property name="isEnable">
+            <column name="is_enable" sql-type="tinyint(1)"/>
+        </property>
+        <property name="addTime">
+            <column name="add_time" sql-type="int(11)"/>
+        </property>
+        <property name="updTime">
+            <column name="upd_time" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

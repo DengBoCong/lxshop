@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LLinkEntity" table="l_link" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="int(10) unsigned"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(30)" length="30"/>
+        </property>
+        <property name="url">
+            <column name="url" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="describe">
+            <column name="describe" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="sort">
+            <column name="sort" sql-type="tinyint(3)"/>
+        </property>
+        <property name="isEnable">
+            <column name="is_enable" sql-type="tinyint(1)"/>
+        </property>
+        <property name="isNewWindowOpen">
+            <column name="is_new_window_open" sql-type="tinyint(1)"/>
+        </property>
+        <property name="addTime">
+            <column name="add_time" sql-type="int(11)"/>
+        </property>
+        <property name="updTime">
+            <column name="upd_time" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

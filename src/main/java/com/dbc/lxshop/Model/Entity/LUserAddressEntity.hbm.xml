@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LUserAddressEntity" table="l_user_address" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="int(11) unsigned"/>
+        </id>
+        <property name="userId">
+            <column name="user_id" sql-type="int(11)"/>
+        </property>
+        <property name="alias">
+            <column name="alias" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="tel">
+            <column name="tel" sql-type="varchar(15)" length="15"/>
+        </property>
+        <property name="province">
+            <column name="province" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="city">
+            <column name="city" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="county">
+            <column name="county" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="address">
+            <column name="address" sql-type="varchar(80)" length="80"/>
+        </property>
+        <property name="lng">
+            <column name="lng" sql-type="decimal(13,10)" precision="13" scale="10"/>
+        </property>
+        <property name="lat">
+            <column name="lat" sql-type="decimal(13,10)" precision="13" scale="10"/>
+        </property>
+        <property name="isDefault">
+            <column name="is_default" sql-type="tinyint(1)"/>
+        </property>
+        <property name="isDeleteTime">
+            <column name="is_delete_time" sql-type="int(11)"/>
+        </property>
+        <property name="addTime">
+            <column name="add_time" sql-type="int(11)"/>
+        </property>
+        <property name="updTime">
+            <column name="upd_time" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

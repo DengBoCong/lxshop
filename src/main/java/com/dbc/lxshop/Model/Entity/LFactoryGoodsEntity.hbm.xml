@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LFactoryGoodsEntity" table="l_factory_goods" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="int(11) unsigned"/>
+        </id>
+        <property name="factoryId">
+            <column name="factory_id" sql-type="int(11)"/>
+        </property>
+        <property name="kindName">
+            <column name="kind_name" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="model">
+            <column name="model" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="material">
+            <column name="material" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="structure">
+            <column name="structure" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="style">
+            <column name="style" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="use">
+            <column name="use" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="saleMethod">
+            <column name="sale_method" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="inventory">
+            <column name="inventory" sql-type="varchar(500)" length="500"/>
+        </property>
+        <property name="remark">
+            <column name="remark" sql-type="varchar(1000)" length="1000"/>
+        </property>
+    </class>
+</hibernate-mapping>

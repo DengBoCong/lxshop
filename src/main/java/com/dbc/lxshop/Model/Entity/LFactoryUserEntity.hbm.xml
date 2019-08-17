@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LFactoryUserEntity" table="l_factory_user" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="int(11) unsigned"/>
+        </id>
+        <property name="alipayAccount">
+            <column name="alipay_account" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="wechatCode">
+            <column name="wechat_code" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="bankAccount">
+            <column name="bank_account" sql-type="varchar(30)" length="30"/>
+        </property>
+        <property name="bankName">
+            <column name="bank_name" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="pwd">
+            <column name="pwd" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="status">
+            <column name="status" sql-type="tinyint(1)"/>
+        </property>
+        <property name="mobile">
+            <column name="mobile" sql-type="varchar(15)" length="15"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="avatar">
+            <column name="avatar" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="province">
+            <column name="province" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="city">
+            <column name="city" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="address">
+            <column name="address" sql-type="varchar(150)" length="150"/>
+        </property>
+        <property name="salesmanId">
+            <column name="salesman_id" sql-type="int(11)"/>
+        </property>
+        <property name="addTime">
+            <column name="add_time" sql-type="int(11)"/>
+        </property>
+        <property name="updTime">
+            <column name="upd_time" sql-type="int(11)"/>
+        </property>
+        <property name="licenceId">
+            <column name="licence_id" sql-type="int(11)"/>
+        </property>
+        <property name="orderCount">
+            <column name="order_count" sql-type="int(11)"/>
+        </property>
+        <property name="sellCount">
+            <column name="sell_count" sql-type="decimal(10,2)" precision="10" scale="2"/>
+        </property>
+        <property name="capacity">
+            <column name="capacity" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="quality">
+            <column name="quality" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="stability">
+            <column name="stability" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="circumstance">
+            <column name="circumstance" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="report">
+            <column name="report" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="areaId">
+            <column name="area_id" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

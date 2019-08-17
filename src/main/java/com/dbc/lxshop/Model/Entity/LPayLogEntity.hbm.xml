@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LPayLogEntity" table="l_pay_log" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="bigint(20) unsigned"/>
+        </id>
+        <property name="userId">
+            <column name="user_id" sql-type="int(11) unsigned"/>
+        </property>
+        <property name="tradeNo">
+            <column name="trade_no" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="buyerUser">
+            <column name="buyer_user" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="payPrice">
+            <column name="pay_price" sql-type="decimal(10,2)" precision="10" scale="2"/>
+        </property>
+        <property name="totalPrice">
+            <column name="total_price" sql-type="decimal(10,2)" precision="10" scale="2"/>
+        </property>
+        <property name="description">
+            <column name="description" sql-type="varchar(255)"/>
+        </property>
+        <property name="paymentName">
+            <column name="payment_name" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="businessType">
+            <column name="business_type" sql-type="tinyint(1) unsigned"/>
+        </property>
+        <property name="addTime">
+            <column name="add_time" sql-type="int(11) unsigned"/>
+        </property>
+    </class>
+</hibernate-mapping>

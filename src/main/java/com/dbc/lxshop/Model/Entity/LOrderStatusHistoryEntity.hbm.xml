@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LOrderStatusHistoryEntity" table="l_order_status_history" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="int(11) unsigned"/>
+        </id>
+        <property name="orderId">
+            <column name="order_id" sql-type="int(11) unsigned"/>
+        </property>
+        <property name="originalStatus">
+            <column name="original_status" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="newStatus">
+            <column name="new_status" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="msg">
+            <column name="msg" sql-type="varchar(255)"/>
+        </property>
+        <property name="creator">
+            <column name="creator" sql-type="int(11) unsigned"/>
+        </property>
+        <property name="creatorName">
+            <column name="creator_name" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="addTime">
+            <column name="add_time" sql-type="int(11) unsigned"/>
+        </property>
+    </class>
+</hibernate-mapping>

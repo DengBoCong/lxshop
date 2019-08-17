@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LConfigEntity" table="l_config" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="int(10) unsigned"/>
+        </id>
+        <property name="value">
+            <column name="value" sql-type="text" not-null="true"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="char(60)" length="60"/>
+        </property>
+        <property name="describe">
+            <column name="describe" sql-type="char(255)"/>
+        </property>
+        <property name="errorTips">
+            <column name="error_tips" sql-type="char(150)" length="150"/>
+        </property>
+        <property name="type">
+            <column name="type" sql-type="char(30)" length="30"/>
+        </property>
+        <property name="onlyTag">
+            <column name="only_tag" sql-type="char(60)" length="60"/>
+        </property>
+        <property name="updTime">
+            <column name="upd_time" sql-type="int(11) unsigned"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -5,7 +5,9 @@
        xmlns:cache="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
     <!--配置自动扫描的包-->
-    <context:component-scan base-package="com.dbc.lxshop"/>
+    <context:component-scan base-package="com.dbc.lxshop.Service, com.dbc.lxshop.Controller, com.dbc.lxshop.Dao"/>
+    <!--<context:component-scan base-package="com.dbc.lxshop.Controller"/>
+    <context:component-scan base-package="com.dbc.lxshop.Service"/>-->
 
 
     <!--加载属性文件-->
@@ -31,8 +33,8 @@
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
                 <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
                 <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
-                <prop key="hibernate.connection.url">${hibernate.connection.url}</prop>
-                <prop key="hibernate.connection.driver_class">${hibernate.connection.driver_class}</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/lxshop</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
                 <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
                 <prop key="hibernate.cache.region.factory_class">${hibernate.cache.region.factory_class}</prop>
                 <prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
@@ -50,6 +52,92 @@
                 <prop key="hibernate.c3p0.max_statements">${hibernate.c3p0.max_statements}</prop>
                 <prop key="current_session_context_class">${current_session_context_class}</prop>
             </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.dbc.lxshop.Model.Entity.LActivityPlanEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LAdPlanEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LAdminEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LAreaEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LCartEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LConfigEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LDefineViewEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LExpressEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LFactoryGoodsEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LFactoryLicenceEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LFactoryUserEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LGoodsEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LGoodsBrowseEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LGoodsCategoryEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LGoodsCategoryJoinEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LGoodsInventoryLogEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LGoodsPhotoEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LGoodsStandradEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LHomeSlideEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LLinkEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LMessageEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LNavigationEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LOnlineMarketEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LOrderEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LOrderCommentsEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LOrderGoodsEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LOrderStatusHistoryEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LPayLogEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LPowerEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LRegionEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LRoleEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LRolePowerEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LSalePlanEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LSalesmanUserEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LScreeningPriceEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LUserEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LUserAddressEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LUserIntegralLogEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LUserLicenceEntity</value>
+            </list>
+        </property>
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LActivityPlanEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LAdPlanEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LAdminEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LAreaEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LCartEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LConfigEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LDefineViewEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LExpressEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LFactoryGoodsEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LFactoryLicenceEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LFactoryUserEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsBrowseEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsCategoryEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsCategoryJoinEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsInventoryLogEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsPhotoEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsStandradEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LHomeSlideEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LLinkEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LMessageEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LNavigationEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LOnlineMarketEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LOrderEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LOrderCommentsEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LOrderGoodsEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LOrderStatusHistoryEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LPayLogEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LPowerEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LRegionEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LRoleEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LRolePowerEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LSalePlanEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LSalesmanUserEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LScreeningPriceEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LUserEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LUserAddressEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LUserIntegralLogEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LUserLicenceEntity.hbm.xml</value>
+            </list>
         </property>
     </bean>
 

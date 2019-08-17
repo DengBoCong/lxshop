@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dbc.lxshop.Model.Entity.LCartEntity" table="l_cart" schema="lxshop">
+        <id name="id">
+            <column name="id" sql-type="int(11) unsigned"/>
+        </id>
+        <property name="userId">
+            <column name="user_id" sql-type="int(11)"/>
+        </property>
+        <property name="goodsId">
+            <column name="goods_id" sql-type="int(11)"/>
+        </property>
+        <property name="goodsName">
+            <column name="goods_name" sql-type="varchar(60)" length="60"/>
+        </property>
+        <property name="goodsImages">
+            <column name="goods_images" sql-type="varchar(1000)" length="1000"/>
+        </property>
+        <property name="price">
+            <column name="price" sql-type="decimal(10,2)" precision="10" scale="2"/>
+        </property>
+        <property name="measure">
+            <column name="measure" sql-type="varchar(30)" length="30"/>
+        </property>
+        <property name="color">
+            <column name="color" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="buyNumber">
+            <column name="buy_number" sql-type="int(11)"/>
+        </property>
+        <property name="addTime">
+            <column name="add_time" sql-type="int(11)"/>
+        </property>
+        <property name="updTime">
+            <column name="upd_time" sql-type="int(11)"/>
+        </property>
+        <property name="priceTatal">
+            <column name="price_tatal" sql-type="decimal(10,2)" precision="10" scale="2"/>
+        </property>
+    </class>
+</hibernate-mapping>
