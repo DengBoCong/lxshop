@@ -96,4 +96,18 @@
             <column name="spec_code" sql-type="varchar(1000)" length="1000"/>
         </property>
     </class>
+    <query name="ORDER.ORDER_NO"><![CDATA[from LOrderEntity where orderNo = :orderNo]]></query>
+    <query name="ORDER.FACTORY_ID"><![CDATA[from LOrderEntity where factoryId = :factoryId]]></query>
+    <query name="ORDER.STATUS"><![CDATA[from LOrderEntity where status = :status]]></query>
+    <query name="ORDER.USER_ID"><![CDATA[from LOrderEntity where userId = :userId]]></query>
+
+    <query name="ORDER.ORDERBY.STATUS_ORDERNO"><![CDATA[from LOrderEntity order by status asc , orderNo asc ]]></query>
+
+    <query name="ORDER.C_LAST_TIME_SELL_COUNT"><![CDATA[select sum(totalPrice) from LOrderEntity where payStatus = 1 and addTime > :mills]]></query>
+    <query name="ORDER.C_LAST_TIME_ORDER_COUNT"><![CDATA[select count(*) from LOrderEntity where payStatus = 1 and addTime > :mills]]></query>
+    <query name="ORDER.C_SELL_COUNT"><![CDATA[select sum(totalPrice) from LOrderEntity where payStatus = 1]]></query>
+    <query name="ORDER.C_ORDER_COUNT"><![CDATA[select count(*) from LOrderEntity where payStatus = 1]]></query>
+
+    <query name="ORDER.C_BTW_TIME_SELL_COUNT"><![CDATA[select sum(totalPrice) from LOrderEntity where payStatus = 1 and addTime between :beginTime and :endTime]]></query>
+    <query name="ORDER.C_BTW_TIME_ORDER_COUNT"><![CDATA[select count(*) from LOrderEntity where payStatus = 1 and addTime between :beginTime and :endTime]]></query>
 </hibernate-mapping>

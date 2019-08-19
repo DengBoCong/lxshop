@@ -72,4 +72,10 @@
             <column name="area_id" sql-type="int(11)"/>
         </property>
     </class>
+    <query name="USER.MOBILE"><![CDATA[from LUserEntity where mobile = :mobile]]></query>
+    <query name="USER.ORDERBY_NAME"><![CDATA[from LUserEntity order by name asc ]]></query>
+
+    <query name="USER.USER_COUNT"><![CDATA[select count(*) from LUserEntity]]></query>
+    <query name="USER.LAST_TIME_USER_COUNT"><![CDATA[select count(*) from LUserEntity where addTime > :mills]]></query>
+    <query name="USER.BTW_TIME_USER_COUNT"><![CDATA[select count(*) from LUserEntity where addTime between :beginTime and :endTime]]></query>
 </hibernate-mapping>

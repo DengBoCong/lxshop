@@ -12,8 +12,10 @@ import java.util.Date;
  * @create: 2019-08-17 09:29
  **/
 public class DateUtil {
-    private static final long ONE_WEEK_MILLS = 604800L;
-    private static final long ONE_DAY_MILLS = 86400L;
+    private static final long ONE_WEEK_MILLS = 604800000L;
+    private static final long ONE_DAY_MILLS = 86400000L;
+    private static final long ONE_MONTH_MILLS = 2592000000L;
+    private static final long ONE_YEAR_MILLS = 31536000000L;
 
     /**
     * @Description: 返回当前时间的int型数据
@@ -60,9 +62,52 @@ public class DateUtil {
         return new Long(nowTimeMills).intValue();
     }
 
+    /**
+    * @Description: 返回前一天时间戳
+    * @Param:
+    * @return:  int
+    * @Author: DBC
+    * @Date: 2019/8/19
+    */
     public static int LastDayTime(){
         long nowTimeMills = (System.currentTimeMillis() - ONE_DAY_MILLS)/1000;
         return new Long(nowTimeMills).intValue();
 
+    }
+
+    /**
+    * @Description: 返回前两周的时间戳
+    * @Param:
+    * @return:  int
+    * @Author: DBC
+    * @Date: 2019/8/19
+    */
+    public static int LastTwoWeekTime(){
+        long nowTimeMills = (System.currentTimeMillis() - 2 * ONE_WEEK_MILLS)/1000;
+        return new Long(nowTimeMills).intValue();
+    }
+
+    /**
+    * @Description: 返回前一个月的时间戳
+    * @Param:
+    * @return:  int
+    * @Author: DBC
+    * @Date: 2019/8/19
+    */
+    public static int LastMonthTime(){
+        long nowTimeMills = (System.currentTimeMillis() - ONE_MONTH_MILLS)/1000;
+        return new Long(nowTimeMills).intValue();
+    }
+
+    /**
+    * @Description: 返回前一年的时间戳
+    * @Param:
+    * @return:  int
+    * @Author: DBC
+    * @Date: 2019/8/19
+    */
+    public static int LastYearTime(){
+        long nowTimeMills = (System.currentTimeMillis() - ONE_YEAR_MILLS)/1000;
+        return new Long(nowTimeMills).intValue();
     }
 }

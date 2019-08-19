@@ -27,6 +27,9 @@
     <link href="<%=basePath%>/static/admin/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
     <link href="<%=basePath%>/static/admin/css/animate.css" rel="stylesheet">
     <link href="<%=basePath%>/static/admin/css/style.css" rel="stylesheet">
+    <style type="text/css">
+        .list_display{display: none}
+    </style>
     <script src="<%=basePath%>/static/admin/js/jquery-2.1.1.js"></script>
 </head>
 <body>
@@ -43,9 +46,19 @@
                             <h5>营业额</h5>
                         </div>
                         <div class="ibox-content">
-                            <h1 class="no-margins">40 886,200</h1>
-                            <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-                            <small>同比上涨</small>
+                            <h1 class="no-margins">${ProfileDataBean.weekSellCount}</h1>
+                            <c:if test="${ProfileDataBean.sellPrecent<0}">
+                                <div class="stat-percent font-bold text-success">${-ProfileDataBean.sellPrecent} <i class="fa fa-level-down"></i></div>
+                                <small>同比下跌</small>
+                            </c:if>
+                            <c:if test="${ProfileDataBean.sellPrecent>0}">
+                                <div class="stat-percent font-bold text-success">${ProfileDataBean.sellPrecent} <i class="fa fa-level-up"></i></div>
+                                <small>同比上涨</small>
+                            </c:if>
+                            <c:if test="${ProfileDataBean.sellPrecent==0}">
+                                <div class="stat-percent font-bold text-success">0 <i class="fa fa-bolt"></i></div>
+                                <small>相对持平</small>
+                            </c:if>
                         </div>
                     </div>
                 </div>
@@ -56,9 +69,19 @@
                             <h5>订单量</h5>
                         </div>
                         <div class="ibox-content">
-                            <h1 class="no-margins">275,800</h1>
-                            <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
-                            <small>同比上涨</small>
+                            <h1 class="no-margins">${ProfileDataBean.weekOrderCount}</h1>
+                            <c:if test="${ProfileDataBean.weekOrderCount<0}">
+                                <div class="stat-percent font-bold text-success">${-ProfileDataBean.weekOrderCount} <i class="fa fa-level-down"></i></div>
+                                <small>同比下跌</small>
+                            </c:if>
+                            <c:if test="${ProfileDataBean.weekOrderCount>0}">
+                                <div class="stat-percent font-bold text-success">${ProfileDataBean.weekOrderCount} <i class="fa fa-level-up"></i></div>
+                                <small>同比上涨</small>
+                            </c:if>
+                            <c:if test="${ProfileDataBean.weekOrderCount==0}">
+                                <div class="stat-percent font-bold text-success">0 <i class="fa fa-bolt"></i></div>
+                                <small>相对持平</small>
+                            </c:if>
                         </div>
                     </div>
                 </div>
@@ -69,9 +92,19 @@
                             <h5>新增商品</h5>
                         </div>
                         <div class="ibox-content">
-                            <h1 class="no-margins">106,120</h1>
-                            <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>
-                            <small>同比上涨</small>
+                            <h1 class="no-margins">${ProfileDataBean.weekGoodsCount}</h1>
+                            <c:if test="${ProfileDataBean.weekGoodsCount<0}">
+                                <div class="stat-percent font-bold text-success">${-ProfileDataBean.weekGoodsCount} <i class="fa fa-level-down"></i></div>
+                                <small>同比下跌</small>
+                            </c:if>
+                            <c:if test="${ProfileDataBean.weekGoodsCount>0}">
+                                <div class="stat-percent font-bold text-success">${ProfileDataBean.weekGoodsCount} <i class="fa fa-level-up"></i></div>
+                                <small>同比上涨</small>
+                            </c:if>
+                            <c:if test="${ProfileDataBean.weekGoodsCount==0}">
+                                <div class="stat-percent font-bold text-success">0 <i class="fa fa-bolt"></i></div>
+                                <small>相对持平</small>
+                            </c:if>
                         </div>
                     </div>
                 </div>
@@ -82,9 +115,19 @@
                             <h5>新增用户</h5>
                         </div>
                         <div class="ibox-content">
-                            <h1 class="no-margins">80,600</h1>
-                            <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div>
-                            <small>同比上涨</small>
+                            <h1 class="no-margins">${ProfileDataBean.weekUserCount}</h1>
+                            <c:if test="${ProfileDataBean.weekUserCount<0}">
+                                <div class="stat-percent font-bold text-success">${-ProfileDataBean.weekUserCount} <i class="fa fa-level-down"></i></div>
+                                <small>同比下跌</small>
+                            </c:if>
+                            <c:if test="${ProfileDataBean.weekUserCount>0}">
+                                <div class="stat-percent font-bold text-success">${ProfileDataBean.weekUserCount} <i class="fa fa-level-up"></i></div>
+                                <small>同比上涨</small>
+                            </c:if>
+                            <c:if test="${ProfileDataBean.weekUserCount==0}">
+                                <div class="stat-percent font-bold text-success">0 <i class="fa fa-bolt"></i></div>
+                                <small>相对持平</small>
+                            </c:if>
                         </div>
                     </div>
                 </div>
@@ -97,8 +140,8 @@
                             <h5>总营业额</h5>
                         </div>
                         <div class="ibox-content">
-                            <h1 class="no-margins">40 886,200</h1>
-                            <small>上述营业额单位为(万元)</small>
+                            <h1 class="no-margins">${ProfileDataBean.allSellCount}</h1>
+                            <small>上述营业额单位为(元)</small>
                         </div>
                     </div>
                 </div>
@@ -109,7 +152,7 @@
                             <h5>总订单量</h5>
                         </div>
                         <div class="ibox-content">
-                            <h1 class="no-margins">275,800</h1>
+                            <h1 class="no-margins">${ProfileDataBean.allOrderCount}</h1>
                             <small>上述订单量单位(笔)</small>
                         </div>
                     </div>
@@ -121,7 +164,7 @@
                             <h5>总商品量</h5>
                         </div>
                         <div class="ibox-content">
-                            <h1 class="no-margins">106,120</h1>
+                            <h1 class="no-margins">${ProfileDataBean.allGoodsCount}</h1>
                             <small>上述商品数量单位(件)</small>
                         </div>
                     </div>
@@ -133,7 +176,7 @@
                             <h5>总用户量</h5>
                         </div>
                         <div class="ibox-content">
-                            <h1 class="no-margins">80,600</h1>
+                            <h1 class="no-margins">${ProfileDataBean.allUserCount}</h1>
                             <small>上述用户量单位(个)</small>
                         </div>
                     </div>
@@ -146,9 +189,9 @@
                             <h5>Orders</h5>
                             <div class="pull-right">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-xs btn-white active">Today</button>
-                                    <button type="button" class="btn btn-xs btn-white">Monthly</button>
-                                    <button type="button" class="btn btn-xs btn-white">Annual</button>
+                                    <button type="button" class="btn btn-xs btn-white active"> 近一周 </button>
+                                    <button type="button" class="btn btn-xs btn-white"> 近一月 </button>
+                                    <button type="button" class="btn btn-xs btn-white"> 近一年 </button>
                                 </div>
                             </div>
                         </div>
@@ -196,7 +239,7 @@
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Custom responsive table </h5>
+                            <h5>销量前十五商品列表 </h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -205,30 +248,18 @@
                                     <i class="fa fa-wrench"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
+                                    <li><a href="#">刷新</a>
                                     </li>
                                 </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
                             </div>
                         </div>
                         <div class="ibox-content">
                             <div class="row">
                                 <div class="col-sm-9 m-b-xs">
-                                    <div data-toggle="buttons" class="btn-group">
-                                        <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Day </label>
-                                        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Week </label>
-                                        <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Month </label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-sm btn-primary"> Go!</button>
-                                        </span>
+                                    <div class="btn-group">
+                                        <button id="option1" type="button" class="btn btn-xs btn-white"> 近一周 </button>
+                                        <button id="option2" type="button" class="btn btn-xs btn-white"> 近一月 </button>
+                                        <button id="option3" type="button" class="btn btn-xs btn-white"> 近一年 </button>
                                     </div>
                                 </div>
                             </div>
@@ -236,172 +267,56 @@
                                 <table class="table table-striped">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Project </th>
-                                        <th>Name </th>
-                                        <th>Phone </th>
-                                        <th>Company </th>
-                                        <th>Completed </th>
-                                        <th>Task</th>
-                                        <th>Date</th>
-                                        <th>Action</th>
+                                        <th>编号</th>
+                                        <th>名称 </th>
+                                        <th>种类 </th>
+                                        <th>库存 </th>
+                                        <th>销量</th>
+                                        <th>访问次数</th>
+                                        <th>状态</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td><span class="pie">0.52/1.561</span></td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td><span class="pie">6,9</span></td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Betha project</td>
-                                        <td>John Smith</td>
-                                        <td>0800 1111</td>
-                                        <td>Erat Volutpat</td>
-                                        <td><span class="pie">3,1</span></td>
-                                        <td>75%</td>
-                                        <td>Jul 18, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td><span class="pie">4,9</span></td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td><span class="pie">6,9</span></td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td><span class="pie">0.52/1.561</span></td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td><span class="pie">4,9</span></td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td><span class="pie">0.52/1.561</span></td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td><span class="pie">6,9</span></td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Betha project</td>
-                                        <td>John Smith</td>
-                                        <td>0800 1111</td>
-                                        <td>Erat Volutpat</td>
-                                        <td><span class="pie">3,1</span></td>
-                                        <td>75%</td>
-                                        <td>Jul 18, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td><span class="pie">4,9</span></td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Alpha project</td>
-                                        <td>Alice Jackson</td>
-                                        <td>0500 780909</td>
-                                        <td>Nec Euismod In Company</td>
-                                        <td><span class="pie">6,9</span></td>
-                                        <td>40%</td>
-                                        <td>Jul 16, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
-                                        <td>0800 051213</td>
-                                        <td>Inceptos Hymenaeos Ltd</td>
-                                        <td><span class="pie">0.52/1.561</span></td>
-                                        <td>20%</td>
-                                        <td>Jul 14, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Gamma project</td>
-                                        <td>Anna Jordan</td>
-                                        <td>(016977) 0648</td>
-                                        <td>Tellus Ltd</td>
-                                        <td><span class="pie">4,9</span></td>
-                                        <td>18%</td>
-                                        <td>Jul 22, 2013</td>
-                                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
-                                    </tr>
+                                    <tbody id="weekTopList">
+                                    <c:forEach items="${WeekTop15Goods}" var="items">
+                                        <tr>
+                                            <td>${items.id}</td>
+                                            <td>${items.title}</td>
+                                            <td>${items.kindName}</td>
+                                            <td>${items.inventory}</td>
+                                            <td>${items.salesCount}</td>
+                                            <td>${items.accessCount}</td>
+                                            <c:if test="${items.isShelves==0}"><td><i class="fa fa-times text-navy"></i></td></c:if>
+                                            <c:if test="${items.isShelves==1}"><td><i class="fa fa-check text-danger"></i></td></c:if>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                    <tbody id="monthTopList" class="list_display">
+                                    <c:forEach items="${MonthTop15Goods}" var="items">
+                                        <tr>
+                                            <td>${items.id}</td>
+                                            <td>${items.title}</td>
+                                            <td>${items.kindName}</td>
+                                            <td>${items.inventory}</td>
+                                            <td>${items.salesCount}</td>
+                                            <td>${items.accessCount}</td>
+                                            <c:if test="${items.isShelves==0}"><td><i class="fa fa-times text-navy"></i></td></c:if>
+                                            <c:if test="${items.isShelves==1}"><td><i class="fa fa-check text-navy"></i></td></c:if>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                    <tbody id="yearTopList" class="list_display">
+                                    <c:forEach items="${YearTop15Goods}" var="items">
+                                        <tr>
+                                            <td>${items.id}</td>
+                                            <td>${items.title}</td>
+                                            <td>${items.kindName}</td>
+                                            <td>${items.inventory}</td>
+                                            <td>${items.salesCount}</td>
+                                            <td>${items.accessCount}</td>
+                                            <c:if test="${items.isShelves==0}"><td><i class="fa fa-times text-navy"></i></td></c:if>
+                                            <c:if test="${items.isShelves==1}"><td><i class="fa fa-check text-danger"></i></td></c:if>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -447,6 +362,21 @@
 <script>
     $(document).ready(function() {
         $("#summaryProfile").addClass("active");
+        $("#option1").click(function () {
+            $("#weekTopList").show();
+            $("#monthTopList").hide();
+            $("#yearTopList").hide();
+        });
+        $("#option2").click(function () {
+            $("#weekTopList").hide();
+            $("#monthTopList").show();
+            $("#yearTopList").hide();
+        });
+        $("#option3").click(function () {
+            $("#weekTopList").hide();
+            $("#monthTopList").hide();
+            $("#yearTopList").show();
+        });
 
         $('.chart').easyPieChart({
             barColor: '#f8ac59',
@@ -489,7 +419,7 @@
 
         var dataset = [
             {
-                label: "Number of orders",
+                label: "订单数量",
                 data: data3,
                 color: "#1ab394",
                 bars: {
@@ -500,7 +430,7 @@
                 }
 
             }, {
-                label: "Payments",
+                label: "订单销售额",
                 data: data2,
                 yaxis: 2,
                 color: "#1C84C6",
@@ -574,39 +504,7 @@
 
         $.plot($("#flot-dashboard-chart"), dataset, options);
 
-        var mapData = {
-            "US": 298,
-            "SA": 200,
-            "DE": 220,
-            "FR": 540,
-            "CN": 120,
-            "AU": 760,
-            "BR": 550,
-            "IN": 200,
-            "GB": 120,
-        };
 
-        $('#world-map').vectorMap({
-            map: 'world_mill_en',
-            backgroundColor: "transparent",
-            regionStyle: {
-                initial: {
-                    fill: '#e4e4e4',
-                    "fill-opacity": 0.9,
-                    stroke: 'none',
-                    "stroke-width": 0,
-                    "stroke-opacity": 0
-                }
-            },
-
-            series: {
-                regions: [{
-                    values: mapData,
-                    scale: ["#1ab394", "#22d6b1"],
-                    normalizeFunction: 'polynomial'
-                }]
-            },
-        });
     });
 </script>
 </body>

@@ -1,20 +1,16 @@
 package com.dbc.lxshop.Controller.Admin;
 
-import com.dbc.lxshop.Model.Entity.LAdminEntity;
-import com.dbc.lxshop.Service.AdminService;
-import com.dbc.lxshop.Utils.DateUtil;
+import com.dbc.lxshop.Service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -26,9 +22,9 @@ import java.util.Map;
 @Controller
 @RequestMapping("/Admin")
 public class LoginController {
-    @Qualifier("adminService")
+    @Qualifier("loginService")
     @Autowired
-    private AdminService adminService;
+    private LoginService loginService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/Login")
     public String adminLogin(ModelMap modelMap){
@@ -39,14 +35,14 @@ public class LoginController {
     @ResponseBody
     public Map<String, Object> loginCheck(String mobile, String password, HttpServletRequest httpServletRequest,
                                           HttpServletResponse httpServletResponse, ModelMap modelMap){
-        return adminService.checkLogin(mobile, password);
+        return loginService.checkLogin(mobile, password);
     }
 
-    public AdminService getAdminService() {
-        return adminService;
+    public LoginService getAdminService() {
+        return loginService;
     }
 
-    public void setAdminService(AdminService adminService) {
-        this.adminService = adminService;
+    public void setAdminService(LoginService adminService) {
+        this.loginService = adminService;
     }
 }

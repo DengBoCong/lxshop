@@ -78,4 +78,11 @@
             <column name="spec_code" sql-type="varchar(1000)" length="1000"/>
         </property>
     </class>
+    <query name="GOODS.TITLE"><![CDATA[from LGoodsEntity where title = :title]]></query>
+    <query name="GOODS.GOODS_COUNT"><![CDATA[select count(*) from LGoodsEntity]]></query>
+
+    <query name="GOODS.BTW_TIME_GOODS_COUNT"><![CDATA[select count(*) from LGoodsEntity where addTime between :beginTime and :endTime]]></query>
+    <query name="GOODS.LAST_TIME_GOODS_COUNT"><![CDATA[select count(*) from LGoodsEntity where addTime > :mills]]></query>
+
+    <query name="GOODS.ORDER_BY_MILLS"><![CDATA[from LGoodsEntity where addTime > :mills order by salesCount desc ]]></query>
 </hibernate-mapping>

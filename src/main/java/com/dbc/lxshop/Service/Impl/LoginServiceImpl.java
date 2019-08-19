@@ -2,7 +2,9 @@ package com.dbc.lxshop.Service.Impl;
 
 import com.dbc.lxshop.Dao.AdminDao;
 import com.dbc.lxshop.Model.Entity.LAdminEntity;
-import com.dbc.lxshop.Service.AdminService;
+import com.dbc.lxshop.Service.LoginService;
+import com.dbc.lxshop.Utils.DateUtil;
+import com.dbc.lxshop.Utils.InitEntityUtil;
 import com.dbc.lxshop.Utils.ReflectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,9 +21,9 @@ import java.util.Map;
  * @author: DBC
  * @create: 2019-08-16 12:38
  **/
-@Service("adminService")
+@Service("loginService")
 @Transactional
-public class AdminServiceImpl implements AdminService {
+public class LoginServiceImpl implements LoginService {
     @Qualifier("adminDao")
     @Autowired
     private AdminDao adminDao;
@@ -40,6 +42,11 @@ public class AdminServiceImpl implements AdminService {
         if(lAdminEntity == null) return null;
         else {
             if(DigestUtils.md5DigestAsHex(pwd.getBytes()).equals(lAdminEntity.getPwd())){
+                LAdminEntity lAdminEntity1 = new LAdminEntity();
+                lAdminEntity1.setLoginTotal(lAdminEntity.getLoginTotal()+1);
+                lAdminEntity1.setLoginTime(DateUtil.NewDateInt());
+                lAdminEntity1.setId(lAdminEntity.getId());
+                adminDao.updateAdmin(lAdminEntity1);
                 map = ReflectUtil.toMap(lAdminEntity);
                 map.put("flag", "1");
                 return map;

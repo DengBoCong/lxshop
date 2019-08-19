@@ -157,6 +157,7 @@ public class AdminDaoImpl implements AdminDao {
             System.out.println("AdminDao查询语句出现问题");
             e.printStackTrace();
         }
+        session.close();
         if(list.isEmpty()) return null;
         else return list.get(0);
     }
@@ -174,6 +175,7 @@ public class AdminDaoImpl implements AdminDao {
         Session session = sessionFactory.openSession();
         LAdminEntity lAdminEntity = null;
         lAdminEntity = (LAdminEntity)session.get(LAdminEntity.class, id);
+        session.close();
         return lAdminEntity;
     }
 
@@ -196,6 +198,7 @@ public class AdminDaoImpl implements AdminDao {
             System.out.println("AdminDao查询语句出现问题");
             e.printStackTrace();
         }
+        session.close();
         return list;
     }
 
@@ -219,7 +222,7 @@ public class AdminDaoImpl implements AdminDao {
             System.out.println("AdminDao查询语句出现问题");
             e.printStackTrace();
         }
-
+        session.close();
         return list;
     }
 

@@ -1,25 +1,16 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fm" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" +
-            request.getServerName() + ":" +
-            request.getServerPort() + path;
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INSPINIA | Dashboard v.4</title>
-    <link href="<%=basePath%>/static/admin/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=basePath%>/static/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="<%=basePath%>/static/admin/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
-    <link href="<%=basePath%>/static/admin/css/animate.css" rel="stylesheet">
-    <link href="<%=basePath%>/static/admin/css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <div id="wrapper">
@@ -1112,35 +1103,35 @@ Update everyday
     </div>
 </div>
 
-<script src="<%=basePath%>/static/admin/js/jquery-2.1.1.js"></script>
-<script src="<%=basePath%>/static/admin/js/bootstrap.min.js"></script>
-<script src="<%=basePath%>/static/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="<%=basePath%>/static/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-<script src="<%=basePath%>/static/admin/js/plugins/flot/jquery.flot.js"></script>
-<script src="<%=basePath%>/static/admin/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-<script src="<%=basePath%>/static/admin/js/plugins/flot/jquery.flot.spline.js"></script>
-<script src="<%=basePath%>/static/admin/js/plugins/flot/jquery.flot.resize.js"></script>
-<script src="<%=basePath%>/static/admin/js/plugins/flot/jquery.flot.pie.js"></script>
-<script src="<%=basePath%>/static/admin/js/plugins/flot/jquery.flot.symbol.js"></script>
-<script src="<%=basePath%>/static/admin/js/plugins/flot/curvedLines.js"></script>
+<script src="js/plugins/flot/jquery.flot.js"></script>
+<script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="js/plugins/flot/jquery.flot.spline.js"></script>
+<script src="js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="js/plugins/flot/jquery.flot.pie.js"></script>
+<script src="js/plugins/flot/jquery.flot.symbol.js"></script>
+<script src="js/plugins/flot/curvedLines.js"></script>
 
-<script src="<%=basePath%>/static/admin/js/plugins/peity/jquery.peity.min.js"></script>
-<script src="<%=basePath%>/static/admin/js/demo/peity-demo.js"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/demo/peity-demo.js"></script>
 
-<script src="<%=basePath%>/static/admin/js/inspinia.js"></script>
-<script src="<%=basePath%>/static/admin/js/plugins/pace/pace.min.js"></script>
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
 
-<script src="<%=basePath%>/static/admin/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-<script src="<%=basePath%>/static/admin/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="<%=basePath%>/static/admin/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+<script src="js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 
-<script src="<%=basePath%>/static/admin/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+<script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
-<script src="<%=basePath%>/static/admin/js/demo/sparkline-demo.js"></script>
+<script src="js/demo/sparkline-demo.js"></script>
 
-<script src="<%=basePath%>/static/admin/js/plugins/chartJs/Chart.min.js"></script>
+<script src="js/plugins/chartJs/Chart.min.js"></script>
 <script>
     $(document).ready(function() {
 
