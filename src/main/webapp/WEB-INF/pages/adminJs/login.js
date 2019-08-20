@@ -54,6 +54,14 @@ $(document).ready(function () {
                             window.location.href = "Summary/Profile";
                         });
                     }
+                },
+                error:function () {
+                    swal({
+                        title: "出现错误!",
+                        text: "网络参数出现错误!",
+                        type: "error",
+                        confirmButtonText: "确定",
+                    },function(){});
                 }
             });
         }

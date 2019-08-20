@@ -125,8 +125,8 @@ public class GoodsDaoImpl implements GoodsDao {
                 lGoodsEntity1.setIsShelves(lGoodsEntity.getIsShelves());
             if(lGoodsEntity.getIsHomeRecommended() != 0)
                 lGoodsEntity1.setIsHomeRecommended(lGoodsEntity.getIsHomeRecommended());
-            if(lGoodsEntity.getContent() != null)
-                lGoodsEntity1.setContent(lGoodsEntity.getContent());
+            if(lGoodsEntity.getContentWeb() != null)
+                lGoodsEntity1.setContentWeb(lGoodsEntity.getContentWeb());
             if(lGoodsEntity.getSalesCount() != 0)
                 lGoodsEntity1.setSalesCount(lGoodsEntity.getSalesCount());
             if(lGoodsEntity.getAccessCount() != 0)
@@ -149,10 +149,10 @@ public class GoodsDaoImpl implements GoodsDao {
                 lGoodsEntity1.setMaterial(lGoodsEntity.getMaterial());
             if(lGoodsEntity.getStructure() != null)
                 lGoodsEntity1.setStructure(lGoodsEntity.getStructure());
-            if(lGoodsEntity.getStyle() != null)
-                lGoodsEntity1.setStyle(lGoodsEntity.getStyle());
-            if(lGoodsEntity.getUse() != null)
-                lGoodsEntity1.setUse(lGoodsEntity.getUse());
+            if(lGoodsEntity.getgStyle() != null)
+                lGoodsEntity1.setgStyle(lGoodsEntity.getgStyle());
+            if(lGoodsEntity.getgUse() != null)
+                lGoodsEntity1.setgUse(lGoodsEntity.getgUse());
             if(lGoodsEntity.getSaleMethod() != null)
                 lGoodsEntity1.setSaleMethod(lGoodsEntity.getSaleMethod());
             if(lGoodsEntity.getSpecCode() != null)
@@ -290,6 +290,28 @@ public class GoodsDaoImpl implements GoodsDao {
         try{
             list = session.createNamedQuery("GOODS.ORDER_BY_MILLS", LGoodsEntity.class)
                     .setParameter("mills", mills).setFirstResult(0).setMaxResults(n)
+                    .getResultList();
+        }catch (IllegalArgumentException e){
+            System.out.println("GoodsDao查询语句出现问题");
+            e.printStackTrace();
+        }
+        session.close();
+        return list;
+    }
+
+    /** 
+    * @Description:  返回所有商品信息
+    * @Param:  
+    * @return:  List<LGoodsEntity>
+    * @Author: DBC
+    * @Date: 2019/8/20 
+    */ 
+    @Override
+    public List<LGoodsEntity> list() {
+        Session session = sessionFactory.openSession();
+        List<LGoodsEntity> list = null;
+        try{
+            list = session.createNamedQuery("GOODS.ORDER_BY_TITLE", LGoodsEntity.class)
                     .getResultList();
         }catch (IllegalArgumentException e){
             System.out.println("GoodsDao查询语句出现问题");

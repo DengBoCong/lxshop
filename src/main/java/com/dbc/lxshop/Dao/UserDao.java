@@ -1,6 +1,5 @@
 package com.dbc.lxshop.Dao;
 
-import com.dbc.lxshop.Model.Entity.LGoodsEntity;
 import com.dbc.lxshop.Model.Entity.LUserEntity;
 
 import java.util.List;

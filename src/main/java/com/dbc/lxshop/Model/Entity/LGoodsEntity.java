@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * @program: lxshop
  * @description:
  * @author: DBC
- * @create: 2019-08-16 11:01
+ * @create: 2019-08-20 23:29
  **/
 @Entity
 @Table(name = "l_goods", schema = "lxshop", catalog = "")
@@ -20,7 +20,7 @@ public class LGoodsEntity {
     private BigDecimal price;
     private byte isShelves;
     private byte isHomeRecommended;
-    private String content;
+    private String contentWeb;
     private int salesCount;
     private int accessCount;
     private String homeRecommendedImages;
@@ -32,8 +32,8 @@ public class LGoodsEntity {
     private String model;
     private String material;
     private String structure;
-    private String style;
-    private String use;
+    private String gStyle;
+    private String gUse;
     private String saleMethod;
     private String specCode;
 
@@ -118,13 +118,13 @@ public class LGoodsEntity {
     }
 
     @Basic
-    @Column(name = "content", nullable = false, length = -1)
-    public String getContent() {
-        return content;
+    @Column(name = "content_web", nullable = false, length = -1)
+    public String getContentWeb() {
+        return contentWeb;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setContentWeb(String contentWeb) {
+        this.contentWeb = contentWeb;
     }
 
     @Basic
@@ -238,23 +238,23 @@ public class LGoodsEntity {
     }
 
     @Basic
-    @Column(name = "style", nullable = false, length = 100)
-    public String getStyle() {
-        return style;
+    @Column(name = "g_style", nullable = false, length = 100)
+    public String getgStyle() {
+        return gStyle;
     }
 
-    public void setStyle(String style) {
-        this.style = style;
+    public void setgStyle(String gStyle) {
+        this.gStyle = gStyle;
     }
 
     @Basic
-    @Column(name = "use", nullable = false, length = 100)
-    public String getUse() {
-        return use;
+    @Column(name = "g_use", nullable = false, length = 100)
+    public String getgUse() {
+        return gUse;
     }
 
-    public void setUse(String use) {
-        this.use = use;
+    public void setgUse(String gUse) {
+        this.gUse = gUse;
     }
 
     @Basic
@@ -297,7 +297,7 @@ public class LGoodsEntity {
             return false;
         if (images != null ? !images.equals(that.images) : that.images != null) return false;
         if (price != null ? !price.equals(that.price) : that.price != null) return false;
-        if (content != null ? !content.equals(that.content) : that.content != null) return false;
+        if (contentWeb != null ? !contentWeb.equals(that.contentWeb) : that.contentWeb != null) return false;
         if (homeRecommendedImages != null ? !homeRecommendedImages.equals(that.homeRecommendedImages) : that.homeRecommendedImages != null)
             return false;
         if (afterSalesInstruction != null ? !afterSalesInstruction.equals(that.afterSalesInstruction) : that.afterSalesInstruction != null)
@@ -307,8 +307,8 @@ public class LGoodsEntity {
         if (model != null ? !model.equals(that.model) : that.model != null) return false;
         if (material != null ? !material.equals(that.material) : that.material != null) return false;
         if (structure != null ? !structure.equals(that.structure) : that.structure != null) return false;
-        if (style != null ? !style.equals(that.style) : that.style != null) return false;
-        if (use != null ? !use.equals(that.use) : that.use != null) return false;
+        if (gStyle != null ? !gStyle.equals(that.gStyle) : that.gStyle != null) return false;
+        if (gUse != null ? !gUse.equals(that.gUse) : that.gUse != null) return false;
         if (saleMethod != null ? !saleMethod.equals(that.saleMethod) : that.saleMethod != null) return false;
         if (specCode != null ? !specCode.equals(that.specCode) : that.specCode != null) return false;
 
@@ -325,7 +325,7 @@ public class LGoodsEntity {
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (int) isShelves;
         result = 31 * result + (int) isHomeRecommended;
-        result = 31 * result + (content != null ? content.hashCode() : 0);
+        result = 31 * result + (contentWeb != null ? contentWeb.hashCode() : 0);
         result = 31 * result + salesCount;
         result = 31 * result + accessCount;
         result = 31 * result + (homeRecommendedImages != null ? homeRecommendedImages.hashCode() : 0);
@@ -337,8 +337,8 @@ public class LGoodsEntity {
         result = 31 * result + (model != null ? model.hashCode() : 0);
         result = 31 * result + (material != null ? material.hashCode() : 0);
         result = 31 * result + (structure != null ? structure.hashCode() : 0);
-        result = 31 * result + (style != null ? style.hashCode() : 0);
-        result = 31 * result + (use != null ? use.hashCode() : 0);
+        result = 31 * result + (gStyle != null ? gStyle.hashCode() : 0);
+        result = 31 * result + (gUse != null ? gUse.hashCode() : 0);
         result = 31 * result + (saleMethod != null ? saleMethod.hashCode() : 0);
         result = 31 * result + (specCode != null ? specCode.hashCode() : 0);
         return result;

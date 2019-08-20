@@ -6,94 +6,94 @@
 
     <class name="com.dbc.lxshop.Model.Entity.LOrderEntity" table="l_order" schema="lxshop">
         <id name="id">
-            <column name="id" sql-type="int(11)"/>
+            <column name="id" sql-type="int(11)" not-null="true"/>
         </id>
         <property name="orderNo">
-            <column name="order_no" sql-type="varchar(100)" length="100"/>
+            <column name="order_no" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
         <property name="factoryId">
-            <column name="factory_id" sql-type="int(11)"/>
+            <column name="factory_id" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="userId">
-            <column name="user_id" sql-type="int(11)"/>
+            <column name="user_id" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="receiveName">
-            <column name="receive_name" sql-type="varchar(50)" length="50"/>
+            <column name="receive_name" sql-type="varchar(50)" length="50" not-null="true"/>
         </property>
         <property name="receiveTel">
-            <column name="receive_tel" sql-type="varchar(15)" length="15"/>
+            <column name="receive_tel" sql-type="varchar(15)" length="15" not-null="true"/>
         </property>
         <property name="receiveProvince">
-            <column name="receive_province" sql-type="varchar(10)" length="10"/>
+            <column name="receive_province" sql-type="varchar(10)" length="10" not-null="true"/>
         </property>
         <property name="receiveCity">
-            <column name="receive_city" sql-type="varchar(10)" length="10"/>
+            <column name="receive_city" sql-type="varchar(10)" length="10" not-null="true"/>
         </property>
         <property name="receiveCounty">
-            <column name="receive_county" sql-type="varchar(10)" length="10"/>
+            <column name="receive_county" sql-type="varchar(10)" length="10" not-null="true"/>
         </property>
         <property name="receiveAddress">
-            <column name="receive_address" sql-type="varchar(200)" length="200"/>
+            <column name="receive_address" sql-type="varchar(200)" length="200" not-null="true"/>
         </property>
         <property name="userNote">
-            <column name="user_note" sql-type="varchar(500)" length="500"/>
+            <column name="user_note" sql-type="varchar(500)" length="500" not-null="true"/>
         </property>
         <property name="express">
-            <column name="express" sql-type="varchar(20)" length="20"/>
+            <column name="express" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="expressNumber">
-            <column name="express_number" sql-type="varchar(60)" length="60"/>
+            <column name="express_number" sql-type="varchar(60)" length="60" not-null="true"/>
         </property>
         <property name="payment">
-            <column name="payment" sql-type="varchar(20)" length="20"/>
+            <column name="payment" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="status">
-            <column name="status" sql-type="tinyint(2)"/>
+            <column name="status" sql-type="tinyint(2)" not-null="true"/>
         </property>
         <property name="payStatus">
-            <column name="pay_status" sql-type="tinyint(1)"/>
+            <column name="pay_status" sql-type="tinyint(1)" not-null="true"/>
         </property>
         <property name="preferentialPrice">
-            <column name="preferential_price" sql-type="decimal(10,2)" precision="10" scale="2"/>
+            <column name="preferential_price" sql-type="decimal(10,2)" precision="10" scale="2" not-null="true"/>
         </property>
         <property name="price">
-            <column name="price" sql-type="decimal(10,2)" precision="10" scale="2"/>
+            <column name="price" sql-type="decimal(10,2)" precision="10" scale="2" not-null="true"/>
         </property>
         <property name="totalPrice">
-            <column name="total_price" sql-type="decimal(10,2)" precision="10" scale="2"/>
+            <column name="total_price" sql-type="decimal(10,2)" precision="10" scale="2" not-null="true"/>
         </property>
         <property name="payPrice">
-            <column name="pay_price" sql-type="decimal(10,2)" precision="10" scale="2"/>
+            <column name="pay_price" sql-type="decimal(10,2)" precision="10" scale="2" not-null="true"/>
         </property>
         <property name="payTime">
-            <column name="pay_time" sql-type="int(11)"/>
+            <column name="pay_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="confirmTime">
-            <column name="confirm_time" sql-type="int(11)"/>
+            <column name="confirm_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="deliveryTime">
-            <column name="delivery_time" sql-type="int(11)"/>
+            <column name="delivery_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="cancelTime">
-            <column name="cancel_time" sql-type="int(11)"/>
+            <column name="cancel_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="collectTime">
-            <column name="collect_time" sql-type="int(11)"/>
+            <column name="collect_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="closeTime">
-            <column name="close_time" sql-type="int(11)"/>
+            <column name="close_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="addTime">
-            <column name="add_time" sql-type="int(11)"/>
+            <column name="add_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="updTime">
-            <column name="upd_time" sql-type="int(11)"/>
+            <column name="upd_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="integer">
-            <column name="integer" sql-type="int(11)"/>
+            <column name="integer" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="specCode">
-            <column name="spec_code" sql-type="varchar(1000)" length="1000"/>
+            <column name="spec_code" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
     </class>
     <query name="ORDER.ORDER_NO"><![CDATA[from LOrderEntity where orderNo = :orderNo]]></query>

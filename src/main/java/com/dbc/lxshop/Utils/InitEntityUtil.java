@@ -1,6 +1,9 @@
 package com.dbc.lxshop.Utils;
 
 import com.dbc.lxshop.Model.Entity.LAdminEntity;
+import com.dbc.lxshop.Model.Entity.LGoodsEntity;
+
+import java.math.BigDecimal;
 
 /**
  * @program: lxshop
@@ -24,5 +27,33 @@ public class InitEntityUtil {
         lAdminEntity.setName(" ");
         lAdminEntity.setImage(" ");
         return lAdminEntity;
+    }
+
+    /**
+    * @Description: 初始化商品类
+    * @Param:
+    * @return:
+    * @Author: DBC
+    * @Date: 2019/8/20
+    */
+    public static LGoodsEntity InitLGoodsEntity(){
+        LGoodsEntity lGoodsEntity = new LGoodsEntity();
+        lGoodsEntity.setTitle(" ");
+        lGoodsEntity.setInventoryUnit(" ");
+        lGoodsEntity.setImages(" ");
+        lGoodsEntity.setPrice(BigDecimal.valueOf(0.00));
+        lGoodsEntity.setContentWeb(" ");
+        lGoodsEntity.setHomeRecommendedImages(" ");
+        lGoodsEntity.setAfterSalesInstruction(" ");
+        lGoodsEntity.setOrigin(" ");
+        lGoodsEntity.setKindName(" ");
+        lGoodsEntity.setModel(" ");
+        lGoodsEntity.setMaterial(" ");
+        lGoodsEntity.setStructure(" ");
+        lGoodsEntity.setgStyle(" ");
+        lGoodsEntity.setgUse(" ");
+        lGoodsEntity.setSaleMethod(" ");
+        lGoodsEntity.setSpecCode(" ");
+        return lGoodsEntity;
     }
 }

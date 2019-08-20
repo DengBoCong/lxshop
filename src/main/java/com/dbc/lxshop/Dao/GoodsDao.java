@@ -10,6 +10,7 @@ public interface GoodsDao {
     public boolean updateGoods(LGoodsEntity lGoodsEntity);
     public LGoodsEntity listById(int id);
     public LGoodsEntity listByTile(String title);
+    public List<LGoodsEntity> list();
     public long listLastTimeGoodsCount(int mills);
     public long listBtwTimeGoodsCount(int beginMills, int endMills);
     public long listGoodsCount();

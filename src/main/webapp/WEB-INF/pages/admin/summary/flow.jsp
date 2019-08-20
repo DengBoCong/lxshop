@@ -345,9 +345,7 @@
 <script>
     $(document).ready(function() {
         $("#summaryFlow").addClass("active");
-
-
-
+        $("#summary").trigger("click");
         var sparklineCharts = function(){
             $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 52], {
                 type: 'line',

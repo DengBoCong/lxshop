@@ -6,76 +6,76 @@
 
     <class name="com.dbc.lxshop.Model.Entity.LGoodsEntity" table="l_goods" schema="lxshop">
         <id name="id">
-            <column name="id" sql-type="int(11)"/>
+            <column name="id" sql-type="int(11)" not-null="true"/>
         </id>
         <property name="title">
-            <column name="title" sql-type="varchar(60)" length="60"/>
+            <column name="title" sql-type="varchar(60)" length="60" not-null="true"/>
         </property>
         <property name="inventory">
-            <column name="inventory" sql-type="int(11)"/>
+            <column name="inventory" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="inventoryUnit">
-            <column name="inventory_unit" sql-type="varchar(15)" length="15"/>
+            <column name="inventory_unit" sql-type="varchar(15)" length="15" not-null="true"/>
         </property>
         <property name="images">
-            <column name="images" sql-type="varchar(1000)" length="1000"/>
+            <column name="images" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="price">
-            <column name="price" sql-type="decimal(10,2)" precision="10" scale="2"/>
+            <column name="price" sql-type="decimal(10,2)" precision="10" scale="2" not-null="true"/>
         </property>
         <property name="isShelves">
-            <column name="is_shelves" sql-type="tinyint(2)"/>
+            <column name="is_shelves" sql-type="tinyint(2)" not-null="true"/>
         </property>
         <property name="isHomeRecommended">
-            <column name="is_home_recommended" sql-type="tinyint(2)"/>
+            <column name="is_home_recommended" sql-type="tinyint(2)" not-null="true"/>
         </property>
-        <property name="content">
-            <column name="content" sql-type="mediumtext"/>
+        <property name="contentWeb">
+            <column name="content_web" sql-type="mediumtext" not-null="true"/>
         </property>
         <property name="salesCount">
-            <column name="sales_count" sql-type="int(11)"/>
+            <column name="sales_count" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="accessCount">
-            <column name="access_count" sql-type="int(11)"/>
+            <column name="access_count" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="homeRecommendedImages">
-            <column name="home_recommended_images" sql-type="varchar(1000)" length="1000"/>
+            <column name="home_recommended_images" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="addTime">
-            <column name="add_time" sql-type="int(11)"/>
+            <column name="add_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="updTime">
-            <column name="upd_time" sql-type="int(11)"/>
+            <column name="upd_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="afterSalesInstruction">
-            <column name="after_sales_instruction" sql-type="varchar(1000)" length="1000"/>
+            <column name="after_sales_instruction" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="origin">
-            <column name="origin" sql-type="varchar(50)" length="50"/>
+            <column name="origin" sql-type="varchar(50)" length="50" not-null="true"/>
         </property>
         <property name="kindName">
-            <column name="kind_name" sql-type="varchar(50)" length="50"/>
+            <column name="kind_name" sql-type="varchar(50)" length="50" not-null="true"/>
         </property>
         <property name="model">
-            <column name="model" sql-type="varchar(50)" length="50"/>
+            <column name="model" sql-type="varchar(50)" length="50" not-null="true"/>
         </property>
         <property name="material">
-            <column name="material" sql-type="varchar(20)" length="20"/>
+            <column name="material" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="structure">
-            <column name="structure" sql-type="varchar(100)" length="100"/>
+            <column name="structure" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
-        <property name="style">
-            <column name="style" sql-type="varchar(100)" length="100"/>
+        <property name="gStyle">
+            <column name="g_style" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
-        <property name="use">
-            <column name="use" sql-type="varchar(100)" length="100"/>
+        <property name="gUse">
+            <column name="g_use" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
         <property name="saleMethod">
-            <column name="sale_method" sql-type="varchar(20)" length="20"/>
+            <column name="sale_method" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="specCode">
-            <column name="spec_code" sql-type="varchar(1000)" length="1000"/>
+            <column name="spec_code" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
     </class>
     <query name="GOODS.TITLE"><![CDATA[from LGoodsEntity where title = :title]]></query>
@@ -85,4 +85,5 @@
     <query name="GOODS.LAST_TIME_GOODS_COUNT"><![CDATA[select count(*) from LGoodsEntity where addTime > :mills]]></query>
 
     <query name="GOODS.ORDER_BY_MILLS"><![CDATA[from LGoodsEntity where addTime > :mills order by salesCount desc ]]></query>
+    <query name="GOODS.ORDER_BY_TITLE"><![CDATA[from LGoodsEntity order by title asc ]]></query>
 </hibernate-mapping>

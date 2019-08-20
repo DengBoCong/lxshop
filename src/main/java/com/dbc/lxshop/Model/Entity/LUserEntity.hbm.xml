@@ -6,70 +6,70 @@
 
     <class name="com.dbc.lxshop.Model.Entity.LUserEntity" table="l_user" schema="lxshop">
         <id name="id">
-            <column name="id" sql-type="int(10) unsigned"/>
+            <column name="id" sql-type="int(10) unsigned" not-null="true"/>
         </id>
         <property name="alipayAccount">
-            <column name="alipay_account" sql-type="varchar(20)" length="20"/>
+            <column name="alipay_account" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="wechatCode">
-            <column name="wechat_code" sql-type="varchar(1000)" length="1000"/>
+            <column name="wechat_code" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="bankAccount">
-            <column name="bank_account" sql-type="varchar(30)" length="30"/>
+            <column name="bank_account" sql-type="varchar(30)" length="30" not-null="true"/>
         </property>
         <property name="bankName">
-            <column name="bank_name" sql-type="varchar(20)" length="20"/>
+            <column name="bank_name" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="name">
-            <column name="name" sql-type="varchar(50)" length="50"/>
+            <column name="name" sql-type="varchar(50)" length="50" not-null="true"/>
         </property>
         <property name="pwd">
-            <column name="pwd" sql-type="varchar(100)" length="100"/>
+            <column name="pwd" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
         <property name="status">
-            <column name="status" sql-type="tinyint(1)"/>
+            <column name="status" sql-type="tinyint(1)" not-null="true"/>
         </property>
         <property name="mobile">
-            <column name="mobile" sql-type="varchar(15)" length="15"/>
+            <column name="mobile" sql-type="varchar(15)" length="15" not-null="true"/>
         </property>
         <property name="email">
-            <column name="email" sql-type="varchar(60)" length="60"/>
+            <column name="email" sql-type="varchar(60)" length="60" not-null="true"/>
         </property>
         <property name="avatar">
-            <column name="avatar" sql-type="varchar(1000)" length="1000"/>
+            <column name="avatar" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="province">
-            <column name="province" sql-type="varchar(20)" length="20"/>
+            <column name="province" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="city">
-            <column name="city" sql-type="varchar(20)" length="20"/>
+            <column name="city" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="address">
-            <column name="address" sql-type="varchar(150)" length="150"/>
+            <column name="address" sql-type="varchar(150)" length="150" not-null="true"/>
         </property>
         <property name="integral">
-            <column name="integral" sql-type="int(11)"/>
+            <column name="integral" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="salesmanId">
-            <column name="salesman_id" sql-type="int(11)"/>
+            <column name="salesman_id" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="addTime">
-            <column name="add_time" sql-type="int(11)"/>
+            <column name="add_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="updTime">
-            <column name="upd_time" sql-type="int(11)"/>
+            <column name="upd_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="licenceId">
-            <column name="licence_id" sql-type="int(11)"/>
+            <column name="licence_id" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="orderCount">
-            <column name="order_count" sql-type="int(11)"/>
+            <column name="order_count" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="sellCount">
-            <column name="sell_count" sql-type="decimal(10,2)" precision="10" scale="2"/>
+            <column name="sell_count" sql-type="decimal(10,2)" precision="10" scale="2" not-null="true"/>
         </property>
         <property name="areaId">
-            <column name="area_id" sql-type="int(11)"/>
+            <column name="area_id" sql-type="int(11)" not-null="true"/>
         </property>
     </class>
     <query name="USER.MOBILE"><![CDATA[from LUserEntity where mobile = :mobile]]></query>

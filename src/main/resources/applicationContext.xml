@@ -94,6 +94,7 @@
                 <value>com.dbc.lxshop.Model.Entity.LUserAddressEntity</value>
                 <value>com.dbc.lxshop.Model.Entity.LUserIntegralLogEntity</value>
                 <value>com.dbc.lxshop.Model.Entity.LUserLicenceEntity</value>
+                <value>com.dbc.lxshop.Model.Entity.LLoginLogEntity</value>
             </list>
         </property>
         <property name="mappingLocations">
@@ -137,6 +138,9 @@
                 <value>classpath:com/dbc/lxshop/Model/Entity/LUserAddressEntity.hbm.xml</value>
                 <value>classpath:com/dbc/lxshop/Model/Entity/LUserIntegralLogEntity.hbm.xml</value>
                 <value>classpath:com/dbc/lxshop/Model/Entity/LUserLicenceEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LLoginLogEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsEntity.hbm.xml</value>
             </list>
         </property>
     </bean>

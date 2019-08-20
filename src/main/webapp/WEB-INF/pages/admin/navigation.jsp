@@ -29,8 +29,8 @@
                     丽星
                 </div>
             </li>
-            <li class="active">
-                <a href="#"><i class="fa fa-th-large"></i> <span class="nav-label">企业信息</span> <span class="fa arrow"></span></a>
+            <li>
+                <a id="summary" href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">企业信息</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li id="summaryProfile"><a href="/Admin/Summary/Profile">经营概况</a></li>
                     <li id="summaryFlow"><a href="/Admin/Summary/Flow">流量监控</a></li>
@@ -38,28 +38,64 @@
                 </ul>
             </li>
             <li>
-                <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
+                <a id="commodity" href="#"><i class="fa fa-th-large"></i> <span class="nav-label">商品</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="graph_flot.html">Flot Charts</a></li>
-                    <li><a href="graph_morris.html">Morris.js Charts</a></li>
-                    <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
-                    <li><a href="graph_chartjs.html">Chart.js</a></li>
-                    <li><a href="graph_chartist.html">Chartist</a></li>
-                    <li><a href="c3.html">c3 charts</a></li>
-                    <li><a href="graph_peity.html">Peity Charts</a></li>
-                    <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
+                    <li>
+                        <a href="#">商品智配 <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="#">场景分类</a>
+                            </li>
+                            <li>
+                                <a href="#">场景图上传</a>
+                            </li>
+                            <li>
+                                <a href="#">商品图上传</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="commodityRecord"><a href="/Admin/Commodity/Record">商品档案</a></li>
+                    <li><a href="graph_rickshaw.html">商品分类</a></li>
+                    <li><a href="graph_chartjs.html">商品图片</a></li>
                 </ul>
             </li>
             <li>
-                <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning pull-right">16/24</span></a>
+                <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">订单 </span><span class="label label-warning pull-right">16/24</span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="mailbox.html">Inbox</a></li>
-                    <li><a href="mail_detail.html">Email view</a></li>
-                    <li><a href="mail_compose.html">Compose email</a></li>
-                    <li><a href="email_template.html">Email templates</a></li>
+                    <li>
+                        <a href="#">订单管理 <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="#">全部订单</a>
+                            </li>
+                            <li>
+                                <a href="#">待付款</a>
+                            </li>
+                            <li>
+                                <a href="#">订单分配</a>
+                            </li>
+                            <li>
+                                <a href="#">代发货</a>
+                            </li>
+                            <li>
+                                <a href="#">待收货</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">退货管理 <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="#">退货历史</a>
+                            </li>
+                            <li>
+                                <a href="#">待处理</a>
+                            </li>
+                            <li>
+                                <a href="#">未通过</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
