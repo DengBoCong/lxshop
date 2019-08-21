@@ -6,16 +6,18 @@
 
     <class name="com.dbc.lxshop.Model.Entity.LGoodsCategoryJoinEntity" table="l_goods_category_join" schema="lxshop">
         <id name="id">
-            <column name="id" sql-type="int(11)"/>
+            <column name="id" sql-type="int(11)" not-null="true"/>
         </id>
         <property name="goodsId">
-            <column name="goods_id" sql-type="int(11)"/>
+            <column name="goods_id" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="categoryId">
-            <column name="category_id" sql-type="int(11)"/>
+            <column name="category_id" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="addTime">
-            <column name="add_time" sql-type="int(11)"/>
+            <column name="add_time" sql-type="int(11)" not-null="true"/>
         </property>
     </class>
+    <query name="GOODS_CATEGORY_JOIN.GOODS_ID_CATEGORY_ID"><![CDATA[from LGoodsCategoryJoinEntity where goodsId = :goodsId and categoryId = :categoryId]]></query>
+    <query name="GOODS_CATEGORY_JOIN.GOODS_ID"><![CDATA[from LGoodsCategoryJoinEntity where goodsId = :goodsId]]></query>
 </hibernate-mapping>

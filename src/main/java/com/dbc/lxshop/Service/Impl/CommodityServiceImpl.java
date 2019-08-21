@@ -1,8 +1,11 @@
 package com.dbc.lxshop.Service.Impl;
 
+import com.dbc.lxshop.Dao.GoodsCategoryDao;
 import com.dbc.lxshop.Dao.GoodsDao;
+import com.dbc.lxshop.Model.Entity.LGoodsCategoryEntity;
 import com.dbc.lxshop.Model.Entity.LGoodsEntity;
 import com.dbc.lxshop.Service.CommodityService;
+import com.dbc.lxshop.Utils.DateUtil;
 import com.dbc.lxshop.Utils.InitEntityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,6 +26,10 @@ public class CommodityServiceImpl implements CommodityService {
     @Qualifier("goodsDao")
     @Autowired
     private GoodsDao goodsDao;
+
+    @Qualifier("goodsCategoryDao")
+    @Autowired
+    private GoodsCategoryDao goodsCategoryDao;
 
     /**
     * @Description: 返回所有商品信息
@@ -89,11 +96,66 @@ public class CommodityServiceImpl implements CommodityService {
         return goodsDao.listByTile(title);
     }
 
+    /**
+     * @Description: 新增商品分类，pid为0时，即为一级结构
+     * @Param:  String
+     * @return:  String
+     * @Author: DBC
+     * @Date: 2019/8/21
+     */
+    @Override
+    public String addCommodityClassify(String pid, String name, String sort, String isHome) {
+        LGoodsCategoryEntity lGoodsCategoryEntity = InitEntityUtil.InitLGoodsCategoryEntity();
+        lGoodsCategoryEntity.setName(name);
+        lGoodsCategoryEntity.setAddTime(DateUtil.NewDateInt());
+        lGoodsCategoryEntity.setUpdTime(DateUtil.NewDateInt());
+        lGoodsCategoryEntity.setSort((byte)Integer.parseInt(sort));
+        lGoodsCategoryEntity.setPid(Integer.parseInt(pid));
+        lGoodsCategoryEntity.setIsHomeRecommended((byte)Integer.parseInt(isHome));
+        if(goodsCategoryDao.addGoodsCategory(lGoodsCategoryEntity)) return "1";
+        else return "0";
+    }
+
+    @Override
+    public List<LGoodsCategoryEntity> listByFirst() {
+        return goodsCategoryDao.listByFirst();
+    }
+
+    @Override
+    public List<LGoodsCategoryEntity> listBySecond() {
+        return goodsCategoryDao.listBySecond();
+    }
+
+    @Override
+    public String deleteCommodityClassify(String id) {
+        if(goodsCategoryDao.deleteGoodsCategory(Integer.parseInt(id))) return "1";
+        else return "0";
+    }
+
+    @Override
+    public String updateCommodityClassify(String id, String name, String sort, String isHome) {
+        LGoodsCategoryEntity lGoodsCategoryEntity = new LGoodsCategoryEntity();
+        lGoodsCategoryEntity.setIsHomeRecommended((byte)Integer.parseInt(isHome));
+        lGoodsCategoryEntity.setId(Integer.parseInt(id));
+        lGoodsCategoryEntity.setName(name);
+        lGoodsCategoryEntity.setSort((byte)Integer.parseInt(sort));
+        if(goodsCategoryDao.updateGood(lGoodsCategoryEntity)) return "1";
+        else return "0";
+    }
+
     public void setGoodsDao(GoodsDao goodsDao) {
         this.goodsDao = goodsDao;
     }
 
     public GoodsDao getGoodsDao() {
         return goodsDao;
+    }
+
+    public void setGoodsCategoryDao(GoodsCategoryDao goodsCategoryDao) {
+        this.goodsCategoryDao = goodsCategoryDao;
+    }
+
+    public GoodsCategoryDao getGoodsCategoryDao() {
+        return goodsCategoryDao;
     }
 }

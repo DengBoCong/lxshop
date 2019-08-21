@@ -1,7 +1,9 @@
 package com.dbc.lxshop.Controller.Admin;
 
+import com.dbc.lxshop.Dao.GoodsCategoryDao;
 import com.dbc.lxshop.Model.Entity.LGoodsEntity;
 import com.dbc.lxshop.Service.CommodityService;
+import freemarker.ext.beans.MapModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -30,9 +32,17 @@ public class CommodityController {
     @Autowired
     private CommodityService commodityService;
 
+
     @RequestMapping(method = RequestMethod.GET, value = "/Record")
     public String record(ModelMap modelMap){
         return "admin/commodity/record";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/Classify")
+    public String classify(ModelMap modelMap){
+        modelMap.addAttribute("CommodityClassFirst", commodityService.listByFirst());
+        modelMap.addAttribute("CommodityClassSecond", commodityService.listBySecond());
+        return "admin/commodity/classify";
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/AddCommodity")
@@ -72,6 +82,34 @@ public class CommodityController {
                                                HttpServletResponse httpServletResponse){
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("flag", commodityService.deleteCommodity(Integer.parseInt(id)));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/DeleteClassify")
+    @ResponseBody
+    public Map<String, Object> deleteClassify(String id, HttpServletRequest httpServletRequest,
+                                              HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityService.deleteCommodityClassify(id));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/AddClassify")
+    @ResponseBody
+    public Map<String, Object> addClassify(String name, String pid, String isHome, String sort,
+                                           HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
+                                           ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityService.addCommodityClassify(pid, name, sort, isHome));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/UpdateClassify")
+    @ResponseBody
+    public Map<String, Object> updateClassify(String id, String name, String sort, String isHome, HttpServletRequest httpServletRequest,
+                                              HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityService.updateCommodityClassify(id, name, sort, isHome));
         return map;
     }
 

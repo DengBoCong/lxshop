@@ -14,7 +14,8 @@ if(action==='expand'){list.expandItem(item);}});var onStartEvent=function(e)
 handle=handle.closest('.'+list.options.handleClass);}
 if(!handle.length||list.dragEl){return;}
 list.isTouch=/^touch/.test(e.type);if(list.isTouch&&e.touches.length!==1){return;}
-e.preventDefault();list.dragStart(e.touches?e.touches[0]:e);};var onMoveEvent=function(e)
+e.preventDefault();//list.dragStart(e.touches?e.touches[0]:e);
+};var onMoveEvent=function(e)
 {if(list.dragEl){e.preventDefault();list.dragMove(e.touches?e.touches[0]:e);}};var onEndEvent=function(e)
 {if(list.dragEl){e.preventDefault();list.dragStop(e.touches?e.touches[0]:e);}};if(hasTouch){list.el[0].addEventListener('touchstart',onStartEvent,false);window.addEventListener('touchmove',onMoveEvent,false);window.addEventListener('touchend',onEndEvent,false);window.addEventListener('touchcancel',onEndEvent,false);}
 list.el.on('mousedown',onStartEvent);list.w.on('mousemove',onMoveEvent);list.w.on('mouseup',onEndEvent);},serialize:function()

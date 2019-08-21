@@ -1,5 +1,6 @@
 package com.dbc.lxshop.Service;
 
+import com.dbc.lxshop.Model.Entity.LGoodsCategoryEntity;
 import com.dbc.lxshop.Model.Entity.LGoodsEntity;
 
 import java.util.List;
@@ -11,4 +12,9 @@ public interface CommodityService {
                                String struct, String style, String use, String saleMethod, String unit, String shelves,
                                String home);
     public LGoodsEntity listOCommodity(String tile);
+    public String addCommodityClassify(String pid, String name, String sort, String isHome);
+    public List<LGoodsCategoryEntity> listByFirst();
+    public List<LGoodsCategoryEntity> listBySecond();
+    public String deleteCommodityClassify(String id);
+    public String updateCommodityClassify(String id, String name, String sort, String isHome);
 }

@@ -1,6 +1,7 @@
 package com.dbc.lxshop.Utils;
 
 import com.dbc.lxshop.Model.Entity.LAdminEntity;
+import com.dbc.lxshop.Model.Entity.LGoodsCategoryEntity;
 import com.dbc.lxshop.Model.Entity.LGoodsEntity;
 
 import java.math.BigDecimal;
@@ -55,5 +56,12 @@ public class InitEntityUtil {
         lGoodsEntity.setSaleMethod(" ");
         lGoodsEntity.setSpecCode(" ");
         return lGoodsEntity;
+    }
+
+    public static LGoodsCategoryEntity InitLGoodsCategoryEntity(){
+        LGoodsCategoryEntity lGoodsCategoryEntity = new LGoodsCategoryEntity();
+        lGoodsCategoryEntity.setIcon(" ");
+        lGoodsCategoryEntity.setName(" ");
+        return lGoodsCategoryEntity;
     }
 }
