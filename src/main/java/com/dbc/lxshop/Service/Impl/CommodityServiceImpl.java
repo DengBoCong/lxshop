@@ -85,6 +85,24 @@ public class CommodityServiceImpl implements CommodityService {
     }
 
     /**
+    * @Description: 更新商品信息类
+    * @Param:  LGoodsEntity
+    * @return:  String
+    * @Author: DBC
+    * @Date: 2019/8/23
+    */
+    @Override
+    public String updateCommodity(LGoodsEntity lGoodsEntity) {
+        if(goodsDao.updateGoods(lGoodsEntity)) return "1";
+        else return "0";
+    }
+
+    @Override
+    public LGoodsEntity listCommodityById(int goodId) {
+        return goodsDao.listById(goodId);
+    }
+
+    /**
     * @Description: 通过标题查询单个商品
     * @Param:
     * @return:

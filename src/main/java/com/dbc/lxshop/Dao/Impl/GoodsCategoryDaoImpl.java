@@ -2,7 +2,6 @@ package com.dbc.lxshop.Dao.Impl;
 
 import com.dbc.lxshop.Dao.GoodsCategoryDao;
 import com.dbc.lxshop.Model.Entity.LGoodsCategoryEntity;
-import com.dbc.lxshop.Model.Entity.LGoodsCategoryJoinEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -205,6 +204,28 @@ public class GoodsCategoryDaoImpl implements GoodsCategoryDao {
         try{
             list = session.createNamedQuery("GOODS_CATEGORY.CHILDREN_PID", LGoodsCategoryEntity.class)
                     .getResultList();
+        }catch (IllegalArgumentException e){
+            System.out.println("GoodsCategoryDao查询语句出现问题");
+            e.printStackTrace();
+        }
+        session.close();
+        return list;
+    }
+
+    /**
+    * @Description: 通过pid进行查询
+    * @Param:
+    * @return:  List<LGoodsCategoryEntity>
+    * @Author: DBC
+    * @Date: 2019/8/23
+    */
+    @Override
+    public List<LGoodsCategoryEntity> listByPid(int pid) {
+        Session session = sessionFactory.openSession();
+        List<LGoodsCategoryEntity> list = null;
+        try{
+            list = session.createNamedQuery("GOODS_CATEGORY.PID_QUERY", LGoodsCategoryEntity.class)
+                    .setParameter("pid", pid).getResultList();
         }catch (IllegalArgumentException e){
             System.out.println("GoodsCategoryDao查询语句出现问题");
             e.printStackTrace();

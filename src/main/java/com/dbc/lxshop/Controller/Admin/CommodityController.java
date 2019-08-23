@@ -1,23 +1,25 @@
 package com.dbc.lxshop.Controller.Admin;
 
-import com.dbc.lxshop.Dao.GoodsCategoryDao;
+import com.dbc.lxshop.Model.Bean.GoodsCategoryBean;
+import com.dbc.lxshop.Model.Entity.LGoodsCategoryEntity;
+import com.dbc.lxshop.Model.Entity.LGoodsCategoryJoinEntity;
 import com.dbc.lxshop.Model.Entity.LGoodsEntity;
+import com.dbc.lxshop.Service.CommodityDetailsService;
 import com.dbc.lxshop.Service.CommodityService;
-import freemarker.ext.beans.MapModel;
+import com.dbc.lxshop.Utils.*;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.io.File;
+import java.io.InputStream;
+import java.util.*;
 
 /**
  * @program: lxshop
@@ -31,6 +33,10 @@ public class CommodityController {
     @Qualifier("commodityService")
     @Autowired
     private CommodityService commodityService;
+
+    @Qualifier("commodityDetailsService")
+    @Autowired
+    private CommodityDetailsService commodityDetailsService;
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/Record")
@@ -113,11 +119,204 @@ public class CommodityController {
         return map;
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/GoodDetails/{goodId}")
+    public String goodDetails(@PathVariable int goodId, ModelMap modelMap){
+        modelMap.addAttribute("CommodityStandradList", commodityDetailsService.listCommodityStandrad(goodId));
+        modelMap.addAttribute("GOOD_ID", goodId);
+        modelMap.addAttribute("CommodityInfo", commodityService.listCommodityById(goodId));
+        modelMap.addAttribute("CommodityPhotoList", commodityDetailsService.listCommodityGoodsPhotoByGoodsId(goodId));
+        modelMap.addAttribute("CommodityCategoryList", commodityDetailsService.listCommodityCategoryJoinByGoodsId(goodId));
+        modelMap.addAttribute("CommodityCategoryFirstList", commodityService.listByFirst());
+        return "admin/commodity/goodDetails";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/AddGoodsStandrad")
+    @ResponseBody
+    public Map<String, Object> addGoodsStandrad(String goodId, String measure, String color, String inventory, String factoryPrice,
+                                                String originPrice, String guidePrice, HttpServletRequest httpServletRequest,
+                                                HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        System.out.println(goodId);
+        map.put("flag", commodityDetailsService.addCommodityStandrad(goodId, measure, color, inventory, factoryPrice, originPrice, guidePrice));
+        map.put("measureId", commodityDetailsService.listCommodityGoodsIdMeasureColor(goodId, measure, color).getId());
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/DeleteGoodsStandrad")
+    @ResponseBody
+    public Map<String, Object> deleteGoodsStandrad(String id, HttpServletRequest httpServletRequest,
+                                                   HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityDetailsService.deleteCommodityStandrad(id));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/UpdateGoodsStandrad")
+    @ResponseBody
+    public Map<String, Object> updateGoodsStandrad(String id, String measure, String color, String inventory, String factoryPrice,
+                                                   String originPrice, String guidePrice, HttpServletRequest httpServletRequest,
+                                                   HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityDetailsService.updateCommodityStandrad(id, measure, color, inventory, factoryPrice, originPrice, guidePrice));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/UploadCR")
+    @ResponseBody
+    public Map<String, Object> uploadCR(String tag, String goodId, @RequestParam(value = "imgFile",required=false)MultipartFile imgFile, String imgData,
+                                        HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        String dir = ConfigInfo.goods_images_upload_path + goodId + "/";
+        String path = httpServletRequest.getSession().getServletContext().getRealPath(dir);
+
+        String name = imgFile.getOriginalFilename();
+        //判断文件的MIMEtype
+        String type = imgFile.getContentType();
+        if(type==null || !type.toLowerCase().startsWith("image/")) map.put("flag", "不支持的文件类型，仅支持图片！");
+        System.out.println("file type:"+type);
+        String fileName = new Date().getTime()+""+new Random().nextInt(10000)+""+name.substring(name.lastIndexOf('.'));
+        System.out.println("文件路径："+path+"_"+fileName);
+
+        JSONObject joData = JSONObject.fromObject(imgData);
+        // 用户经过剪辑后的图片的大小
+        double x = (double)joData.get("x");
+        double y = (double)joData.get("y");
+        double w =  (double)joData.get("width");
+        double h =  (double)joData.get("height");
+
+        //开始上传
+        File targetFile = new File(path, fileName);
+        //保存
+        try {
+            if(!targetFile.exists()){
+                targetFile.mkdirs();
+                InputStream is = imgFile.getInputStream();
+                ImageCutUtil.cut(is, targetFile, (int)x,(int)y,(int)w,(int)h);
+                is.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("flag", "上传失败，出现异常："+e.getMessage());
+        }
+        LGoodsEntity lGoodsEntity = new LGoodsEntity();
+        lGoodsEntity.setId(Integer.parseInt(goodId));
+        lGoodsEntity.setUpdTime(DateUtil.NewDateInt());
+        if(tag.equals("1")) {
+            lGoodsEntity.setImages(ConfigInfo.url_path+"upload/admin/images/goods/" + goodId + "/" + fileName);
+            map.put("tag", commodityService.updateCommodity(lGoodsEntity));
+        }
+        else if(tag.equals("2")) {
+            lGoodsEntity.setHomeRecommendedImages(ConfigInfo.url_path+"upload/admin/images/goods/" + goodId + "/" + fileName);
+            map.put("tag", commodityService.updateCommodity(lGoodsEntity));
+        }
+        else{
+            System.out.println("******************************");
+        }
+        map.put("flag", "1");
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/AddCommodityPhoto")
+    @ResponseBody
+    public Map<String, Object> addCommodityPhoto(String goodsId, @RequestParam(value = "imgFile",required=false)MultipartFile imgFile,
+                                                 String sort, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
+                                                 ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        String dir = ConfigInfo.goods_images_upload_path + goodsId + "/photo/";
+        String path = httpServletRequest.getSession().getServletContext().getRealPath(dir);
+
+        String name = imgFile.getOriginalFilename();
+        //判断文件的MIMEtype
+        String type = imgFile.getContentType();
+        if(type==null || !type.toLowerCase().startsWith("image/")) map.put("flag", "不支持的文件类型，仅支持图片！");
+        System.out.println("file type:"+type);
+        String fileName = new Date().getTime()+""+new Random().nextInt(10000)+""+name.substring(name.lastIndexOf('.'));
+        System.out.println("文件路径："+path+"_"+fileName);
+
+        //开始上传
+        File targetFile = new File(path, fileName);
+        //保存
+        try {
+            if(!targetFile.exists()){
+                targetFile.mkdirs();
+                imgFile.transferTo(targetFile);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("flag", "上传失败，出现异常："+e.getMessage());
+        }
+
+        map.put("flag", commodityDetailsService.addCommodityPhoto(goodsId, ConfigInfo.url_path+"upload/admin/images/goods/" + goodsId + "/photo/" + fileName, sort));
+        map.put("tag", commodityDetailsService.listCommodityPhotoId(goodsId, ConfigInfo.url_path+"upload/admin/images/goods/" + goodsId + "/photo/" + fileName));
+        map.put("image", ConfigInfo.url_path+"upload/admin/images/goods/" + goodsId + "/photo/" + fileName);
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/DeleteCommodityPhoto")
+    @ResponseBody
+    public Map<String, Object> deleteCommodityPhoto(String photoId, HttpServletRequest httpServletRequest,
+                                                    HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityDetailsService.deleteCommodityPhoto(photoId));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/UpdateCommodityPhoto")
+    @ResponseBody
+    public Map<String, Object> updateCommodityPhoto(String photoId, String sort, HttpServletRequest httpServletRequest,
+                                                    HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityDetailsService.updateCommodityPhoto(photoId, sort));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/ListCommodityCategorySecond")
+    @ResponseBody
+    public Map<String, Object> listCommodityCategorySecond(String pid, HttpServletResponse httpServletResponse,
+                                                           HttpServletRequest httpServletRequest, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<LGoodsCategoryEntity> list = commodityDetailsService.listCommodityCategoryByPid(Integer.parseInt(pid));
+        map.put("count", list.size());
+        map.put("value", list);
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/AddCommodityCategoryJoin")
+    @ResponseBody
+    public Map<String, Object> addCommodityCategoryJoin(String goodsId, String categoryId, HttpServletRequest httpServletRequest,
+                                                        HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityDetailsService.addCommodityCategoryJoin(Integer.parseInt(goodsId), Integer.parseInt(categoryId)));
+        /*GoodsCategoryBean goodsCategoryBean = commodityDetailsService.listOCommodityCategoryByGoodId(Integer.parseInt(goodsId), Integer.parseInt(categoryId));*/
+        LGoodsCategoryJoinEntity lGoodsCategoryJoinEntity = commodityDetailsService.listCommodityCategoryByGoodIdCategoryId(Integer.parseInt(goodsId), Integer.parseInt(categoryId));
+        map.put("tag", lGoodsCategoryJoinEntity.getId());
+        map.put("tagName", lGoodsCategoryJoinEntity.getCategoryId());
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/DeleteCommodityCategoryJoin")
+    @ResponseBody
+    public Map<String, Object>  deleteCommodityCategoryJoin(String id, HttpServletResponse httpServletResponse,
+                                                            HttpServletRequest httpServletRequest, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityDetailsService.deleteCommodityCategoryById(Integer.parseInt(id)));
+        return map;
+    }
+
     public void setCommodityService(CommodityService commodityService) {
         this.commodityService = commodityService;
     }
 
     public CommodityService getCommodityService() {
         return commodityService;
+    }
+
+    public void setCommodityDetailsService(CommodityDetailsService commodityDetailsService) {
+        this.commodityDetailsService = commodityDetailsService;
+    }
+
+    public CommodityDetailsService getCommodityDetailsService() {
+        return commodityDetailsService;
     }
 }

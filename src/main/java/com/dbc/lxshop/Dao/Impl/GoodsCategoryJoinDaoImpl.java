@@ -1,10 +1,12 @@
 package com.dbc.lxshop.Dao.Impl;
 
 import com.dbc.lxshop.Dao.GoodsCategoryJoinDao;
+import com.dbc.lxshop.Model.Bean.GoodsCategoryBean;
 import com.dbc.lxshop.Model.Entity.LGoodsCategoryJoinEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -106,6 +108,81 @@ public class GoodsCategoryJoinDaoImpl implements GoodsCategoryJoinDao {
         }
         session.close();
         return list;
+    }
+
+    /**
+    * @Description: 通过商品id，联查商品分类表
+    * @Param:  int
+    * @return:  List<GoodsCategoryBean>
+    * @Author: DBC
+    * @Date: 2019/8/23
+    */
+    /*@Override
+    public List<GoodsCategoryBean> listByGoodsIdBean(int goodsId) {
+        Session session = sessionFactory.openSession();
+        List<GoodsCategoryBean> list = null;
+        try{
+            list = session.createNamedQuery("GOODS_CATEGORY_JOIN.GOODS_ID_CATEGORY_ID_MEASURE")
+                    .setParameter("goodsId", goodsId).setResultTransformer(Transformers.aliasToBean(GoodsCategoryBean.class))
+                    .getResultList();
+        }catch (IllegalArgumentException e){
+            System.out.println("LGoodsCategoryJoinDao查询语句出现问题");
+            e.printStackTrace();
+        }
+        session.close();
+        return list;
+    }*/
+
+    /**
+    * @Description: 通过商品ID和分类ID进行联查
+    * @Param:  int
+    * @Param:  int
+    * @return:  GoodsCategoryBean
+    * @Author: DBC
+    * @Date: 2019/8/23
+    */
+    /*@Override
+    public GoodsCategoryBean listOByGoodsIdBean(int goodsId, int category) {
+        Session session = sessionFactory.openSession();
+        List<GoodsCategoryBean> list = null;
+        try{
+            list = session.createNamedQuery("GOODS_CATEGORY_JOIN.GOODS_ID_CATEGORY_ID_OMEASURE")
+                    .setParameter("goodsId", goodsId).setParameter("categoryId", category)
+                    .setResultTransformer(Transformers.aliasToBean(GoodsCategoryBean.class))
+                    .getResultList();
+        }catch (IllegalArgumentException e){
+            System.out.println("LGoodsCategoryJoinDao查询语句出现问题");
+            e.printStackTrace();
+        }
+        session.close();
+        if(list.isEmpty()) return null;
+        else return list.get(0);
+    }*/
+
+    /**
+    * @Description: 通过商品ID和分类ID进行查询
+    * @Param:  int
+    * @Param  int
+    * @return:  LGoodsCategoryJoinEntity
+    * @Author: DBC
+    * @Date: 2019/8/23
+    */
+    @Override
+    public LGoodsCategoryJoinEntity listByGoodsIdCategoryId(int goodsId, int categoryId) {
+        Session session = sessionFactory.openSession();
+        List<LGoodsCategoryJoinEntity> list = null;
+        try{
+            list = session.createNamedQuery("GOODS_CATEGORY_JOIN.GOODS_ID_CATEGORY_ID", LGoodsCategoryJoinEntity.class)
+                    .setParameter("goodsId", goodsId)
+                    .setParameter("categoryId", categoryId)
+                    .getResultList();
+        }catch (IllegalArgumentException e){
+            System.out.println("LGoodsCategoryJoinDao查询语句出现问题");
+            e.printStackTrace();
+        }
+        session.close();
+        if(list.isEmpty()) return null;
+        else return list.get(0);
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

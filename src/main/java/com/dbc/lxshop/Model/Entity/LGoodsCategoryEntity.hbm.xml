@@ -34,4 +34,6 @@
     <query name="GOODS_CATEGORY.ORDER_BY_PID"><![CDATA[from LGoodsCategoryEntity order by pid]]></query>
     <query name="GOODS_CATEGORY.PARENT_PID"><![CDATA[from LGoodsCategoryEntity where pid = 0]]></query>
     <query name="GOODS_CATEGORY.CHILDREN_PID"><![CDATA[from LGoodsCategoryEntity where pid != 0]]></query>
+
+    <query name="GOODS_CATEGORY.PID_QUERY"><![CDATA[from LGoodsCategoryEntity where pid = :pid]]></query>
 </hibernate-mapping>

@@ -153,9 +153,8 @@ $(document).ready(function(){
             });
         });
     }).on('click','.js-edit',function(){
-        /*var id = $(this).attr('data-id');
-        location.href = '/edit?id='+id+'';*/
-        $("#modify").click();
+        var number =  $(this).attr('data-id');
+        window.location.href = "/Admin/Commodity/GoodDetails/" + number;
     });
 
     var infoSubmit = $( '.ladda-button-demo' ).ladda();

@@ -1,8 +1,6 @@
 package com.dbc.lxshop.Utils;
 
-import com.dbc.lxshop.Model.Entity.LAdminEntity;
-import com.dbc.lxshop.Model.Entity.LGoodsCategoryEntity;
-import com.dbc.lxshop.Model.Entity.LGoodsEntity;
+import com.dbc.lxshop.Model.Entity.*;
 
 import java.math.BigDecimal;
 
@@ -64,4 +62,15 @@ public class InitEntityUtil {
         lGoodsCategoryEntity.setName(" ");
         return lGoodsCategoryEntity;
     }
+
+    public static LGoodsStandradEntity InitLGoodsStandradEntity(){
+        LGoodsStandradEntity lGoodsStandradEntity = new LGoodsStandradEntity();
+        lGoodsStandradEntity.setGuidePrice(BigDecimal.valueOf(0.00));
+        lGoodsStandradEntity.setOriginPrice(BigDecimal.valueOf(0.00));
+        lGoodsStandradEntity.setFactoryPrice(BigDecimal.valueOf(0.00));
+        lGoodsStandradEntity.setMeasure(" ");
+        lGoodsStandradEntity.setColor(" ");
+        return lGoodsStandradEntity;
+    }
+
 }

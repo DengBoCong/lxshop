@@ -12,4 +12,5 @@ public interface GoodsCategoryDao {
     public List<LGoodsCategoryEntity> list();
     public List<LGoodsCategoryEntity> listByFirst();
     public List<LGoodsCategoryEntity> listBySecond();
+    public List<LGoodsCategoryEntity> listByPid(int pid);
 }

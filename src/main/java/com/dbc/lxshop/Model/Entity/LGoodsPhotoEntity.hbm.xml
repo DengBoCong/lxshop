@@ -6,19 +6,22 @@
 
     <class name="com.dbc.lxshop.Model.Entity.LGoodsPhotoEntity" table="l_goods_photo" schema="lxshop">
         <id name="id">
-            <column name="id" sql-type="int(11) unsigned"/>
+            <column name="id" sql-type="int(11) unsigned" not-null="true"/>
         </id>
         <property name="goodsId">
-            <column name="goods_id" sql-type="int(11)"/>
+            <column name="goods_id" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="images">
-            <column name="images" sql-type="varchar(1000)" length="1000"/>
+            <column name="images" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="sort">
-            <column name="sort" sql-type="tinyint(3)"/>
+            <column name="sort" sql-type="tinyint(3)" not-null="true"/>
         </property>
         <property name="addTime">
-            <column name="add_time" sql-type="int(11)"/>
+            <column name="add_time" sql-type="int(11)" not-null="true"/>
         </property>
     </class>
+    <query name="GOODS_PHOTO.GOODS_ID"><![CDATA[from LGoodsPhotoEntity where goodsId = :goodsId order by sort asc ]]></query>
+    <query name="GOODS_PHOTO"><![CDATA[from LGoodsPhotoEntity]]></query>
+    <query name="GOODS_PHOTO.GOODS_ID_IMAGE"><![CDATA[from LGoodsPhotoEntity where goodsId = :goodsId and images = :image]]></query>
 </hibernate-mapping>

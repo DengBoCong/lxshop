@@ -56,7 +56,6 @@
                     </li>
                     <li id="commodityRecord"><a href="/Admin/Commodity/Record">商品档案</a></li>
                     <li id="commodityClassify"><a href="/Admin/Commodity/Classify">商品分类</a></li>
-                    <li><a href="graph_chartjs.html">商品图片</a></li>
                 </ul>
             </li>
             <li>

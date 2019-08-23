@@ -6,7 +6,7 @@ import javax.persistence.*;
  * @program: lxshop
  * @description:
  * @author: DBC
- * @create: 2019-08-16 11:01
+ * @create: 2019-08-23 22:49
  **/
 @Entity
 @Table(name = "l_goods_category_join", schema = "lxshop", catalog = "")

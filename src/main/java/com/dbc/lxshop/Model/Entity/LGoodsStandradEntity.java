@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  * @program: lxshop
  * @description:
  * @author: DBC
- * @create: 2019-08-16 11:01
+ * @create: 2019-08-22 16:08
  **/
 @Entity
 @Table(name = "l_goods_standrad", schema = "lxshop", catalog = "")
@@ -20,6 +20,7 @@ public class LGoodsStandradEntity {
     private BigDecimal factoryPrice;
     private BigDecimal guidePrice;
     private int addTime;
+    private int goodsId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -101,6 +102,16 @@ public class LGoodsStandradEntity {
         this.addTime = addTime;
     }
 
+    @Basic
+    @Column(name = "goods_id", nullable = false)
+    public int getGoodsId() {
+        return goodsId;
+    }
+
+    public void setGoodsId(int goodsId) {
+        this.goodsId = goodsId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -111,6 +122,7 @@ public class LGoodsStandradEntity {
         if (id != that.id) return false;
         if (inventory != that.inventory) return false;
         if (addTime != that.addTime) return false;
+        if (goodsId != that.goodsId) return false;
         if (measure != null ? !measure.equals(that.measure) : that.measure != null) return false;
         if (color != null ? !color.equals(that.color) : that.color != null) return false;
         if (originPrice != null ? !originPrice.equals(that.originPrice) : that.originPrice != null) return false;
@@ -130,6 +142,7 @@ public class LGoodsStandradEntity {
         result = 31 * result + (factoryPrice != null ? factoryPrice.hashCode() : 0);
         result = 31 * result + (guidePrice != null ? guidePrice.hashCode() : 0);
         result = 31 * result + addTime;
+        result = 31 * result + goodsId;
         return result;
     }
 }

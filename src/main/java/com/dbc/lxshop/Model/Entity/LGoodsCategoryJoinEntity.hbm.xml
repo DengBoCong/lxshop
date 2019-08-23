@@ -6,7 +6,7 @@
 
     <class name="com.dbc.lxshop.Model.Entity.LGoodsCategoryJoinEntity" table="l_goods_category_join" schema="lxshop">
         <id name="id">
-            <column name="id" sql-type="int(11)" not-null="true"/>
+            <column name="id" sql-type="int(11) unsigned" not-null="true"/>
         </id>
         <property name="goodsId">
             <column name="goods_id" sql-type="int(11)" not-null="true"/>
@@ -20,4 +20,7 @@
     </class>
     <query name="GOODS_CATEGORY_JOIN.GOODS_ID_CATEGORY_ID"><![CDATA[from LGoodsCategoryJoinEntity where goodsId = :goodsId and categoryId = :categoryId]]></query>
     <query name="GOODS_CATEGORY_JOIN.GOODS_ID"><![CDATA[from LGoodsCategoryJoinEntity where goodsId = :goodsId]]></query>
+    <query name="GOODS_CATEGORY_JOIN.GOODS_ID_CATEGORY_ID_MEASURE"><![CDATA[select j.goodsId, j.categoryId, j.id, c.name, c.pid from LGoodsCategoryJoinEntity j, LGoodsCategoryEntity c where j.categoryId = c.id and j.goodsId = :goodsId]]></query>
+
+    <query name="GOODS_CATEGORY_JOIN.GOODS_ID_CATEGORY_ID_OMEASURE"><![CDATA[select j.goodsId, j.categoryId, j.id, c.name, c.pid from LGoodsCategoryJoinEntity j, LGoodsCategoryEntity c where j.categoryId = c.id and j.goodsId = :goodsId and categoryId = :categoryId ]]></query>
 </hibernate-mapping>
