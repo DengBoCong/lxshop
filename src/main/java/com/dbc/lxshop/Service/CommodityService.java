@@ -13,6 +13,9 @@ public interface CommodityService {
                                String home);
     public LGoodsEntity listCommodityById(int goodId);
     public String updateCommodity(LGoodsEntity lGoodsEntity);
+    public String updateCommodityInfo(int goodId, String title, String afterSale, String kindName, String model, String material,
+                                      String struct, String style, String use, String saleMethod, String unit, String shelves,
+                                      String home);
     public LGoodsEntity listOCommodity(String tile);
     public String addCommodityClassify(String pid, String name, String sort, String isHome);
     public List<LGoodsCategoryEntity> listByFirst();

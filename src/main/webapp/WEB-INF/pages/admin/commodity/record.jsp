@@ -102,7 +102,7 @@
                                                     <option value="件" selected="selected">件</option>
                                                     <option value="匹">匹</option>
                                                     <option value="个">个</option>
-                                                    <option value="">张</option>
+                                                    <option value="张">张</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">

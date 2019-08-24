@@ -77,32 +77,23 @@
                             <div id="tab-1" class="tab-pane active">
                                 <div class="panel-body">
                                     <fieldset class="form-horizontal">
-                                        <div class="form-group"><label class="col-sm-2 control-label">Name:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Product name"></div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">特别说明:</label>
+                                            <div class="col-sm-10">这里修改商品在经销商端的商品详情页面，一经上传，及同步至经销商端</div>
                                         </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Price:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="$160.00"></div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Description:</label>
+                                        <div class="form-group"><label class="col-sm-2 control-label">商品详情:</label>
                                             <div class="col-sm-10">
-                                                <div class="summernote">
-                                                    <h3>Lorem Ipsum is simply</h3>
-                                                    dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's</strong> standard dummy text ever since the 1500s,
-                                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
-                                                    <br />
-                                                </div>
+                                                <div id="summernote">${CommodityInfo.contentWeb}</div>
                                             </div>
                                         </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Meta Tag Title:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="..."></div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Meta Tag Description:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Sheets containing Lorem"></div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Meta Tag Keywords:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Lorem, Ipsum, has, been"></div>
+                                        <div class="form-group"><label class="col-sm-2 control-label"></label>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <button id="modifyCommodityDetailsEditSubmit" data-id="${GOOD_ID}" type="button" class="ladda-button ladda-button-demo btn btn-primary block full-width m-b"  data-style="zoom-in">编辑</button>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <button id="modifyCommodityDetailsSaveSubmit" data-id="${GOOD_ID}" type="button" class="ladda-button ladda-button-demo btn btn-primary block full-width m-b"  data-style="zoom-in">保存</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </fieldset>
                                 </div>
@@ -110,40 +101,95 @@
                             <div id="tab-2" class="tab-pane">
                                 <div class="panel-body">
                                     <fieldset class="form-horizontal">
-                                        <div class="form-group"><label class="col-sm-2 control-label">ID:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="543"></div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">商品名称:</label>
+                                            <div class="col-sm-10">${CommodityInfo.title}</div>
                                         </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Model:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="..."></div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">(可留空，即保留原名):</label>
+                                            <div class="col-sm-10"><input id="goodTitle" type="text" class="form-control" placeholder="填入需要修改商品的新名称" value=""></div>
                                         </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Location:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="location"></div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">售后说明:</label>
+                                            <div class="col-sm-10"><input id="goodAfterSale" type="text" class="form-control" placeholder="请输入售后说明" value="${CommodityInfo.afterSalesInstruction}"></div>
                                         </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Tax Class:</label>
+                                        <div class="form-group"><label class="col-sm-2 control-label">种类:</label>
+                                            <div class="col-sm-10"><input id="goodKindName" type="text" class="form-control" placeholder="请输入商品种类" value="${CommodityInfo.kindName}"></div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">型号:</label>
+                                            <div class="col-sm-10"><input id="goodModel" type="text" class="form-control" placeholder="请输入商品型号" value="${CommodityInfo.model}"></div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">材质:</label>
+                                            <div class="col-sm-10"><input id="goodMaterial" type="text" class="form-control" placeholder="请输入商品材质" value="${CommodityInfo.material}"></div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">结构工艺:</label>
+                                            <div class="col-sm-10"><input id="goodStructure" type="text" class="form-control" placeholder="请输入商品结构工艺" value="${CommodityInfo.structure}"></div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">风格:</label>
+                                            <div class="col-sm-10"><input id="goodStyle" type="text" class="form-control" placeholder="请输入商品风格" value="${CommodityInfo.gStyle}"></div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">用途:</label>
+                                            <div class="col-sm-10"><input id="goodUse" type="text" class="form-control" placeholder="请输入商品用途" value="${CommodityInfo.gUse}"></div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">售卖方式:</label>
+                                            <div class="col-sm-10"><input id="goodSaleMethod" type="text" class="form-control" placeholder="请输入商品售卖方式" value="${CommodityInfo.saleMethod}"></div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">库存单位:</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control">
-                                                    <option>option 1</option>
-                                                    <option>option 2</option>
+                                                <select id="goodUnit" class="form-control">
+                                                    <c:if test="${CommodityInfo.inventoryUnit.equals('件')}">
+                                                        <option value="件" selected="selected">件</option>
+                                                        <option value="匹">匹</option>
+                                                        <option value="个">个</option>
+                                                        <option value="张">张</option>
+                                                    </c:if>
+                                                    <c:if test="${CommodityInfo.inventoryUnit.equals('匹')}">
+                                                        <option value="件">件</option>
+                                                        <option value="匹" selected="selected">匹</option>
+                                                        <option value="个">个</option>
+                                                        <option value="张">张</option>
+                                                    </c:if>
+                                                    <c:if test="${CommodityInfo.inventoryUnit.equals('个')}">
+                                                        <option value="件">件</option>
+                                                        <option value="匹">匹</option>
+                                                        <option value="个" selected="selected">个</option>
+                                                        <option value="张">张</option>
+                                                    </c:if>
+                                                    <c:if test="${CommodityInfo.inventoryUnit.equals('张')}">
+                                                        <option value="件">件</option>
+                                                        <option value="匹">匹</option>
+                                                        <option value="个">个</option>
+                                                        <option value="张" selected="selected">张</option>
+                                                    </c:if>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Quantity:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="Quantity"></div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Minimum quantity:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="2"></div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Sort order:</label>
-                                            <div class="col-sm-10"><input type="text" class="form-control" placeholder="0"></div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">Status:</label>
+                                        <div class="form-group"><label class="col-sm-2 control-label">是否上架:</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control">
-                                                    <option>option 1</option>
-                                                    <option>option 2</option>
+                                                <select id="goodShelves" class="form-control">
+                                                    <c:if test="${CommodityInfo.isShelves==1}">
+                                                        <option value="1" selected="selected">是</option>
+                                                        <option value="0">否</option>
+                                                    </c:if>
+                                                    <c:if test="${CommodityInfo.isShelves==0}">
+                                                        <option value="1">是</option>
+                                                        <option value="0" selected="selected">否</option>
+                                                    </c:if>
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">是否上首页推荐:</label>
+                                            <div class="col-sm-10">
+                                                <select id="goodHome" class="form-control">
+                                                    <c:if test="${CommodityInfo.isHomeRecommended==1}">
+                                                        <option value="1" selected="selected">是</option>
+                                                        <option value="0">否</option>
+                                                    </c:if>
+                                                    <c:if test="${CommodityInfo.isHomeRecommended==0}">
+                                                        <option value="1">是</option>
+                                                        <option value="0" selected="selected">否</option>
+                                                    </c:if>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button id="modifyCommodityInfoSubmit" data-id="${GOOD_ID}" type="button" class="ladda-button ladda-button-demo btn btn-primary block full-width m-b"  data-style="zoom-in">提交</button>
                                     </fieldset>
                                 </div>
                             </div>
@@ -385,7 +431,7 @@
 <script src="<%=basePath%>/static/admin/js/plugins/pace/pace.min.js"></script>
 
 <script src="<%=basePath%>/static/admin/js/plugins/summernote/summernote.min.js"></script>
-
+<script src="<%=basePath%>/static/admin/js/plugins/summernote/summernote-zh-CN.js"></script>
 <script src="<%=basePath%>/static/admin/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 <script src="<%=basePath%>/static/admin/js/plugins/ladda/spin.min.js"></script>
 <script src="<%=basePath%>/static/admin/js/plugins/ladda/ladda.min.js"></script>

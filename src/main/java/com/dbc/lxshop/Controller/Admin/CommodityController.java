@@ -69,6 +69,17 @@ public class CommodityController {
         return map;
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/UpdateCommodityInfo")
+    @ResponseBody
+    public Map<String, Object> updateCommodityInfo(String goodId, String title, String afterSale, String kindName, String model, String material,
+                                                   String struct, String style, String use, String saleMethod, String unit, String shelves,
+                                                   String home, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityService.updateCommodityInfo(Integer.parseInt(goodId), title, afterSale, kindName, model, material,
+                struct, style, use, saleMethod, unit, shelves, home));
+        return map;
+    }
+
     @RequestMapping(method = RequestMethod.POST, value = "/CommodityList")
     @ResponseBody
     public Map<String, Object> commodityList(HttpServletResponse httpServletResponse,
@@ -91,6 +102,13 @@ public class CommodityController {
         return map;
     }
 
+    /**
+    * @Description: 删除商品分类
+    * @Param:
+    * @return:
+    * @Author: DBC
+    * @Date: 2019/8/24
+    */
     @RequestMapping(method = RequestMethod.POST, value = "/DeleteClassify")
     @ResponseBody
     public Map<String, Object> deleteClassify(String id, HttpServletRequest httpServletRequest,
@@ -303,6 +321,27 @@ public class CommodityController {
         map.put("flag", commodityDetailsService.deleteCommodityCategoryById(Integer.parseInt(id)));
         return map;
     }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/UpdateCommodityContent")
+    @ResponseBody
+    public Map<String, Object> updateCommodityContent(String goodId, String content, HttpServletRequest httpServletRequest,
+                                                      HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        LGoodsEntity lGoodsEntity = new LGoodsEntity();
+        lGoodsEntity.setContentWeb(content);
+        lGoodsEntity.setId(Integer.parseInt(goodId));
+        map.put("flag", commodityService.updateCommodity(lGoodsEntity));
+        return map;
+    }
+
+    /*@RequestMapping(method = RequestMethod.POST, value = "/ListOneCommodity")
+    @ResponseBody
+    public Map<String, Object> listOneCommodity(String goodId, HttpServletResponse httpServletResponse,
+                                                HttpServletRequest httpServletRequest, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", commodityService.listCommodityById(Integer.parseInt(goodId)));
+        return map;
+    }*/
 
     public void setCommodityService(CommodityService commodityService) {
         this.commodityService = commodityService;

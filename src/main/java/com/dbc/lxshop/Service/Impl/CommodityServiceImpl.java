@@ -97,6 +97,44 @@ public class CommodityServiceImpl implements CommodityService {
         else return "0";
     }
 
+    /**
+    * @Description: 通过基本属性信息更新商品
+    * @Param:  String
+    * @return:  String
+    * @Author: DBC
+    * @Date: 2019/8/24
+    */
+    @Override
+    public String updateCommodityInfo(int goodId, String title, String afterSale, String kindName, String model, String material,
+                                      String struct, String style, String use, String saleMethod, String unit,
+                                      String shelves, String home) {
+        LGoodsEntity lGoodsEntity = new LGoodsEntity();
+        lGoodsEntity.setId(goodId);
+        if(!title.equals(""))
+            lGoodsEntity.setTitle(title);
+        lGoodsEntity.setAfterSalesInstruction(afterSale);
+        lGoodsEntity.setKindName(kindName);
+        lGoodsEntity.setModel(model);
+        lGoodsEntity.setMaterial(material);
+        lGoodsEntity.setStructure(struct);
+        lGoodsEntity.setgStyle(style);
+        lGoodsEntity.setgUse(use);
+        lGoodsEntity.setSaleMethod(saleMethod);
+        lGoodsEntity.setInventoryUnit(unit);
+        lGoodsEntity.setIsShelves((byte)Integer.parseInt(shelves));
+        lGoodsEntity.setIsHomeRecommended((byte)Integer.parseInt(home));
+        lGoodsEntity.setUpdTime(DateUtil.NewDateInt());
+        if(goodsDao.updateGoods(lGoodsEntity)) return "1";
+        else return "0";
+    }
+
+    /**
+    * @Description: 通过商品id进行查询商品
+    * @Param:
+    * @return:
+    * @Author: DBC
+    * @Date: 2019/8/24
+    */
     @Override
     public LGoodsEntity listCommodityById(int goodId) {
         return goodsDao.listById(goodId);

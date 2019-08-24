@@ -3,16 +3,6 @@ $(document).ready(function () {
     $("#commodity").trigger("click");
     $("#commodityRecord").addClass("active");
 
-    $('.summernote').summernote();
-
-    $('.input-group.date').datepicker({
-        todayBtn: "linked",
-        keyboardNavigation: false,
-        forceParse: false,
-        calendarWeeks: true,
-        autoclose: true
-    });
-
     //****************************修改尺寸库存
     function setTouchSpin() {
         $(".inventory").TouchSpin({
@@ -526,6 +516,174 @@ $(document).ready(function () {
         });
     });
 
+    //**********************************商品详情
+    var $modifyCommodityInfoSubmit = $( '#modifyCommodityInfoSubmit' ).ladda();
+    $modifyCommodityInfoSubmit.click(function () {
+        var $goodId = $(this).attr('data-id');
+        var $goodTitle = $("#goodTitle").val();
+        var $goodAfterSale = $("#goodAfterSale").val();
+        var $goodKindName = $("#goodKindName").val();
+        var $goodModel = $("#goodModel").val();
+        var $goodMaterial = $("#goodMaterial").val();
+        var $goodStructure = $("#goodStructure").val();
+        var $goodStyle = $("#goodStyle").val();
+        var $goodUse = $("#goodUse").val();
+        var $goodSaleMethod = $("#goodSaleMethod").val();
+        var $goodUnit = $("#goodUnit").val();
+        var $goodShelves = $("#goodShelves").val();
+        var $goodHome = $("#goodHome").val();
+
+        if($goodAfterSale == "" || $goodKindName == "" || $goodModel == "" || $goodMaterial == "" ||
+            $goodStructure == "" || $goodStyle == "" || $goodUse == "" || $goodSaleMethod == ""){
+            swal({
+                title: "警告！",
+                text: "输入项各项不能为空",
+                type: "warning",
+                confirmButtonText: "确定",
+            });
+        }else{
+            $modifyCommodityInfoSubmit.ladda( 'start' );
+            $.ajax({
+                method: "POST",
+                url: "/Admin/Commodity/UpdateCommodityInfo",
+                dataType: "json",
+                data: {"goodId": $goodId,"title":$goodTitle, "afterSale":$goodAfterSale, "kindName":$goodKindName, "model":$goodModel, "material":$goodMaterial,
+                    "struct":$goodStructure, "style":$goodStyle, "use":$goodUse, "saleMethod":$goodSaleMethod, "unit":$goodUnit, "shelves":$goodShelves, "home":$goodHome},
+                success: function (data) {
+                    $modifyCommodityInfoSubmit.ladda( 'stop' );
+                    if(data.flag == "1"){
+                        swal({
+                            title: "修改成功!",
+                            text: "已经成功将该商品基本信息同步！",
+                            type: "success",
+                            confirmButtonText: "确定",
+                        },function(){
+                            //window.location.reload();
+                        });
+                    }else{
+                        swal({
+                            title: "修改失败!",
+                            text: "正在为您重新刷新进行重试!",
+                            type: "error",
+                            confirmButtonText: "确定",
+                        },function(){window.location.reload();});
+                    }
+                },
+                error: function(){
+                    swal({
+                        title: "出现错误!",
+                        text: "网络参数出现错误!",
+                        type: "error",
+                        confirmButtonText: "确定",
+                    },function(){window.location.reload();});
+                },
+            });
+        }
+    });
+
+    //**********************************商品电脑端详情
+    var $textSummernote = $("#summernote").html();
+    $("#summernote").html(window.decodeURIComponent(window.atob($textSummernote)));
+
+    $("#modifyCommodityDetailsEditSubmit").click(function () {
+        var $goodId = $(this).attr('data-id');
+        $('#summernote').summernote({
+            focus: true,
+            lang:'zh-CN',
+            placeholder: '请输入商品电脑端详情内容...',
+            onImageUpload: function(files, editor, $editable) {
+                sendImage(files[0],editor,$editable,$goodId);
+            }
+        });
+    });
+
+    function sendImage(file, editor, $editable, $goodId) {
+        var filename = false;
+        try{
+            filename = file['name'];
+        } catch(e){
+            filename = false;
+        }
+        if(!filename){
+            $(".note-alarm").remove();
+        }
+        //以上防止在图片在编辑器内拖拽引发第二次上传导致的提示错误
+        var $formData = new FormData();
+        $formData.append("imgFile", file);
+        $formData.append("key",filename); //唯一性参数
+        $formData.append("goodId", $goodId);
+
+        $.ajax({
+            data: $formData,
+            type: "POST",
+            url: "/Admin/UploadImage",
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                if(data.flag == "1"){
+                    swal({
+                        title: "图片上传失败!",
+                        text: "请进行重试!",
+                        type: "error",
+                        confirmButtonText: "确定",
+                    },function(){});
+                }else{
+                    editor.insertImage($editable, data.flag);
+                }
+            },
+            error:function(){
+                alert("上传失败！");
+                return;
+            }
+        });
+    }
+
+    var $modifyCommodityDetailsSaveSubmit = $( '#modifyCommodityDetailsSaveSubmit' ).ladda();
+    $modifyCommodityDetailsSaveSubmit.click(function () {
+        /*alert($('#summernote').code());
+        alert(window.btoa(window.encodeURIComponent($('#summernote').code())));
+        var text = window.btoa(window.encodeURIComponent($('#summernote').code()));
+        alert(window.decodeURIComponent(window.atob(text)));
+        return;*/
+        var $goodId = $(this).attr('data-id');
+        $modifyCommodityDetailsSaveSubmit.ladda( 'start' );
+        $.ajax({
+            method: "POST",
+            url: "/Admin/Commodity/UpdateCommodityContent",
+            dataType: "json",
+            data: {"goodId": $goodId,"content":window.btoa(window.encodeURIComponent($('#summernote').code()))},
+            success: function (data) {
+                $modifyCommodityDetailsSaveSubmit.ladda( 'stop' );
+                if(data.flag == "1"){
+                    swal({
+                        title: "保存成功!",
+                        text: "已经成功将该商品电脑端详情同步！",
+                        type: "success",
+                        confirmButtonText: "确定",
+                    },function(){
+                        //window.location.reload();
+                    });
+                }else{
+                    swal({
+                        title: "保存失败!",
+                        text: "正在为您重新刷新进行重试!",
+                        type: "error",
+                        confirmButtonText: "确定",
+                    },function(){window.location.reload();});
+                }
+            },
+            error: function(){
+                swal({
+                    title: "出现错误!",
+                    text: "网络参数出现错误!",
+                    type: "error",
+                    confirmButtonText: "确定",
+                },function(){window.location.reload();});
+            },
+        });
+    });
+    
 
     function deleteEditMeasureColor(){
         $("#tableMeasureColor").on('click', '.measureColorDelete', function () {

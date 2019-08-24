@@ -2134,6 +2134,17 @@
             'max':  80
         }
     });
+    $('#summernote').summernote({
+        height: 400,
+        minHeight: 300,
+        maxHeight: 500,
+        focus: true,
+        lang:'zh-CN',
+        // 重写图片上传
+        onImageUpload: function(files, editor, $editable) {
+            sendFile(files[0],editor,$editable);
+        }
+    });
 
 
 </script>
