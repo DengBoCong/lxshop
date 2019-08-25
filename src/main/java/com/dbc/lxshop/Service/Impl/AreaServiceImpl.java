@@ -208,6 +208,18 @@ public class AreaServiceImpl implements AreaService {
         }
     }
 
+    /**
+    * @Description: 查询所以顶级负责人
+    * @Param:
+    * @return:  List<LSalesmanUserEntity>
+    * @Author: DBC
+    * @Date: 2019/8/25
+    */
+    @Override
+    public List<LSalesmanUserEntity> listSalesmanUserTop() {
+        return salesmanUserDao.listTop();
+    }
+
     public void setAreaDao(AreaDao areaDao) {
         this.areaDao = areaDao;
     }

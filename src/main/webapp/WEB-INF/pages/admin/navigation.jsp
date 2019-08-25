@@ -149,7 +149,7 @@
                 <ul class="nav nav-second-level collapse">
                     <li id="areaDivide"><a href="/Admin/Area/Divide">片区划分</a></li>
                     <li><a href="lockscreen.html">数据看板</a></li>
-                    <li><a href="lockscreen.html">片区负责人</a></li>
+                    <li id="areaPrincipal"><a href="/Admin/Area/Principal">片区负责人</a></li>
                     <li><a href="invoice.html">片区业务员</a></li>
                 </ul>
             </li>

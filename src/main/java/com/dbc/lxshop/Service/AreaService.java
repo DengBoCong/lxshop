@@ -11,8 +11,11 @@ public interface AreaService {
     public String deleteArea(int areaId);
     public String updateArea(String areaId, String areaName, String areaDescription, String areaSalesman);
     public List<LAreaEntity> listArea();
+
     public List<LSalesmanUserEntity> listSalesmanUser();
     public LSalesmanUserEntity listOneSalesmanUser(int salesmanId);
+    public List<LSalesmanUserEntity> listSalesmanUserTop();
+
     public List<AreaInfoBean> listAreaInfo();
     public LAreaEntity listOneArea(int areaId);
     public AreaInfoBean listOneAreaByName(String name);

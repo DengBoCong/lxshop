@@ -12,4 +12,5 @@ public interface SalesmanUserDao {
     public List<LSalesmanUserEntity> listByAreaId(int areaId);
     public LSalesmanUserEntity listById(int userId);
     public List<LSalesmanUserEntity> listByKind(int kind);
+    public List<LSalesmanUserEntity> listTop();
 }

@@ -34,6 +34,13 @@ public class AreaController {
         return "admin/area/divide";
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/Principal")
+    public String principal(ModelMap modelMap){
+        modelMap.addAttribute("AreaList", areaService.listAreaInfo());
+        modelMap.addAttribute("SalesmanTopList", areaService.listSalesmanUserTop());
+        return "admin/area/principal";
+    }
+
     @RequestMapping(method = RequestMethod.POST, value = "/AddAreaInfo")
     @ResponseBody
     public Map<String, Object> addAreaInfo(String areaName, String areaDescription, String areaSalesman, HttpServletRequest httpServletRequest,

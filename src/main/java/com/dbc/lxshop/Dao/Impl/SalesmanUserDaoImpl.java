@@ -244,6 +244,28 @@ public class SalesmanUserDaoImpl implements SalesmanUserDao {
         return list;
     }
 
+    /**
+    * @Description: 查询所有顶级业务员
+    * @Param:
+    * @return:  List<LSalesmanUserEntity>
+    * @Author: DBC
+    * @Date: 2019/8/25
+    */
+    @Override
+    public List<LSalesmanUserEntity> listTop() {
+        Session session = sessionFactory.openSession();
+        List<LSalesmanUserEntity> list = null;
+        try {
+            list = session.createNamedQuery("SALESMAN_USER.PID_0", LSalesmanUserEntity.class)
+                    .getResultList();
+        }catch (IllegalArgumentException e){
+            System.out.println("SalesmanUserDao查询语句出现问题");
+            e.printStackTrace();
+        }
+        session.close();
+        return list;
+    }
+
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

@@ -26,6 +26,8 @@
 
     <link href="<%=basePath%>/static/admin/css/plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="<%=basePath%>/static/admin/css/animate.css" rel="stylesheet">
+    <link href="<%=basePath%>/static/admin/css/plugins/ladda/ladda-themeless.min.css" rel="stylesheet">
+    <link href="<%=basePath%>/static/admin/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
     <link href="<%=basePath%>/static/admin/css/style.css" rel="stylesheet">
     <script src="<%=basePath%>/static/admin/js/jquery-2.1.1.js"></script>
 </head>
@@ -166,7 +168,10 @@
 <script src="<%=basePath%>/static/admin/js/bootstrap.min.js"></script>
 <script src="<%=basePath%>/static/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="<%=basePath%>/static/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
+<script src="<%=basePath%>/static/admin/js/plugins/ladda/spin.min.js"></script>
+<script src="<%=basePath%>/static/admin/js/plugins/ladda/ladda.min.js"></script>
+<script src="<%=basePath%>/static/admin/js/plugins/ladda/ladda.jquery.min.js"></script>
+<script src="<%=basePath%>/static/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script src="<%=basePath%>/static/admin/js/inspinia.js"></script>
 <script src="<%=basePath%>/static/admin/js/plugins/pace/pace.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>/pages/adminJs/areaDivide.js"></script>
