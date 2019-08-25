@@ -27,4 +27,6 @@
             <column name="principal_id" sql-type="int(11)"/>
         </property>
     </class>
+    <query name="AREA.NAME"><![CDATA[from LAreaEntity where name = :name]]></query>
+    <query name="AREA.ORDER_VY.NAME"><![CDATA[from LAreaEntity order by name]]></query>
 </hibernate-mapping>

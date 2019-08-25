@@ -143,6 +143,7 @@
                 <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsEntity.hbm.xml</value>
                 <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsStandradEntity.hbm.xml</value>
                 <value>classpath:com/dbc/lxshop/Model/Entity/LGoodsCategoryJoinEntity.hbm.xml</value>
+                <value>classpath:com/dbc/lxshop/Model/Entity/LAreaEntity.hbm.xml</value>
             </list>
         </property>
     </bean>

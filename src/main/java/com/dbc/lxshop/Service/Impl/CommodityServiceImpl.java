@@ -80,6 +80,8 @@ public class CommodityServiceImpl implements CommodityService {
         lGoodsEntity.setInventoryUnit(unit);
         lGoodsEntity.setIsShelves((byte)Integer.parseInt(shelves));
         lGoodsEntity.setIsHomeRecommended((byte)Integer.parseInt(home));
+        lGoodsEntity.setAddTime(DateUtil.NewDateInt());
+        lGoodsEntity.setUpdTime(DateUtil.NewDateInt());
         if(goodsDao.addGoods(lGoodsEntity)) return "1";
         else return "0";
     }

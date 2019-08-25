@@ -6,61 +6,65 @@
 
     <class name="com.dbc.lxshop.Model.Entity.LSalesmanUserEntity" table="l_salesman_user" schema="lxshop">
         <id name="id">
-            <column name="id" sql-type="int(11) unsigned"/>
+            <column name="id" sql-type="int(11) unsigned" not-null="true"/>
         </id>
         <property name="pid">
-            <column name="pid" sql-type="int(11)"/>
+            <column name="pid" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="name">
-            <column name="name" sql-type="varchar(20)" length="20"/>
+            <column name="name" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="mobile">
-            <column name="mobile" sql-type="varchar(15)" length="15"/>
+            <column name="mobile" sql-type="varchar(15)" length="15" not-null="true"/>
         </property>
         <property name="pwd">
-            <column name="pwd" sql-type="varchar(100)" length="100"/>
+            <column name="pwd" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
         <property name="areaId">
-            <column name="area_id" sql-type="int(11)"/>
+            <column name="area_id" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="email">
-            <column name="email" sql-type="varchar(60)" length="60"/>
+            <column name="email" sql-type="varchar(60)" length="60" not-null="true"/>
         </property>
         <property name="image">
-            <column name="image" sql-type="varchar(1000)" length="1000"/>
+            <column name="image" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="idCard">
-            <column name="id_card" sql-type="varchar(30)" length="30"/>
+            <column name="id_card" sql-type="varchar(30)" length="30" not-null="true"/>
         </property>
         <property name="idcardFphoto">
-            <column name="idcard_fphoto" sql-type="varchar(1000)" length="1000"/>
+            <column name="idcard_fphoto" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="idcardBphoto">
-            <column name="idcard_bphoto" sql-type="varchar(1000)" length="1000"/>
+            <column name="idcard_bphoto" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="lowerCount">
-            <column name="lower_count" sql-type="int(11)"/>
+            <column name="lower_count" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="addTime">
-            <column name="add_time" sql-type="int(11)"/>
+            <column name="add_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="updTime">
-            <column name="upd_time" sql-type="int(11)"/>
+            <column name="upd_time" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="status">
-            <column name="status" sql-type="tinyint(1)"/>
+            <column name="status" sql-type="tinyint(1)" not-null="true"/>
         </property>
         <property name="province">
-            <column name="province" sql-type="varchar(10)" length="10"/>
+            <column name="province" sql-type="varchar(10)" length="10" not-null="true"/>
         </property>
         <property name="city">
-            <column name="city" sql-type="varchar(10)" length="10"/>
+            <column name="city" sql-type="varchar(10)" length="10" not-null="true"/>
         </property>
         <property name="description">
-            <column name="description" sql-type="varchar(1000)" length="1000"/>
+            <column name="description" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="kind">
-            <column name="kind" sql-type="tinyint(1)"/>
+            <column name="kind" sql-type="tinyint(1)" not-null="true"/>
         </property>
     </class>
+    <query name="SALESMAN_USER.MOBILE"><![CDATA[from LSalesmanUserEntity where mobile = :mobile]]></query>
+    <query name="SALESMAN_USER.AREA_ID"><![CDATA[from LSalesmanUserEntity where areaId = :areaId]]></query>
+    <query name="SALESMAN_USER.KIND"><![CDATA[from LSalesmanUserEntity where kind = :kind]]></query>
+    <query name="SALESMAN_USER.ORDER_BY.NAME"><![CDATA[from LSalesmanUserEntity order by name]]></query>
 </hibernate-mapping>

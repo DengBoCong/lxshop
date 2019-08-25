@@ -197,9 +197,16 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div id="coverImage" class="image-crop">
-                                                <img src="${CommodityInfo.images}">
-                                            </div>
+                                            <c:if test="${CommodityInfo.images.equals(\" \")}">
+                                                <div id="coverImage" class="image-crop">
+                                                    <img src="<%=basePath%>/static/admin/img/link.gif">
+                                                </div>
+                                            </c:if>
+                                            <c:if test="${!CommodityInfo.images.equals(\" \")}">
+                                                <div id="coverImage" class="image-crop">
+                                                    <img src="${CommodityInfo.images}">
+                                                </div>
+                                            </c:if>
                                         </div>
                                         <div class="col-md-6">
                                             <h4>效果图</h4>
@@ -227,9 +234,16 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div id="recommendImage" class="image-crop">
-                                                <img src="${CommodityInfo.homeRecommendedImages}">
-                                            </div>
+                                            <c:if test="${CommodityInfo.homeRecommendedImages.equals(\" \")}">
+                                                <div id="recommendImage" class="image-crop">
+                                                    <img src="<%=basePath%>/static/admin/img/link.gif">
+                                                </div>
+                                            </c:if>
+                                            <c:if test="${!CommodityInfo.homeRecommendedImages.equals(\" \")}">
+                                                <div id="recommendImage" class="image-crop">
+                                                    <img src="${CommodityInfo.homeRecommendedImages}">
+                                                </div>
+                                            </c:if>
                                         </div>
                                         <div class="col-md-6">
                                             <h4>效果图</h4>
@@ -241,7 +255,7 @@
                                             <div class="btn-group">
                                                 <label title="Upload image file" for="recommendInputImage" class="btn btn-primary">
                                                     <input type="file" accept="image/*" name="file" id="recommendInputImage" class="hide">
-                                                    上传图片
+                                                    选择图片
                                                 </label>
                                             </div>
                                             <div class="btn-group">
