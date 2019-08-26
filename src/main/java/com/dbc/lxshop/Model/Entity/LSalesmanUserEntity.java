@@ -6,14 +6,14 @@ import javax.persistence.*;
  * @program: lxshop
  * @description:
  * @author: DBC
- * @create: 2019-08-16 11:02
+ * @create: 2019-08-25 15:53
  **/
 @Entity
 @Table(name = "l_salesman_user", schema = "lxshop", catalog = "")
 public class LSalesmanUserEntity {
     private int id;
     private int pid;
-    private String name;
+    private String uName;
     private String mobile;
     private String pwd;
     private int areaId;
@@ -52,13 +52,13 @@ public class LSalesmanUserEntity {
     }
 
     @Basic
-    @Column(name = "name", nullable = false, length = 20)
-    public String getName() {
-        return name;
+    @Column(name = "u_name", nullable = false, length = 20)
+    public String getuName() {
+        return uName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setuName(String uName) {
+        this.uName = uName;
     }
 
     @Basic
@@ -236,7 +236,7 @@ public class LSalesmanUserEntity {
         if (updTime != that.updTime) return false;
         if (status != that.status) return false;
         if (kind != that.kind) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (uName != null ? !uName.equals(that.uName) : that.uName != null) return false;
         if (mobile != null ? !mobile.equals(that.mobile) : that.mobile != null) return false;
         if (pwd != null ? !pwd.equals(that.pwd) : that.pwd != null) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
@@ -255,7 +255,7 @@ public class LSalesmanUserEntity {
     public int hashCode() {
         int result = id;
         result = 31 * result + pid;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (uName != null ? uName.hashCode() : 0);
         result = 31 * result + (mobile != null ? mobile.hashCode() : 0);
         result = 31 * result + (pwd != null ? pwd.hashCode() : 0);
         result = 31 * result + areaId;

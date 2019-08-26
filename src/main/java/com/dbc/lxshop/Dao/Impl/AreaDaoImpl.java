@@ -189,6 +189,29 @@ public class AreaDaoImpl implements AreaDao {
         else return list.get(0);
     }
 
+    /**
+    * @Description: 通过顶级业务员查找
+    * @Param:  int
+    * @return:  List<LAreaEntity>
+    * @Author: DBC
+    * @Date: 2019/8/26
+    */
+    @Override
+    public LAreaEntity listByPrincipal(int principal) {
+        Session session = sessionFactory.openSession();
+        List<LAreaEntity> list = null;
+        try{
+            list = session.createNamedQuery("AREA.PRINCIPALID", LAreaEntity.class)
+                    .setParameter("principalId", principal)
+                    .getResultList();
+        }catch (IllegalArgumentException e){
+            System.out.println("AreaDao查询语句出现问题");
+            e.printStackTrace();
+        }
+        if(list.isEmpty()) return null;
+        else return list.get(0);
+    }
+
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

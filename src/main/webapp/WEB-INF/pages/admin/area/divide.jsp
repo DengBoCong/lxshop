@@ -74,10 +74,10 @@
                                     <option value="0" selected="selected">请选择片区负责人</option>
                                     <c:forEach items="${SalesmanList}" var="items">
                                         <c:if test="${items.pid == 0}">
-                                            <option value="${items.id}">${items.name}<span class="pull-right label label-primary">顶级业务员</span></option>
+                                            <option value="${items.id}">${items.uName}(顶级业务员)</option>
                                         </c:if>
                                         <c:if test="${items.pid != 0}">
-                                            <option value="${items.id}">${items.name}</option>
+                                            <option value="${items.id}">${items.uName}</option>
                                         </c:if>
                                     </c:forEach>
                                 </select>
@@ -98,7 +98,12 @@
                     </div>
                     <div class="ibox-content">
                         <div class="team-members">
-                            <a href="#">${items.ownerName}<img alt="member" class="img-circle" src="${items.ownerImage}"></a>
+                            <c:if test="${items.principalId == 0}">
+                                <a href="#">该片区暂无负责人<i class="fa fa-exclamation-circle"></i>点击修改设置负责人</a>
+                            </c:if>
+                            <c:if test="${items.principalId != 0}">
+                                <a href="#">${items.ownerName}<img alt="暂无负责人头像" class="img-circle" src="${items.ownerImage}"></a>
+                            </c:if>
                         </div>
                         <h4>${items.name}</h4>
                         <p>
@@ -108,7 +113,7 @@
                             <span>占总业务员人数百分比</span>
                             <div class="stat-percent">${items.countPrecent} %</div>
                             <div class="progress progress-mini">
-                                <div style="width: 48%;" class="progress-bar"></div>
+                                <div style="width: ${items.countPrecent}%;" class="progress-bar"></div>
                             </div>
                         </div>
                         <div class="row  m-t-sm">
@@ -138,18 +143,18 @@
                             <small class="font-bold">修改片区信息时，请仔细核对内容信息，一经添加，将同步全系统数据库！</small>
                         </div>
                         <div class="modal-body">
-                            <div class="form-group"><label>片区名称</label> <input id="modifyAreaName" type="text" placeholder="请输入片区名称" class="form-control" value=""></div>
-                            <div class="form-group"><label>片区简短描述</label> <input id="modifyAreaDescription" type="text" placeholder="请输入片区简短描述" class="form-control" value=""></div>
+                            <div class="form-group"><label>片区名称(留空则不修改)</label> <input id="modifyAreaName" type="text" placeholder="请输入片区名称" class="form-control" value=""></div>
+                            <div class="form-group"><label>片区简短描述(留空则不修改)</label> <input id="modifyAreaDescription" type="text" placeholder="请输入片区简短描述" class="form-control" value=""></div>
                             <div class="form-group">
-                                <label>选择顶级业务员(注：若选择非顶级业务员，则其上级信息将全部清空)</label>
+                                <label>选择顶级业务员(注：若选择非顶级业务员，则其上级信息将全部清空，不能留空)</label>
                                 <select id="modiffyAreaSalesman" class="form-control m-b" name="account">
                                     <option value="0" selected="selected">请选择片区负责人</option>
                                     <c:forEach items="${SalesmanList}" var="items">
                                         <c:if test="${items.pid == 0}">
-                                            <option value="${items.id}">${items.name}<span class="pull-right label label-primary">顶级业务员</span></option>
+                                            <option value="${items.id}">${items.uName}(顶级业务员)</option>
                                         </c:if>
                                         <c:if test="${items.pid != 0}">
-                                            <option value="${items.id}">${items.name}</option>
+                                            <option value="${items.id}">${items.uName}</option>
                                         </c:if>
                                     </c:forEach>
                                 </select>

@@ -11,8 +11,8 @@
         <property name="pid">
             <column name="pid" sql-type="int(11)" not-null="true"/>
         </property>
-        <property name="name">
-            <column name="name" sql-type="varchar(20)" length="20" not-null="true"/>
+        <property name="uName">
+            <column name="u_name" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="mobile">
             <column name="mobile" sql-type="varchar(15)" length="15" not-null="true"/>
@@ -67,5 +67,5 @@
     <query name="SALESMAN_USER.AREA_ID"><![CDATA[from LSalesmanUserEntity where areaId = :areaId]]></query>
     <query name="SALESMAN_USER.PID_0"><![CDATA[from LSalesmanUserEntity where pid = 0]]></query>
     <query name="SALESMAN_USER.KIND"><![CDATA[from LSalesmanUserEntity where kind = :kind]]></query>
-    <query name="SALESMAN_USER.ORDER_BY.NAME"><![CDATA[from LSalesmanUserEntity order by name]]></query>
+    <query name="SALESMAN_USER.ORDER_BY.NAME"><![CDATA[from LSalesmanUserEntity order by uName]]></query>
 </hibernate-mapping>

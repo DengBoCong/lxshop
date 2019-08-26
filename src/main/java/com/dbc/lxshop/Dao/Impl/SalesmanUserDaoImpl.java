@@ -103,8 +103,8 @@ public class SalesmanUserDaoImpl implements SalesmanUserDao {
         else{
             if(lSalesmanUserEntity.getPid() != 0)
                 lSalesmanUserEntity1.setPid(lSalesmanUserEntity.getPid());
-            if(lSalesmanUserEntity.getName() != null)
-                lSalesmanUserEntity1.setName(lSalesmanUserEntity.getName());
+            if(lSalesmanUserEntity.getuName() != null)
+                lSalesmanUserEntity1.setuName(lSalesmanUserEntity.getuName());
             if(lSalesmanUserEntity.getMobile() != null){
                 List<LSalesmanUserEntity> list = null;
                 try{
@@ -118,7 +118,7 @@ public class SalesmanUserDaoImpl implements SalesmanUserDao {
                 else lSalesmanUserEntity1.setMobile(lSalesmanUserEntity.getMobile());
             }
             if(lSalesmanUserEntity.getPwd() != null)
-                lSalesmanUserEntity1.setPwd(DigestUtils.md5DigestAsHex(lSalesmanUserEntity.getName().getBytes()));
+                lSalesmanUserEntity1.setPwd(DigestUtils.md5DigestAsHex(lSalesmanUserEntity.getuName().getBytes()));
             if(lSalesmanUserEntity.getAreaId() != 0)
                 lSalesmanUserEntity1.setAreaId(lSalesmanUserEntity.getAreaId());
             if(lSalesmanUserEntity.getEmail() != null)

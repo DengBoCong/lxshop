@@ -137,11 +137,10 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">经销商管理</span><span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">非工作人员管理</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="contacts.html">经销商档案</a></li>
-                    <li><a href="profile.html">实景图片</a></li>
-                    <li><a href="profile.html">营业执照</a></li>
+                    <li><a href="profile.html">厂商档案</a></li>
                 </ul>
             </li>
             <li>
@@ -150,7 +149,7 @@
                     <li id="areaDivide"><a href="/Admin/Area/Divide">片区划分</a></li>
                     <li><a href="lockscreen.html">数据看板</a></li>
                     <li id="areaPrincipal"><a href="/Admin/Area/Principal">片区负责人</a></li>
-                    <li><a href="invoice.html">片区业务员</a></li>
+                    <li id="areaSalesman"><a href="/Admin/Area/Salesman">片区业务员</a></li>
                 </ul>
             </li>
             <li>
@@ -161,14 +160,6 @@
                     <li><a href="agile_board.html">经销商核算</a></li>
                     <li><a href="timeline_2.html">业务员核算</a></li>
                     <li><a href="diff.html">报表</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">厂家管理</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse">
-                    <li><a href="typography.html">厂家档案</a></li>
-                    <li><a href="icons.html">实景图片</a></li>
-                    <li><a href="draggable_panels.html">营业执照</a></li>
                 </ul>
             </li>
             <li>

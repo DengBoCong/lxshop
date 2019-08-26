@@ -1,7 +1,9 @@
 package com.dbc.lxshop.Service.Impl;
 
 import com.dbc.lxshop.Dao.AdminDao;
+import com.dbc.lxshop.Dao.LoginLogDao;
 import com.dbc.lxshop.Model.Entity.LAdminEntity;
+import com.dbc.lxshop.Model.Entity.LLoginLogEntity;
 import com.dbc.lxshop.Service.LoginService;
 import com.dbc.lxshop.Utils.DateUtil;
 import com.dbc.lxshop.Utils.InitEntityUtil;
@@ -28,6 +30,10 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     private AdminDao adminDao;
 
+    @Qualifier("loginLogDao")
+    @Autowired
+    private LoginLogDao loginLogDao;
+
     /**
     * @Description: 对用户账号密码进行查验
     * @Param:  String，String
@@ -42,6 +48,13 @@ public class LoginServiceImpl implements LoginService {
         if(lAdminEntity == null) return null;
         else {
             if(DigestUtils.md5DigestAsHex(pwd.getBytes()).equals(lAdminEntity.getPwd())){
+                LLoginLogEntity lLoginLogEntity = new LLoginLogEntity();
+                lLoginLogEntity.setLoginTime(DateUtil.NewDateInt());
+                lLoginLogEntity.setType((byte) 1);
+                lLoginLogEntity.setUserId(lAdminEntity.getId());
+                lLoginLogEntity.setRole("工作人员");
+                loginLogDao.addLoginLog(lLoginLogEntity);
+
                 LAdminEntity lAdminEntity1 = new LAdminEntity();
                 lAdminEntity1.setLoginTotal(lAdminEntity.getLoginTotal()+1);
                 lAdminEntity1.setLoginTime(DateUtil.NewDateInt());
@@ -59,9 +72,15 @@ public class LoginServiceImpl implements LoginService {
         return adminDao;
     }
 
-
-
     public void setAdminDao(AdminDao adminDao) {
         this.adminDao = adminDao;
+    }
+
+    public void setLoginLogDao(LoginLogDao loginLogDao) {
+        this.loginLogDao = loginLogDao;
+    }
+
+    public LoginLogDao getLoginLogDao() {
+        return loginLogDao;
     }
 }

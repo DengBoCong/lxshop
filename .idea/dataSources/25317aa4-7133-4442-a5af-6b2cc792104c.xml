@@ -3902,7 +3902,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="654" parent="280" name="name">
+    <column id="654" parent="280" name="u_name">
       <Position>3</Position>
       <Comment>业务员姓名</Comment>
       <DataType>varchar(20)|0s</DataType>

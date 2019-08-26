@@ -326,7 +326,8 @@ public class OrderDaoImpl implements OrderDao {
             e.printStackTrace();
         }
         session.close();
-        return (BigDecimal)list.get(0);
+        if(list.isEmpty()) return new BigDecimal(0.00);
+        else return (BigDecimal)list.get(0);
     }
 
 
@@ -349,7 +350,8 @@ public class OrderDaoImpl implements OrderDao {
             e.printStackTrace();
         }
         session.close();
-        return (long)list.get(0);
+        if (list.isEmpty()) return new Long(0);
+        else return (long)list.get(0);
     }
 
     /**
@@ -370,7 +372,8 @@ public class OrderDaoImpl implements OrderDao {
             e.printStackTrace();
         }
         session.close();
-        return (BigDecimal) list.get(0);
+        if(list.isEmpty()) return new BigDecimal(0.00);
+        else return (BigDecimal) list.get(0);
     }
 
     /**
@@ -391,7 +394,8 @@ public class OrderDaoImpl implements OrderDao {
             e.printStackTrace();
         }
         session.close();
-        return (long) list.get(0);
+        if(list.isEmpty()) return new Long(0);
+        else return (long) list.get(0);
     }
 
     /**
@@ -414,7 +418,8 @@ public class OrderDaoImpl implements OrderDao {
             e.printStackTrace();
         }
         session.close();
-        return (BigDecimal) list.get(0);
+        if(list.isEmpty()) return new BigDecimal(0.00);
+        else return (BigDecimal) list.get(0);
     }
 
     /**
@@ -437,7 +442,8 @@ public class OrderDaoImpl implements OrderDao {
             e.printStackTrace();
         }
         session.close();
-        return (long) list.get(0);
+        if(list.isEmpty()) return new Long(0);
+        else return (long) list.get(0);
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

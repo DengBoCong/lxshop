@@ -29,4 +29,5 @@
     </class>
     <query name="AREA.NAME"><![CDATA[from LAreaEntity where name = :name]]></query>
     <query name="AREA.ORDER_VY.NAME"><![CDATA[from LAreaEntity order by name]]></query>
+    <query name="AREA.PRINCIPALID"><![CDATA[from LAreaEntity where principalId = :principalId]]></query>
 </hibernate-mapping>

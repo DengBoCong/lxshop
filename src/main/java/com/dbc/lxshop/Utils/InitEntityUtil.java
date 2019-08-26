@@ -73,4 +73,19 @@ public class InitEntityUtil {
         return lGoodsStandradEntity;
     }
 
+    public static LSalesmanUserEntity InitLSalesmanUserEneity(){
+        LSalesmanUserEntity lSalesmanUserEntity = new LSalesmanUserEntity();
+        lSalesmanUserEntity.setuName(" ");
+        lSalesmanUserEntity.setMobile(" ");
+        lSalesmanUserEntity.setPwd(" ");
+        lSalesmanUserEntity.setEmail(" ");
+        lSalesmanUserEntity.setImage(" ");
+        lSalesmanUserEntity.setIdCard(" ");
+        lSalesmanUserEntity.setIdcardFphoto(" ");
+        lSalesmanUserEntity.setIdcardBphoto(" ");
+        lSalesmanUserEntity.setProvince(" ");
+        lSalesmanUserEntity.setCity(" ");
+        lSalesmanUserEntity.setDescription(" ");
+        return lSalesmanUserEntity;
+    }
 }

@@ -9,7 +9,7 @@ $(document).ready(function () {
         var $areaDescription = $("#areaDescription").val();
         var $areaSalesman = $("#areaSalesman").val();
 
-        if($areaName == "" || $areaDescription == "" || $areaSalesman == "0"){
+        if($areaName == "" || $areaDescription == ""){
             swal({
                 title: "警告！",
                 text: "输入项各项不能为空",
@@ -20,7 +20,7 @@ $(document).ready(function () {
             $addAreaInfo.ladda( 'start' );
             $.ajax({
                 method: "POST",
-                url: "/Admin/Commodity/AddAreaInfo",
+                url: "/Admin/Area/AddAreaInfo",
                 dataType: "json",
                 data: {"areaName":$areaName, "areaDescription":$areaDescription, "areaSalesman":$areaSalesman},
                 success: function (data) {
@@ -118,55 +118,58 @@ $(document).ready(function () {
                     }
                 });
             });
-        }).on('click', '.measureColorEdit', function () {
+        }).on('click', '.modifyAreaInfo', function () {
             var $areaId = $(this).attr('data-id');
-            var $areaName = $("#modifyAreaName").val();
-            var $areaDescription = $("#modifyAreaDescription").val();
-            var $areaSalesman = $("#modiffyAreaSalesman").val();
 
-            if($areaName == "" || $areaDescription == "" || $areaSalesman == ""){
-                swal({
-                    title: "警告！",
-                    text: "输入项各项不能为空",
-                    type: "warning",
-                    confirmButtonText: "确定",
-                });
-                return;
-            }
+            var $modiffyAreaInfoSubmit = $("#modiffyAreaInfoSubmit").ladda();
+            $modiffyAreaInfoSubmit.click(function () {
+                if($("#modiffyAreaSalesman").val() == "0"){
+                    swal({
+                        title: "警告！",
+                        text: "负责人输入项不能为空",
+                        type: "warning",
+                        confirmButtonText: "确定",
+                    });
+                    return;
+                }
 
-            $.ajax({
-                method: "POST",
-                url: "/Admin/Commodity/UpdateArea",
-                dataType: "json",
-                data: {"areaId":$areaId, "areaName":$areaName, "areaDescription":$areaDescription, "areaSalesman":$areaSalesman},
-                success: function (data) {
-                    if(data.flag != "1"){
+                $modiffyAreaInfoSubmit.ladda('start');
+                $.ajax({
+                    method: "POST",
+                    url: "/Admin/Area/UpdateArea",
+                    dataType: "json",
+                    data: {"areaId":$areaId, "areaName":$("#modifyAreaName").val(), "areaDescription":$("#modifyAreaDescription").val(), "areaSalesman":$("#modiffyAreaSalesman").val()},
+                    success: function (data) {
+                        $modiffyAreaInfoSubmit.ladda('stop');
+                        if(data.flag != "1"){
+                            swal({
+                                title: "修改失败！",
+                                text: "片区已存在",
+                                type: "error",
+                                confirmButtonText: "确定",
+                            });
+                        }else{
+                            swal({
+                                title: "修改成功！",
+                                text: "已为您同步至片区信息列表",
+                                type: "success",
+                                confirmButtonText: "确定",
+                            },function () {
+                                window.location.reload();
+                            });
+                        }
+                    },
+                    error:function () {
                         swal({
-                            title: "修改失败！",
-                            text: "片区已存在",
+                            title: "出现错误!",
+                            text: "网络参数出现错误!",
                             type: "error",
                             confirmButtonText: "确定",
-                        });
-                    }else{
-                        swal({
-                            title: "修改成功！",
-                            text: "已为您同步至片区信息列表",
-                            type: "success",
-                            confirmButtonText: "确定",
-                        },function () {
-                            window.location.reload();
-                        });
+                        },function(){});
                     }
-                },
-                error:function () {
-                    swal({
-                        title: "出现错误!",
-                        text: "网络参数出现错误!",
-                        type: "error",
-                        confirmButtonText: "确定",
-                    },function(){});
-                }
+                });
             });
+
         });
     }
 

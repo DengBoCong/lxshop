@@ -10,6 +10,7 @@ public interface AreaService {
     public String addArea(String areaName, String areaDescription, String areaSalesman);
     public String deleteArea(int areaId);
     public String updateArea(String areaId, String areaName, String areaDescription, String areaSalesman);
+    public String updateArea(LAreaEntity lAreaEntity);
     public List<LAreaEntity> listArea();
 
     public List<LSalesmanUserEntity> listSalesmanUser();
@@ -19,4 +20,5 @@ public interface AreaService {
     public List<AreaInfoBean> listAreaInfo();
     public LAreaEntity listOneArea(int areaId);
     public AreaInfoBean listOneAreaByName(String name);
+    public LAreaEntity listAreaByPrincipalId(int principalId);
 }

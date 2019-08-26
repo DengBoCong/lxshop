@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -74,10 +76,30 @@ public class AreaServiceImpl implements AreaService {
     @Override
     public String updateArea(String areaId, String areaName, String areaDescription, String areaSalesman) {
         LAreaEntity lAreaEntity = new LAreaEntity();
+        LSalesmanUserEntity lSalesmanUserEntity = new LSalesmanUserEntity();
+        lSalesmanUserEntity.setId(Integer.parseInt(areaSalesman));
+        lSalesmanUserEntity.setPid(0);
+        lSalesmanUserEntity.setUpdTime(DateUtil.NewDateInt());
+        lSalesmanUserEntity.setAreaId(Integer.parseInt(areaId));
+        salesmanUserDao.updateSalesmanUser(lSalesmanUserEntity);
+        /*更新片区信息*/
         lAreaEntity.setId(Integer.parseInt(areaId));
-        lAreaEntity.setName(areaName);
-        lAreaEntity.setDescription(areaDescription);
+        if(!areaName.equals("")) lAreaEntity.setName(areaName);
+        if(!areaDescription.equals("")) lAreaEntity.setDescription(areaDescription);
         lAreaEntity.setPrincipalId(Integer.parseInt(areaSalesman));
+        if(areaDao.updateArea(lAreaEntity)) return "1";
+        else return "0";
+    }
+
+    /**
+    * @Description: 更新片区信息实体
+    * @Param:  LAreaEntity
+    * @return:  String
+    * @Author: DBC
+    * @Date: 2019/8/26
+    */
+    @Override
+    public String updateArea(LAreaEntity lAreaEntity) {
         if(areaDao.updateArea(lAreaEntity)) return "1";
         else return "0";
     }
@@ -160,7 +182,7 @@ public class AreaServiceImpl implements AreaService {
             areaInfoBean.ownerName = "";
             areaInfoBean.ownerImage = "";
         }else{
-            areaInfoBean.ownerName = lSalesmanUserEntity.getName();
+            areaInfoBean.ownerName = lSalesmanUserEntity.getuName();
             areaInfoBean.ownerImage = lSalesmanUserEntity.getImage();
         }
         return areaInfoBean;
@@ -176,7 +198,7 @@ public class AreaServiceImpl implements AreaService {
     @Override
     public List<AreaInfoBean> listAreaInfo() {
         List<LSalesmanUserEntity> lSalesmanUserEntityList = salesmanUserDao.list();
-        List<AreaInfoBean> areaInfoBeanList = null;
+        List<AreaInfoBean> areaInfoBeanList = new ArrayList<AreaInfoBean>();
         List<LAreaEntity> list = areaDao.list();
         if(list.isEmpty()) return null;
         else{
@@ -199,13 +221,25 @@ public class AreaServiceImpl implements AreaService {
                     areaInfoBean.ownerName = "";
                     areaInfoBean.ownerImage = "";
                 }else{
-                    areaInfoBean.ownerName = lSalesmanUserEntity.getName();
+                    areaInfoBean.ownerName = lSalesmanUserEntity.getuName();
                     areaInfoBean.ownerImage = lSalesmanUserEntity.getImage();
                 }
                 areaInfoBeanList.add(areaInfoBean);
             }
             return areaInfoBeanList;
         }
+    }
+
+    /**
+    * @Description: 通过负责人ID进行查询
+    * @Param:  int
+    * @return:  LSalesmanUserEntity
+    * @Author: DBC
+    * @Date: 2019/8/26
+    */
+    @Override
+    public LAreaEntity listAreaByPrincipalId(int principalId) {
+        return areaDao.listByPrincipal(principalId);
     }
 
     /**

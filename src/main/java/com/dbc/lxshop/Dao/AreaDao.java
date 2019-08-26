@@ -11,4 +11,5 @@ public interface AreaDao {
     public List<LAreaEntity> list();
     public LAreaEntity listById(int id);
     public LAreaEntity listByName(String name);
+    public LAreaEntity listByPrincipal(int principal);
 }

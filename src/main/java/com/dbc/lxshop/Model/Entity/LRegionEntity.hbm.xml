@@ -6,31 +6,32 @@
 
     <class name="com.dbc.lxshop.Model.Entity.LRegionEntity" table="l_region" schema="lxshop">
         <id name="id">
-            <column name="id" sql-type="int(11) unsigned"/>
+            <column name="id" sql-type="int(11) unsigned" not-null="true"/>
         </id>
         <property name="pid">
-            <column name="pid" sql-type="int(11) unsigned"/>
+            <column name="pid" sql-type="int(11) unsigned" not-null="true"/>
         </property>
         <property name="name">
-            <column name="name" sql-type="varchar(255)"/>
+            <column name="name" sql-type="varchar(255)" not-null="true"/>
         </property>
         <property name="level">
-            <column name="level" sql-type="tinyint(4) unsigned"/>
+            <column name="level" sql-type="tinyint(4) unsigned" not-null="true"/>
         </property>
         <property name="letters">
-            <column name="letters" sql-type="varchar(3)" length="3"/>
+            <column name="letters" sql-type="varchar(3)" length="3" not-null="true"/>
         </property>
         <property name="sort">
-            <column name="sort" sql-type="tinyint(3) unsigned"/>
+            <column name="sort" sql-type="tinyint(3) unsigned" not-null="true"/>
         </property>
         <property name="isEnable">
-            <column name="is_enable" sql-type="tinyint(1) unsigned"/>
+            <column name="is_enable" sql-type="tinyint(1) unsigned" not-null="true"/>
         </property>
         <property name="addTime">
-            <column name="add_time" sql-type="int(11) unsigned"/>
+            <column name="add_time" sql-type="int(11) unsigned" not-null="true"/>
         </property>
         <property name="updTime">
-            <column name="upd_time" sql-type="int(11) unsigned"/>
+            <column name="upd_time" sql-type="int(11) unsigned" not-null="true"/>
         </property>
     </class>
+    <query name="REGION.PID"><![CDATA[from LRegionEntity where pid = :pid]]></query>
 </hibernate-mapping>

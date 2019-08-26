@@ -46,8 +46,14 @@ public class ProfileServiceImpl implements ProfileService {
         ProfileDataBean profileDataBean = new ProfileDataBean();
         long lastTimeOrderCount = orderDao.listLastTimeOrderCount(DateUtil.LastWeekTime());
         BigDecimal lastTimeSellCount = orderDao.listLastTimeSellCount(DateUtil.LastWeekTime());
+        if(lastTimeSellCount == null){
+            lastTimeSellCount = new BigDecimal(0.00);
+        }
         long lastTwoOrderCount = orderDao.listBtwTimeOrderCount(DateUtil.LastTwoWeekTime(), DateUtil.LastWeekTime());
         BigDecimal lastTwoSellCount = orderDao.listBtwTimeSellCount(DateUtil.LastTwoWeekTime(), DateUtil.LastWeekTime());
+        if(lastTwoSellCount == null){
+            lastTwoSellCount = new BigDecimal(0.00);
+        }
         long lastTimeGoodsCount = goodsDao.listLastTimeGoodsCount(DateUtil.LastWeekTime());
         long lastTwoTimeGoodsCount = goodsDao.listBtwTimeGoodsCount(DateUtil.LastTwoWeekTime(), DateUtil.LastWeekTime());
         long lastTimeUserCount = userDao.listLastTimeUserCount(DateUtil.LastWeekTime());
