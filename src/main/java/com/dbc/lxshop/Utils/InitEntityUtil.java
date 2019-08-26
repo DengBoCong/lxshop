@@ -88,4 +88,45 @@ public class InitEntityUtil {
         lSalesmanUserEntity.setDescription(" ");
         return lSalesmanUserEntity;
     }
+
+    public static LUserEntity InitLUserEntity(){
+        LUserEntity lUserEntity = new LUserEntity();
+        lUserEntity.setAlipayAccount(" ");
+        lUserEntity.setWechatCode(" ");
+        lUserEntity.setBankName(" ");
+        lUserEntity.setBankAccount(" ");
+        lUserEntity.setName(" ");
+        lUserEntity.setPwd(" ");
+        lUserEntity.setMobile(" ");
+        lUserEntity.setEmail(" ");
+        lUserEntity.setAvatar(" ");
+        lUserEntity.setProvince(" ");
+        lUserEntity.setCity(" ");
+        lUserEntity.setAddress(" ");
+        lUserEntity.setSellCount(BigDecimal.valueOf(0.00));
+        return lUserEntity;
+    }
+
+    public static LFactoryUserEntity InitLFactoryUserEntity(){
+        LFactoryUserEntity lFactoryUserEntity = new LFactoryUserEntity();
+        lFactoryUserEntity.setAlipayAccount(" ");
+        lFactoryUserEntity.setWechatCode(" ");
+        lFactoryUserEntity.setBankAccount(" ");
+        lFactoryUserEntity.setBankName(" ");
+        lFactoryUserEntity.setName(" ");
+        lFactoryUserEntity.setPwd(" ");
+        lFactoryUserEntity.setMobile(" ");
+        lFactoryUserEntity.setEmail(" ");
+        lFactoryUserEntity.setAvatar(" ");
+        lFactoryUserEntity.setProvince(" ");
+        lFactoryUserEntity.setCity(" ");
+        lFactoryUserEntity.setAddress(" ");
+        lFactoryUserEntity.setSellCount(BigDecimal.valueOf(0.00));
+        lFactoryUserEntity.setCapacity(" ");
+        lFactoryUserEntity.setStability(" ");
+        lFactoryUserEntity.setQuality(" ");
+        lFactoryUserEntity.setCircumstance(" ");
+        lFactoryUserEntity.setReport(" ");
+        return lFactoryUserEntity;
+    }
 }

@@ -48,7 +48,7 @@ public class UserDaoImpl implements UserDao {
         else{
             try{
                 session.save(lUserEntity);
-                transaction.getClass();
+                transaction.commit();
             }catch (Exception e){
                 System.out.println("UserDao中Session操作出错！");
                 e.printStackTrace();
@@ -115,8 +115,18 @@ public class UserDaoImpl implements UserDao {
                 lUserEntity1.setPwd(DigestUtils.md5DigestAsHex(lUserEntity.getPwd().getBytes()));
             if(lUserEntity.getStatus() != 0)
                 lUserEntity1.setStatus(lUserEntity.getStatus());
-            if(lUserEntity.getMobile() != null)
-                lUserEntity1.setMobile(lUserEntity.getMobile());
+            if(lUserEntity.getMobile() != null){
+                List<LUserEntity> list = null;
+                try{
+                    list = session.createNamedQuery("USER.MOBILE", LUserEntity.class)
+                            .setParameter("mobile", lUserEntity.getMobile()).getResultList();
+                }catch (IllegalArgumentException e){
+                    System.out.println("UserDao查询语句出现问题");
+                    e.printStackTrace();
+                }
+                if(!list.isEmpty()) return false;
+                else lUserEntity1.setMobile(lUserEntity.getMobile());
+            }
             if(lUserEntity.getEmail() != null)
                 lUserEntity1.setEmail(lUserEntity.getEmail());
             if(lUserEntity.getAvatar() != null)

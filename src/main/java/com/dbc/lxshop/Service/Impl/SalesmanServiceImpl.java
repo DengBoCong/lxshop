@@ -84,10 +84,11 @@ public class SalesmanServiceImpl implements SalesmanService {
     * @Date: 2019/8/25
     */
     @Override
-    public String addSalesman(String name, String mobile, String idCard, String province, String city,
+    public String addSalesman(String name, String email, String mobile, String idCard, String province, String city,
                               String areaId, String pid, String kind, String status) {
         LSalesmanUserEntity lSalesmanUserEntity = InitEntityUtil.InitLSalesmanUserEneity();
         lSalesmanUserEntity.setuName(name);
+        lSalesmanUserEntity.setEmail(email);
         lSalesmanUserEntity.setMobile(mobile);
         lSalesmanUserEntity.setIdCard(idCard);
         lSalesmanUserEntity.setPwd(DigestUtils.md5DigestAsHex("123456".getBytes()));
@@ -119,6 +120,18 @@ public class SalesmanServiceImpl implements SalesmanService {
     @Override
     public List<LSalesmanUserEntity> listSalesmanUserByAreaId(int areaId) {
         return salesmanUserDao.listByAreaId(areaId);
+    }
+
+    /**
+    * @Description: 通过片区ID和类别进行划分
+    * @Param:  int
+    * @return:  List<LSalesmanUserEntity>
+    * @Author: DBC
+    * @Date: 2019/8/26
+    */
+    @Override
+    public List<LSalesmanUserEntity> listSalesmanUserByAreaIdKind(int kind, int areaId) {
+        return salesmanUserDao.listByAreaIdKind(kind, areaId);
     }
 
     /**

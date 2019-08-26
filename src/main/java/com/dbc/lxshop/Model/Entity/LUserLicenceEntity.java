@@ -6,7 +6,7 @@ import javax.persistence.*;
  * @program: lxshop
  * @description:
  * @author: DBC
- * @create: 2019-08-16 11:02
+ * @create: 2019-08-26 20:09
  **/
 @Entity
 @Table(name = "l_user_licence", schema = "lxshop", catalog = "")
@@ -20,6 +20,7 @@ public class LUserLicenceEntity {
     private String licencePhoto;
     private String legalPersonFphoto;
     private String legalPersonBphoto;
+    private int userId;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -111,6 +112,16 @@ public class LUserLicenceEntity {
         this.legalPersonBphoto = legalPersonBphoto;
     }
 
+    @Basic
+    @Column(name = "user_id", nullable = false)
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -119,6 +130,7 @@ public class LUserLicenceEntity {
         LUserLicenceEntity that = (LUserLicenceEntity) o;
 
         if (id != that.id) return false;
+        if (userId != that.userId) return false;
         if (licenceNumber != null ? !licenceNumber.equals(that.licenceNumber) : that.licenceNumber != null)
             return false;
         if (licenceName != null ? !licenceName.equals(that.licenceName) : that.licenceName != null) return false;
@@ -147,6 +159,7 @@ public class LUserLicenceEntity {
         result = 31 * result + (licencePhoto != null ? licencePhoto.hashCode() : 0);
         result = 31 * result + (legalPersonFphoto != null ? legalPersonFphoto.hashCode() : 0);
         result = 31 * result + (legalPersonBphoto != null ? legalPersonBphoto.hashCode() : 0);
+        result = 31 * result + userId;
         return result;
     }
 }

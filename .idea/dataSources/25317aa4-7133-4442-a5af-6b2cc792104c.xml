@@ -1035,7 +1035,8 @@
     <table id="283" parent="9" name="l_user_address"/>
     <table id="284" parent="9" name="l_user_integral_log"/>
     <table id="285" parent="9" name="l_user_licence"/>
-    <column id="286" parent="246" name="id">
+    <table id="286" parent="9" name="l_user_photo"/>
+    <column id="287" parent="246" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1043,7 +1044,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="246" name="description">
+    <column id="288" parent="246" name="description">
       <Position>2</Position>
       <Comment>内容描述</Comment>
       <DataType>mediumtext|0s</DataType>
@@ -1051,7 +1052,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="288" parent="246" name="url">
+    <column id="289" parent="246" name="url">
       <Position>3</Position>
       <Comment>内容文件地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1060,7 +1061,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="289" parent="246" name="add_time">
+    <column id="290" parent="246" name="add_time">
       <Position>4</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1068,7 +1069,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="246" name="title">
+    <column id="291" parent="246" name="title">
       <Position>5</Position>
       <Comment>标题</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -1077,7 +1078,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="291" parent="246" name="area_id">
+    <column id="292" parent="246" name="area_id">
       <Position>6</Position>
       <Comment>所属片区ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1085,12 +1086,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="292" parent="246" name="PRIMARY">
+    <key id="293" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="293" parent="247" name="id">
+    <column id="294" parent="247" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1098,7 +1099,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="247" name="description">
+    <column id="295" parent="247" name="description">
       <Position>2</Position>
       <Comment>内容描述</Comment>
       <DataType>mediumtext|0s</DataType>
@@ -1106,7 +1107,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="295" parent="247" name="url">
+    <column id="296" parent="247" name="url">
       <Position>3</Position>
       <Comment>内容文件地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1115,7 +1116,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="296" parent="247" name="add_time">
+    <column id="297" parent="247" name="add_time">
       <Position>4</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1123,7 +1124,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="247" name="title">
+    <column id="298" parent="247" name="title">
       <Position>5</Position>
       <Comment>标题</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -1132,7 +1133,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="298" parent="247" name="area_id">
+    <column id="299" parent="247" name="area_id">
       <Position>6</Position>
       <Comment>所属片区ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1140,12 +1141,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="299" parent="247" name="PRIMARY">
+    <key id="300" parent="247" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="300" parent="248" name="id">
+    <column id="301" parent="248" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1153,7 +1154,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="248" name="name">
+    <column id="302" parent="248" name="name">
       <Position>2</Position>
       <Comment>管理员名</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -1162,7 +1163,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="302" parent="248" name="pwd">
+    <column id="303" parent="248" name="pwd">
       <Position>3</Position>
       <Comment>登录密码</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -1171,7 +1172,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="303" parent="248" name="mobile">
+    <column id="304" parent="248" name="mobile">
       <Position>4</Position>
       <Comment>手机号，即登录账号</Comment>
       <DataType>varchar(15)|0s</DataType>
@@ -1180,7 +1181,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="304" parent="248" name="login_total">
+    <column id="305" parent="248" name="login_total">
       <Position>5</Position>
       <Comment>登录次数</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1188,7 +1189,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="248" name="login_time">
+    <column id="306" parent="248" name="login_time">
       <Position>6</Position>
       <Comment>最后登录时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1196,7 +1197,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="248" name="role_id">
+    <column id="307" parent="248" name="role_id">
       <Position>7</Position>
       <Comment>所属角色组，10为超级管理员，0客服，1人事，2财务</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1204,7 +1205,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="248" name="gender">
+    <column id="308" parent="248" name="gender">
       <Position>8</Position>
       <Comment>性别（0保密，1女，2男）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -1212,7 +1213,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="248" name="add_time">
+    <column id="309" parent="248" name="add_time">
       <Position>9</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1220,7 +1221,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="248" name="upd_time">
+    <column id="310" parent="248" name="upd_time">
       <Position>10</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1228,7 +1229,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="248" name="image">
+    <column id="311" parent="248" name="image">
       <Position>11</Position>
       <Comment>头像</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1237,7 +1238,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="311" parent="248" name="email">
+    <column id="312" parent="248" name="email">
       <Position>12</Position>
       <Comment>邮箱</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -1246,12 +1247,12 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <key id="312" parent="248" name="PRIMARY">
+    <key id="313" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="313" parent="249" name="id">
+    <column id="314" parent="249" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1259,7 +1260,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="249" name="name">
+    <column id="315" parent="249" name="name">
       <Position>2</Position>
       <Comment>片区名称</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1268,7 +1269,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="315" parent="249" name="description">
+    <column id="316" parent="249" name="description">
       <Position>3</Position>
       <Comment>片区简短描述</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1277,7 +1278,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="316" parent="249" name="user_count">
+    <column id="317" parent="249" name="user_count">
       <Position>4</Position>
       <Comment>片区经销商人数</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1285,7 +1286,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="249" name="salesman_count">
+    <column id="318" parent="249" name="salesman_count">
       <Position>5</Position>
       <Comment>片区业务员人数</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1293,7 +1294,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="249" name="add_time">
+    <column id="319" parent="249" name="add_time">
       <Position>6</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1301,7 +1302,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="249" name="principal_id">
+    <column id="320" parent="249" name="principal_id">
       <Position>7</Position>
       <Comment>片区负责人id（即顶级业务员）</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1309,12 +1310,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="320" parent="249" name="PRIMARY">
+    <key id="321" parent="249" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="321" parent="250" name="id">
+    <column id="322" parent="250" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1322,7 +1323,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="250" name="user_id">
+    <column id="323" parent="250" name="user_id">
       <Position>2</Position>
       <Comment>经销商ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1330,7 +1331,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="323" parent="250" name="goods_id">
+    <column id="324" parent="250" name="goods_id">
       <Position>3</Position>
       <Comment>商品ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1338,7 +1339,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="250" name="goods_name">
+    <column id="325" parent="250" name="goods_name">
       <Position>4</Position>
       <Comment>商品名称</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -1347,7 +1348,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="325" parent="250" name="goods_images">
+    <column id="326" parent="250" name="goods_images">
       <Position>5</Position>
       <Comment>商品图片</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1356,7 +1357,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="326" parent="250" name="price">
+    <column id="327" parent="250" name="price">
       <Position>6</Position>
       <Comment>商品价格</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -1364,7 +1365,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="250" name="measure">
+    <column id="328" parent="250" name="measure">
       <Position>7</Position>
       <Comment>尺寸</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -1373,7 +1374,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="328" parent="250" name="color">
+    <column id="329" parent="250" name="color">
       <Position>8</Position>
       <Comment>商品颜色</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1382,7 +1383,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="329" parent="250" name="buy_number">
+    <column id="330" parent="250" name="buy_number">
       <Position>9</Position>
       <Comment>购买数量</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1390,7 +1391,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="250" name="add_time">
+    <column id="331" parent="250" name="add_time">
       <Position>10</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1398,7 +1399,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="250" name="upd_time">
+    <column id="332" parent="250" name="upd_time">
       <Position>11</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1406,7 +1407,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="332" parent="250" name="price_tatal">
+    <column id="333" parent="250" name="price_tatal">
       <Position>12</Position>
       <Comment>商品总价</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -1414,12 +1415,12 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="333" parent="250" name="PRIMARY">
+    <key id="334" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="334" parent="251" name="id">
+    <column id="335" parent="251" name="id">
       <Position>1</Position>
       <Comment>基本设置id</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -1427,13 +1428,13 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="251" name="value">
+    <column id="336" parent="251" name="value">
       <Position>2</Position>
       <Comment>值</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="251" name="name">
+    <column id="337" parent="251" name="name">
       <Position>3</Position>
       <Comment>名称</Comment>
       <DataType>char(60)|0s</DataType>
@@ -1441,7 +1442,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="251" name="describe">
+    <column id="338" parent="251" name="describe">
       <Position>4</Position>
       <Comment>描述</Comment>
       <DataType>char(255)|0s</DataType>
@@ -1449,7 +1450,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="251" name="error_tips">
+    <column id="339" parent="251" name="error_tips">
       <Position>5</Position>
       <Comment>错误提示</Comment>
       <DataType>char(150)|0s</DataType>
@@ -1457,7 +1458,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="251" name="type">
+    <column id="340" parent="251" name="type">
       <Position>6</Position>
       <Comment>类型（admin后台, home前台）</Comment>
       <DataType>char(30)|0s</DataType>
@@ -1465,7 +1466,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="251" name="only_tag">
+    <column id="341" parent="251" name="only_tag">
       <Position>7</Position>
       <Comment>唯一的标记</Comment>
       <DataType>char(60)|0s</DataType>
@@ -1473,7 +1474,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="341" parent="251" name="upd_time">
+    <column id="342" parent="251" name="upd_time">
       <Position>8</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1481,21 +1482,21 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="342" parent="251" name="only_tag">
+    <index id="343" parent="251" name="only_tag">
       <ColNames>only_tag</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="343" parent="251" name="PRIMARY">
+    <key id="344" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="344" parent="251" name="only_tag">
+    <key id="345" parent="251" name="only_tag">
       <ColNames>only_tag</ColNames>
       <UnderlyingIndexName>only_tag</UnderlyingIndexName>
     </key>
-    <column id="345" parent="252" name="id">
+    <column id="346" parent="252" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1503,7 +1504,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="346" parent="252" name="title">
+    <column id="347" parent="252" name="title">
       <Position>2</Position>
       <Comment>页面标题</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -1512,7 +1513,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="347" parent="252" name="content">
+    <column id="348" parent="252" name="content">
       <Position>3</Position>
       <Comment>页面内容</Comment>
       <DataType>text|0s</DataType>
@@ -1520,7 +1521,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="348" parent="252" name="is_enable">
+    <column id="349" parent="252" name="is_enable">
       <Position>4</Position>
       <Comment>是否启用（0否，1是）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -1528,7 +1529,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="252" name="kind">
+    <column id="350" parent="252" name="kind">
       <Position>5</Position>
       <Comment>自定义类型（0为新页面，1为嵌套页面）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -1536,7 +1537,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="252" name="url">
+    <column id="351" parent="252" name="url">
       <Position>6</Position>
       <Comment>自定义页面地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1545,7 +1546,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="351" parent="252" name="access_count">
+    <column id="352" parent="252" name="access_count">
       <Position>7</Position>
       <Comment>访问次数</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1553,7 +1554,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="352" parent="252" name="add_time">
+    <column id="353" parent="252" name="add_time">
       <Position>8</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1561,7 +1562,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="353" parent="252" name="upd_time">
+    <column id="354" parent="252" name="upd_time">
       <Position>9</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1569,12 +1570,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="354" parent="252" name="PRIMARY">
+    <key id="355" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="355" parent="253" name="id">
+    <column id="356" parent="253" name="id">
       <Position>1</Position>
       <Comment>自增id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1582,7 +1583,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="253" name="pid">
+    <column id="357" parent="253" name="pid">
       <Position>2</Position>
       <Comment>父id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1590,7 +1591,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="253" name="icon">
+    <column id="358" parent="253" name="icon">
       <Position>3</Position>
       <Comment>icon图标</Comment>
       <DataType>varchar(255)|0s</DataType>
@@ -1598,14 +1599,14 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="253" name="name">
+    <column id="359" parent="253" name="name">
       <Position>4</Position>
       <Comment>名称</Comment>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="253" name="is_enable">
+    <column id="360" parent="253" name="is_enable">
       <Position>5</Position>
       <Comment>是否启用（0否，1是）</Comment>
       <DataType>tinyint(1) unsigned|0s</DataType>
@@ -1613,7 +1614,7 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="360" parent="253" name="sort">
+    <column id="361" parent="253" name="sort">
       <Position>6</Position>
       <Comment>顺序</Comment>
       <DataType>tinyint(3) unsigned|0s</DataType>
@@ -1621,7 +1622,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="361" parent="253" name="add_time">
+    <column id="362" parent="253" name="add_time">
       <Position>7</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1629,7 +1630,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="253" name="upd_time">
+    <column id="363" parent="253" name="upd_time">
       <Position>8</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1637,16 +1638,16 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="363" parent="253" name="is_enable">
+    <index id="364" parent="253" name="is_enable">
       <ColNames>is_enable</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="364" parent="253" name="PRIMARY">
+    <key id="365" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="365" parent="254" name="id">
+    <column id="366" parent="254" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1654,7 +1655,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="254" name="factory_id">
+    <column id="367" parent="254" name="factory_id">
       <Position>2</Position>
       <Comment>厂家ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1662,7 +1663,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="367" parent="254" name="kind_name">
+    <column id="368" parent="254" name="kind_name">
       <Position>3</Position>
       <Comment>标题</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -1671,7 +1672,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="368" parent="254" name="model">
+    <column id="369" parent="254" name="model">
       <Position>4</Position>
       <Comment>型号</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -1680,7 +1681,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="369" parent="254" name="material">
+    <column id="370" parent="254" name="material">
       <Position>5</Position>
       <Comment>材质</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1689,7 +1690,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="370" parent="254" name="structure">
+    <column id="371" parent="254" name="structure">
       <Position>6</Position>
       <Comment>结构工艺</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -1698,7 +1699,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="371" parent="254" name="style">
+    <column id="372" parent="254" name="style">
       <Position>7</Position>
       <Comment>风格</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -1707,7 +1708,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="372" parent="254" name="use">
+    <column id="373" parent="254" name="use">
       <Position>8</Position>
       <Comment>用途</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -1716,7 +1717,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="373" parent="254" name="sale_method">
+    <column id="374" parent="254" name="sale_method">
       <Position>9</Position>
       <Comment>售卖方式</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1725,7 +1726,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="374" parent="254" name="inventory">
+    <column id="375" parent="254" name="inventory">
       <Position>10</Position>
       <Comment>库存描述</Comment>
       <DataType>varchar(500)|0s</DataType>
@@ -1734,7 +1735,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="375" parent="254" name="remark">
+    <column id="376" parent="254" name="remark">
       <Position>11</Position>
       <Comment>备注（尺寸颜色描述）</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1743,12 +1744,12 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <key id="376" parent="254" name="PRIMARY">
+    <key id="377" parent="254" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="377" parent="255" name="id">
+    <column id="378" parent="255" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1756,7 +1757,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="378" parent="255" name="licence_number">
+    <column id="379" parent="255" name="licence_number">
       <Position>2</Position>
       <Comment>营业执照编号</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -1765,7 +1766,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="379" parent="255" name="licence_name">
+    <column id="380" parent="255" name="licence_name">
       <Position>3</Position>
       <Comment>营业执照名称</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -1774,7 +1775,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="380" parent="255" name="legal_person">
+    <column id="381" parent="255" name="legal_person">
       <Position>4</Position>
       <Comment>法人代表</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1783,7 +1784,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="381" parent="255" name="legal_person_tel">
+    <column id="382" parent="255" name="legal_person_tel">
       <Position>5</Position>
       <Comment>法人联系方式</Comment>
       <DataType>varchar(15)|0s</DataType>
@@ -1792,7 +1793,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="382" parent="255" name="legal_person_idcard">
+    <column id="383" parent="255" name="legal_person_idcard">
       <Position>6</Position>
       <Comment>法人身份证号</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -1801,7 +1802,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="383" parent="255" name="licence_photo">
+    <column id="384" parent="255" name="licence_photo">
       <Position>7</Position>
       <Comment>营业执照图片</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1810,7 +1811,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="384" parent="255" name="legal_person_fphoto">
+    <column id="385" parent="255" name="legal_person_fphoto">
       <Position>8</Position>
       <Comment>法人身份证照片正面</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1819,7 +1820,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="385" parent="255" name="legal_person_bphoto">
+    <column id="386" parent="255" name="legal_person_bphoto">
       <Position>9</Position>
       <Comment>法人身份证照片反面</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1828,12 +1829,20 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <key id="386" parent="255" name="PRIMARY">
+    <column id="387" parent="255" name="user_id">
+      <Position>10</Position>
+      <Comment>厂商用户id</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="388" parent="255" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="387" parent="256" name="id">
+    <column id="389" parent="256" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -1841,7 +1850,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="388" parent="256" name="alipay_account">
+    <column id="390" parent="256" name="alipay_account">
       <Position>2</Position>
       <Comment>支付宝账号</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1850,7 +1859,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="389" parent="256" name="wechat_code">
+    <column id="391" parent="256" name="wechat_code">
       <Position>3</Position>
       <Comment>微信收款二维码</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1859,7 +1868,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="390" parent="256" name="bank_account">
+    <column id="392" parent="256" name="bank_account">
       <Position>4</Position>
       <Comment>银行卡账号</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -1868,7 +1877,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="391" parent="256" name="bank_name">
+    <column id="393" parent="256" name="bank_name">
       <Position>5</Position>
       <Comment>银行卡账号验证姓名</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1877,7 +1886,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="392" parent="256" name="name">
+    <column id="394" parent="256" name="name">
       <Position>6</Position>
       <Comment>企业名用户名</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -1886,7 +1895,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="393" parent="256" name="pwd">
+    <column id="395" parent="256" name="pwd">
       <Position>7</Position>
       <Comment>登录密码</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -1895,7 +1904,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="394" parent="256" name="status">
+    <column id="396" parent="256" name="status">
       <Position>8</Position>
       <Comment>状态（0正常, 1禁止登录）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -1903,7 +1912,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="395" parent="256" name="mobile">
+    <column id="397" parent="256" name="mobile">
       <Position>9</Position>
       <Comment>手机号码</Comment>
       <DataType>varchar(15)|0s</DataType>
@@ -1912,7 +1921,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="396" parent="256" name="email">
+    <column id="398" parent="256" name="email">
       <Position>10</Position>
       <Comment>电子邮箱（最大长度60个字符）</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -1921,7 +1930,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="397" parent="256" name="avatar">
+    <column id="399" parent="256" name="avatar">
       <Position>11</Position>
       <Comment>用户头像地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -1930,7 +1939,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="398" parent="256" name="province">
+    <column id="400" parent="256" name="province">
       <Position>12</Position>
       <Comment>所在省</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1939,7 +1948,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="399" parent="256" name="city">
+    <column id="401" parent="256" name="city">
       <Position>13</Position>
       <Comment>所在市</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1948,7 +1957,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="400" parent="256" name="address">
+    <column id="402" parent="256" name="address">
       <Position>14</Position>
       <Comment>详细地址</Comment>
       <DataType>varchar(150)|0s</DataType>
@@ -1957,7 +1966,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="401" parent="256" name="salesman_id">
+    <column id="403" parent="256" name="salesman_id">
       <Position>15</Position>
       <Comment>所属业务员ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1965,7 +1974,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="402" parent="256" name="add_time">
+    <column id="404" parent="256" name="add_time">
       <Position>16</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1973,7 +1982,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="403" parent="256" name="upd_time">
+    <column id="405" parent="256" name="upd_time">
       <Position>17</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1981,7 +1990,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="404" parent="256" name="licence_id">
+    <column id="406" parent="256" name="licence_id">
       <Position>18</Position>
       <Comment>营业执照ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1989,7 +1998,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="405" parent="256" name="order_count">
+    <column id="407" parent="256" name="order_count">
       <Position>19</Position>
       <Comment>总共完成订单数</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1997,7 +2006,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="406" parent="256" name="sell_count">
+    <column id="408" parent="256" name="sell_count">
       <Position>20</Position>
       <Comment>总共完成销售额</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -2005,7 +2014,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="407" parent="256" name="capacity">
+    <column id="409" parent="256" name="capacity">
       <Position>21</Position>
       <Comment>生产能力</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2014,7 +2023,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="408" parent="256" name="quality">
+    <column id="410" parent="256" name="quality">
       <Position>22</Position>
       <Comment>产品质量</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2023,7 +2032,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="409" parent="256" name="stability">
+    <column id="411" parent="256" name="stability">
       <Position>23</Position>
       <Comment>关系稳定性</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2032,7 +2041,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="410" parent="256" name="circumstance">
+    <column id="412" parent="256" name="circumstance">
       <Position>24</Position>
       <Comment>经营状况</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2041,7 +2050,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="411" parent="256" name="report">
+    <column id="413" parent="256" name="report">
       <Position>25</Position>
       <Comment>详细报告文件地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2050,7 +2059,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="412" parent="256" name="area_id">
+    <column id="414" parent="256" name="area_id">
       <Position>26</Position>
       <Comment>所属片区ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2058,12 +2067,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="413" parent="256" name="PRIMARY">
+    <key id="415" parent="256" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="414" parent="257" name="id">
+    <column id="416" parent="257" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2071,7 +2080,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="415" parent="257" name="title">
+    <column id="417" parent="257" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -2079,7 +2088,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="416" parent="257" name="inventory">
+    <column id="418" parent="257" name="inventory">
       <Position>3</Position>
       <Comment>库存（所有规格库存总和）</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2087,7 +2096,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="417" parent="257" name="inventory_unit">
+    <column id="419" parent="257" name="inventory_unit">
       <Position>4</Position>
       <Comment>库存单位</Comment>
       <DataType>varchar(15)|0s</DataType>
@@ -2095,7 +2104,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="418" parent="257" name="images">
+    <column id="420" parent="257" name="images">
       <Position>5</Position>
       <Comment>封面图片</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2103,7 +2112,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="419" parent="257" name="price">
+    <column id="421" parent="257" name="price">
       <Position>6</Position>
       <Comment>商品价格（用于展示使用）</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -2111,7 +2120,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="420" parent="257" name="is_shelves">
+    <column id="422" parent="257" name="is_shelves">
       <Position>7</Position>
       <Comment>是否上架（下架后用户不可见, 0否, 1是）</Comment>
       <DataType>tinyint(2)|0s</DataType>
@@ -2119,7 +2128,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="421" parent="257" name="is_home_recommended">
+    <column id="423" parent="257" name="is_home_recommended">
       <Position>8</Position>
       <Comment>是否首页推荐（0否, 1是）</Comment>
       <DataType>tinyint(2)|0s</DataType>
@@ -2127,7 +2136,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="422" parent="257" name="content_web">
+    <column id="424" parent="257" name="content_web">
       <Position>9</Position>
       <Comment>电脑端详情内容</Comment>
       <DataType>mediumtext|0s</DataType>
@@ -2135,7 +2144,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="423" parent="257" name="sales_count">
+    <column id="425" parent="257" name="sales_count">
       <Position>10</Position>
       <Comment>销量</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2143,7 +2152,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="424" parent="257" name="access_count">
+    <column id="426" parent="257" name="access_count">
       <Position>11</Position>
       <Comment>访问次数</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2151,7 +2160,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="425" parent="257" name="home_recommended_images">
+    <column id="427" parent="257" name="home_recommended_images">
       <Position>12</Position>
       <Comment>首页推荐图片</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2159,7 +2168,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="426" parent="257" name="add_time">
+    <column id="428" parent="257" name="add_time">
       <Position>13</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2167,7 +2176,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="427" parent="257" name="upd_time">
+    <column id="429" parent="257" name="upd_time">
       <Position>14</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2175,7 +2184,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="428" parent="257" name="after_sales_instruction">
+    <column id="430" parent="257" name="after_sales_instruction">
       <Position>15</Position>
       <Comment>售后说明</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2183,7 +2192,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="429" parent="257" name="origin">
+    <column id="431" parent="257" name="origin">
       <Position>16</Position>
       <Comment>产地</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -2191,7 +2200,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="430" parent="257" name="kind_name">
+    <column id="432" parent="257" name="kind_name">
       <Position>17</Position>
       <Comment>种类</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -2199,7 +2208,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="431" parent="257" name="model">
+    <column id="433" parent="257" name="model">
       <Position>18</Position>
       <Comment>型号</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -2207,7 +2216,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="432" parent="257" name="material">
+    <column id="434" parent="257" name="material">
       <Position>19</Position>
       <Comment>材质</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -2215,7 +2224,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="433" parent="257" name="structure">
+    <column id="435" parent="257" name="structure">
       <Position>20</Position>
       <Comment>结构工艺</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -2223,7 +2232,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="434" parent="257" name="g_style">
+    <column id="436" parent="257" name="g_style">
       <Position>21</Position>
       <Comment>风格</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -2231,7 +2240,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="435" parent="257" name="g_use">
+    <column id="437" parent="257" name="g_use">
       <Position>22</Position>
       <Comment>用途</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -2239,7 +2248,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="436" parent="257" name="sale_method">
+    <column id="438" parent="257" name="sale_method">
       <Position>23</Position>
       <Comment>售卖方式</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -2247,7 +2256,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="437" parent="257" name="spec_code">
+    <column id="439" parent="257" name="spec_code">
       <Position>24</Position>
       <Comment>信息编码</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2255,12 +2264,12 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="438" parent="257" name="PRIMARY">
+    <key id="440" parent="257" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="439" parent="258" name="id">
+    <column id="441" parent="258" name="id">
       <Position>1</Position>
       <Comment>自增id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2268,7 +2277,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="440" parent="258" name="goods_id">
+    <column id="442" parent="258" name="goods_id">
       <Position>2</Position>
       <Comment>商品id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2276,7 +2285,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="441" parent="258" name="user_id">
+    <column id="443" parent="258" name="user_id">
       <Position>3</Position>
       <Comment>用户id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2284,7 +2293,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="442" parent="258" name="add_time">
+    <column id="444" parent="258" name="add_time">
       <Position>4</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2292,7 +2301,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="443" parent="258" name="upd_time">
+    <column id="445" parent="258" name="upd_time">
       <Position>5</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2300,12 +2309,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="444" parent="258" name="PRIMARY">
+    <key id="446" parent="258" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="445" parent="259" name="id">
+    <column id="447" parent="259" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2313,7 +2322,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="446" parent="259" name="pid">
+    <column id="448" parent="259" name="pid">
       <Position>2</Position>
       <Comment>父id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2321,7 +2330,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="447" parent="259" name="icon">
+    <column id="449" parent="259" name="icon">
       <Position>3</Position>
       <Comment>icon图标</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2330,7 +2339,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="448" parent="259" name="name">
+    <column id="450" parent="259" name="name">
       <Position>4</Position>
       <Comment>分类名称</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -2339,7 +2348,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="449" parent="259" name="is_home_recommended">
+    <column id="451" parent="259" name="is_home_recommended">
       <Position>5</Position>
       <Comment>是否首页推荐（0否, 1是）</Comment>
       <DataType>tinyint(2)|0s</DataType>
@@ -2347,7 +2356,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="450" parent="259" name="sort">
+    <column id="452" parent="259" name="sort">
       <Position>6</Position>
       <Comment>排序</Comment>
       <DataType>tinyint(3)|0s</DataType>
@@ -2355,7 +2364,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="451" parent="259" name="add_time">
+    <column id="453" parent="259" name="add_time">
       <Position>7</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2363,7 +2372,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="452" parent="259" name="upd_time">
+    <column id="454" parent="259" name="upd_time">
       <Position>8</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2371,12 +2380,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="453" parent="259" name="PRIMARY">
+    <key id="455" parent="259" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="454" parent="260" name="id">
+    <column id="456" parent="260" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2384,7 +2393,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="455" parent="260" name="goods_id">
+    <column id="457" parent="260" name="goods_id">
       <Position>2</Position>
       <Comment>商品ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2392,7 +2401,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="456" parent="260" name="category_id">
+    <column id="458" parent="260" name="category_id">
       <Position>3</Position>
       <Comment>分类ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2400,7 +2409,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="457" parent="260" name="add_time">
+    <column id="459" parent="260" name="add_time">
       <Position>4</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2408,12 +2417,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="458" parent="260" name="PRIMARY">
+    <key id="460" parent="260" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="459" parent="261" name="id">
+    <column id="461" parent="261" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2421,7 +2430,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="460" parent="261" name="goods_id">
+    <column id="462" parent="261" name="goods_id">
       <Position>2</Position>
       <Comment>商品ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2429,7 +2438,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="461" parent="261" name="inventory">
+    <column id="463" parent="261" name="inventory">
       <Position>3</Position>
       <Comment>库存</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2437,7 +2446,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="462" parent="261" name="add_time">
+    <column id="464" parent="261" name="add_time">
       <Position>4</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2445,12 +2454,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="463" parent="261" name="PRIMARY">
+    <key id="465" parent="261" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="464" parent="262" name="id">
+    <column id="466" parent="262" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2458,7 +2467,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="465" parent="262" name="goods_id">
+    <column id="467" parent="262" name="goods_id">
       <Position>2</Position>
       <Comment>商品id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2466,7 +2475,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="466" parent="262" name="images">
+    <column id="468" parent="262" name="images">
       <Position>3</Position>
       <Comment>商品图片</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2475,7 +2484,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="467" parent="262" name="sort">
+    <column id="469" parent="262" name="sort">
       <Position>4</Position>
       <Comment>排序</Comment>
       <DataType>tinyint(3)|0s</DataType>
@@ -2483,7 +2492,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="468" parent="262" name="add_time">
+    <column id="470" parent="262" name="add_time">
       <Position>5</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2491,12 +2500,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="469" parent="262" name="PRIMARY">
+    <key id="471" parent="262" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="470" parent="263" name="id">
+    <column id="472" parent="263" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2504,7 +2513,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="471" parent="263" name="measure">
+    <column id="473" parent="263" name="measure">
       <Position>2</Position>
       <Comment>商品尺寸</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -2513,7 +2522,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="472" parent="263" name="color">
+    <column id="474" parent="263" name="color">
       <Position>3</Position>
       <Comment>商品颜色</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -2522,7 +2531,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="473" parent="263" name="origin_price">
+    <column id="475" parent="263" name="origin_price">
       <Position>4</Position>
       <Comment>商品展示价格</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -2530,7 +2539,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="474" parent="263" name="inventory">
+    <column id="476" parent="263" name="inventory">
       <Position>5</Position>
       <Comment>库存</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2538,7 +2547,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="475" parent="263" name="factory_price">
+    <column id="477" parent="263" name="factory_price">
       <Position>6</Position>
       <Comment>出厂价格</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -2546,7 +2555,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="476" parent="263" name="guide_price">
+    <column id="478" parent="263" name="guide_price">
       <Position>7</Position>
       <Comment>指导价格</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -2554,7 +2563,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="477" parent="263" name="add_time">
+    <column id="479" parent="263" name="add_time">
       <Position>8</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2562,7 +2571,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="478" parent="263" name="goods_id">
+    <column id="480" parent="263" name="goods_id">
       <Position>9</Position>
       <Comment>商品id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2570,12 +2579,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="479" parent="263" name="PRIMARY">
+    <key id="481" parent="263" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="480" parent="264" name="id">
+    <column id="482" parent="264" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2583,7 +2592,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="481" parent="264" name="images">
+    <column id="483" parent="264" name="images">
       <Position>2</Position>
       <Comment>滚动图片</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2592,7 +2601,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="482" parent="264" name="goods_id">
+    <column id="484" parent="264" name="goods_id">
       <Position>3</Position>
       <Comment>推荐商品ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2600,7 +2609,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="483" parent="264" name="description">
+    <column id="485" parent="264" name="description">
       <Position>4</Position>
       <Comment>描述</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2609,7 +2618,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="484" parent="264" name="is_show">
+    <column id="486" parent="264" name="is_show">
       <Position>5</Position>
       <Comment>是否显示（0否，1是）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -2617,7 +2626,7 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="485" parent="264" name="sort">
+    <column id="487" parent="264" name="sort">
       <Position>6</Position>
       <Comment>排序</Comment>
       <DataType>tinyint(3)|0s</DataType>
@@ -2625,7 +2634,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="486" parent="264" name="add_time">
+    <column id="488" parent="264" name="add_time">
       <Position>7</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2633,12 +2642,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="487" parent="264" name="PRIMARY">
+    <key id="489" parent="264" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="488" parent="265" name="id">
+    <column id="490" parent="265" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -2646,7 +2655,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="489" parent="265" name="name">
+    <column id="491" parent="265" name="name">
       <Position>2</Position>
       <Comment>导航名称</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -2655,7 +2664,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="490" parent="265" name="url">
+    <column id="492" parent="265" name="url">
       <Position>3</Position>
       <Comment>url地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2664,7 +2673,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="491" parent="265" name="describe">
+    <column id="493" parent="265" name="describe">
       <Position>4</Position>
       <Comment>描述</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -2673,7 +2682,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="492" parent="265" name="sort">
+    <column id="494" parent="265" name="sort">
       <Position>5</Position>
       <Comment>排序</Comment>
       <DataType>tinyint(3)|0s</DataType>
@@ -2681,7 +2690,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="493" parent="265" name="is_enable">
+    <column id="495" parent="265" name="is_enable">
       <Position>6</Position>
       <Comment>是否启用（0否，1是）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -2689,7 +2698,7 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="494" parent="265" name="is_new_window_open">
+    <column id="496" parent="265" name="is_new_window_open">
       <Position>7</Position>
       <Comment>是否新窗口打开（0否，1是）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -2697,7 +2706,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="495" parent="265" name="add_time">
+    <column id="497" parent="265" name="add_time">
       <Position>8</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2705,7 +2714,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="496" parent="265" name="upd_time">
+    <column id="498" parent="265" name="upd_time">
       <Position>9</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2713,12 +2722,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="497" parent="265" name="PRIMARY">
+    <key id="499" parent="265" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="498" parent="266" name="id">
+    <column id="500" parent="266" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2726,7 +2735,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="499" parent="266" name="type">
+    <column id="501" parent="266" name="type">
       <Position>2</Position>
       <Comment>登录平台类型，0用户平台，1工作人员平台</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -2734,7 +2743,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="500" parent="266" name="user_id">
+    <column id="502" parent="266" name="user_id">
       <Position>3</Position>
       <Comment>用户ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2742,7 +2751,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="501" parent="266" name="role">
+    <column id="503" parent="266" name="role">
       <Position>4</Position>
       <Comment>角色划分，经销商、业务员、工作人员、厂家</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -2751,7 +2760,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="502" parent="266" name="login_time">
+    <column id="504" parent="266" name="login_time">
       <Position>5</Position>
       <Comment>登录时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2759,12 +2768,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="503" parent="266" name="PRIMARY">
+    <key id="505" parent="266" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="504" parent="267" name="id">
+    <column id="506" parent="267" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2772,7 +2781,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="505" parent="267" name="content">
+    <column id="507" parent="267" name="content">
       <Position>2</Position>
       <Comment>消息内容</Comment>
       <DataType>text|0s</DataType>
@@ -2780,7 +2789,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="506" parent="267" name="is_read">
+    <column id="508" parent="267" name="is_read">
       <Position>3</Position>
       <Comment>是否已读（0是，1否）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -2788,7 +2797,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="507" parent="267" name="url">
+    <column id="509" parent="267" name="url">
       <Position>4</Position>
       <Comment>上传文件地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2797,7 +2806,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="508" parent="267" name="to_role">
+    <column id="510" parent="267" name="to_role">
       <Position>5</Position>
       <Comment>寄送对象，0平台，1厂家</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -2805,7 +2814,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="509" parent="267" name="add_time">
+    <column id="511" parent="267" name="add_time">
       <Position>6</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2813,7 +2822,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="510" parent="267" name="title">
+    <column id="512" parent="267" name="title">
       <Position>7</Position>
       <Comment>信息标题</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -2822,12 +2831,12 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <key id="511" parent="267" name="PRIMARY">
+    <key id="513" parent="267" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="512" parent="268" name="id">
+    <column id="514" parent="268" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2835,7 +2844,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="513" parent="268" name="pid">
+    <column id="515" parent="268" name="pid">
       <Position>2</Position>
       <Comment>父id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2843,7 +2852,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="514" parent="268" name="name">
+    <column id="516" parent="268" name="name">
       <Position>3</Position>
       <Comment>导航名称</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -2852,7 +2861,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="515" parent="268" name="url">
+    <column id="517" parent="268" name="url">
       <Position>4</Position>
       <Comment>url地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2861,7 +2870,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="516" parent="268" name="value">
+    <column id="518" parent="268" name="value">
       <Position>5</Position>
       <Comment>分类id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2869,7 +2878,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="517" parent="268" name="data_type">
+    <column id="519" parent="268" name="data_type">
       <Position>6</Position>
       <Comment>数据类型（1:自定义导航, 2:文章分类, 3:自定义页面）</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2877,7 +2886,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="518" parent="268" name="nav_type">
+    <column id="520" parent="268" name="nav_type">
       <Position>7</Position>
       <Comment>导航类型（1:顶部导航, 2:底部导航）</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2885,7 +2894,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="519" parent="268" name="sort">
+    <column id="521" parent="268" name="sort">
       <Position>8</Position>
       <Comment>排序</Comment>
       <DataType>tinyint(3)|0s</DataType>
@@ -2893,7 +2902,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="520" parent="268" name="is_show">
+    <column id="522" parent="268" name="is_show">
       <Position>9</Position>
       <Comment>是否显示（0否，1是）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -2901,7 +2910,7 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="521" parent="268" name="is_new_window_open">
+    <column id="523" parent="268" name="is_new_window_open">
       <Position>10</Position>
       <Comment>是否新窗口打开（0否，1是）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -2909,7 +2918,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="522" parent="268" name="add_time">
+    <column id="524" parent="268" name="add_time">
       <Position>11</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2917,7 +2926,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="523" parent="268" name="upd_time">
+    <column id="525" parent="268" name="upd_time">
       <Position>12</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2925,12 +2934,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="524" parent="268" name="PRIMARY">
+    <key id="526" parent="268" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="525" parent="269" name="id">
+    <column id="527" parent="269" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -2938,7 +2947,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="526" parent="269" name="description">
+    <column id="528" parent="269" name="description">
       <Position>2</Position>
       <Comment>内容描述</Comment>
       <DataType>mediumtext|0s</DataType>
@@ -2946,7 +2955,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="527" parent="269" name="url">
+    <column id="529" parent="269" name="url">
       <Position>3</Position>
       <Comment>内容文件地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -2955,7 +2964,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="528" parent="269" name="add_time">
+    <column id="530" parent="269" name="add_time">
       <Position>4</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2963,7 +2972,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="529" parent="269" name="title">
+    <column id="531" parent="269" name="title">
       <Position>5</Position>
       <Comment>标题</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -2972,7 +2981,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="530" parent="269" name="area_id">
+    <column id="532" parent="269" name="area_id">
       <Position>6</Position>
       <Comment>所属片区ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2980,12 +2989,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="531" parent="269" name="PRIMARY">
+    <key id="533" parent="269" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="532" parent="270" name="id">
+    <column id="534" parent="270" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2993,7 +3002,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="533" parent="270" name="order_no">
+    <column id="535" parent="270" name="order_no">
       <Position>2</Position>
       <Comment>订单号</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -3001,7 +3010,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="534" parent="270" name="factory_id">
+    <column id="536" parent="270" name="factory_id">
       <Position>3</Position>
       <Comment>厂家ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3009,7 +3018,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="535" parent="270" name="user_id">
+    <column id="537" parent="270" name="user_id">
       <Position>4</Position>
       <Comment>用户id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3017,7 +3026,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="536" parent="270" name="receive_name">
+    <column id="538" parent="270" name="receive_name">
       <Position>5</Position>
       <Comment>收件人-姓名</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -3025,7 +3034,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="537" parent="270" name="receive_tel">
+    <column id="539" parent="270" name="receive_tel">
       <Position>6</Position>
       <Comment>收件人-电话</Comment>
       <DataType>varchar(15)|0s</DataType>
@@ -3033,7 +3042,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="538" parent="270" name="receive_province">
+    <column id="540" parent="270" name="receive_province">
       <Position>7</Position>
       <Comment>收件人-省</Comment>
       <DataType>varchar(10)|0s</DataType>
@@ -3041,7 +3050,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="539" parent="270" name="receive_city">
+    <column id="541" parent="270" name="receive_city">
       <Position>8</Position>
       <Comment>收件人-市</Comment>
       <DataType>varchar(10)|0s</DataType>
@@ -3049,7 +3058,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="540" parent="270" name="receive_county">
+    <column id="542" parent="270" name="receive_county">
       <Position>9</Position>
       <Comment>收件人-县/区</Comment>
       <DataType>varchar(10)|0s</DataType>
@@ -3057,7 +3066,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="541" parent="270" name="receive_address">
+    <column id="543" parent="270" name="receive_address">
       <Position>10</Position>
       <Comment>收件人-详细地址</Comment>
       <DataType>varchar(200)|0s</DataType>
@@ -3065,7 +3074,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="542" parent="270" name="user_note">
+    <column id="544" parent="270" name="user_note">
       <Position>11</Position>
       <Comment>用户备注</Comment>
       <DataType>varchar(500)|0s</DataType>
@@ -3073,7 +3082,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="543" parent="270" name="express">
+    <column id="545" parent="270" name="express">
       <Position>12</Position>
       <Comment>快递</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -3081,7 +3090,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="544" parent="270" name="express_number">
+    <column id="546" parent="270" name="express_number">
       <Position>13</Position>
       <Comment>快递单号</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -3089,7 +3098,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="545" parent="270" name="payment">
+    <column id="547" parent="270" name="payment">
       <Position>14</Position>
       <Comment>支付方式（支付宝、微信、银行卡）</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -3097,7 +3106,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="546" parent="270" name="status">
+    <column id="548" parent="270" name="status">
       <Position>15</Position>
       <Comment>订单状态（0待确认, 1已确认/待支付, 2，已支付/待派单，3已派单/待接单, 4已接单/待发货, 5已发货/待收货,6已收货，7已取消, 8已关闭）</Comment>
       <DataType>tinyint(2)|0s</DataType>
@@ -3105,7 +3114,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="547" parent="270" name="pay_status">
+    <column id="549" parent="270" name="pay_status">
       <Position>16</Position>
       <Comment>支付状态（0未支付, 1已支付, 2已退款）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -3113,7 +3122,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="548" parent="270" name="preferential_price">
+    <column id="550" parent="270" name="preferential_price">
       <Position>17</Position>
       <Comment>优惠金额</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -3121,7 +3130,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="549" parent="270" name="price">
+    <column id="551" parent="270" name="price">
       <Position>18</Position>
       <Comment>订单单价</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -3129,7 +3138,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="550" parent="270" name="total_price">
+    <column id="552" parent="270" name="total_price">
       <Position>19</Position>
       <Comment>订单总价(订单最终价格)</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -3137,7 +3146,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="551" parent="270" name="pay_price">
+    <column id="553" parent="270" name="pay_price">
       <Position>20</Position>
       <Comment>已支付金额</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -3145,7 +3154,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="552" parent="270" name="pay_time">
+    <column id="554" parent="270" name="pay_time">
       <Position>21</Position>
       <Comment>支付时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3153,7 +3162,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="553" parent="270" name="confirm_time">
+    <column id="555" parent="270" name="confirm_time">
       <Position>22</Position>
       <Comment>确认时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3161,7 +3170,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="554" parent="270" name="delivery_time">
+    <column id="556" parent="270" name="delivery_time">
       <Position>23</Position>
       <Comment>发货时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3169,7 +3178,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="555" parent="270" name="cancel_time">
+    <column id="557" parent="270" name="cancel_time">
       <Position>24</Position>
       <Comment>取消时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3177,7 +3186,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="556" parent="270" name="collect_time">
+    <column id="558" parent="270" name="collect_time">
       <Position>25</Position>
       <Comment>收货时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3185,7 +3194,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="557" parent="270" name="close_time">
+    <column id="559" parent="270" name="close_time">
       <Position>26</Position>
       <Comment>关闭时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3193,7 +3202,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="558" parent="270" name="add_time">
+    <column id="560" parent="270" name="add_time">
       <Position>27</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3201,7 +3210,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="559" parent="270" name="upd_time">
+    <column id="561" parent="270" name="upd_time">
       <Position>28</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3209,7 +3218,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="560" parent="270" name="integer">
+    <column id="562" parent="270" name="integer">
       <Position>29</Position>
       <Comment>使用积分</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3217,7 +3226,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="561" parent="270" name="spec_code">
+    <column id="563" parent="270" name="spec_code">
       <Position>30</Position>
       <Comment>信息编码</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -3225,12 +3234,12 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="562" parent="270" name="PRIMARY">
+    <key id="564" parent="270" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="563" parent="271" name="id">
+    <column id="565" parent="271" name="id">
       <Position>1</Position>
       <Comment>自增id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3238,7 +3247,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="564" parent="271" name="user_id">
+    <column id="566" parent="271" name="user_id">
       <Position>2</Position>
       <Comment>用户id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3246,7 +3255,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="565" parent="271" name="order_id">
+    <column id="567" parent="271" name="order_id">
       <Position>3</Position>
       <Comment>订单id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3254,7 +3263,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="566" parent="271" name="goods_id">
+    <column id="568" parent="271" name="goods_id">
       <Position>4</Position>
       <Comment>商品id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3262,7 +3271,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="567" parent="271" name="content">
+    <column id="569" parent="271" name="content">
       <Position>5</Position>
       <Comment>评价内容</Comment>
       <DataType>varchar(255)|0s</DataType>
@@ -3270,7 +3279,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="568" parent="271" name="rating">
+    <column id="570" parent="271" name="rating">
       <Position>6</Position>
       <Comment>评价级别（默认0 1~5）</Comment>
       <DataType>tinyint(1) unsigned|0s</DataType>
@@ -3278,7 +3287,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="569" parent="271" name="add_time">
+    <column id="571" parent="271" name="add_time">
       <Position>7</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3286,24 +3295,24 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="570" parent="271" name="user_id">
+    <index id="572" parent="271" name="user_id">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="571" parent="271" name="order_id">
+    <index id="573" parent="271" name="order_id">
       <ColNames>order_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="572" parent="271" name="goods_id">
+    <index id="574" parent="271" name="goods_id">
       <ColNames>goods_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="573" parent="271" name="PRIMARY">
+    <key id="575" parent="271" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="574" parent="272" name="id">
+    <column id="576" parent="272" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3311,7 +3320,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="575" parent="272" name="order_id">
+    <column id="577" parent="272" name="order_id">
       <Position>2</Position>
       <Comment>订单id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3319,7 +3328,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="576" parent="272" name="goods_id">
+    <column id="578" parent="272" name="goods_id">
       <Position>3</Position>
       <Comment>商品id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3327,7 +3336,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="577" parent="272" name="goods_name">
+    <column id="579" parent="272" name="goods_name">
       <Position>4</Position>
       <Comment>商品名称</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -3335,7 +3344,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="578" parent="272" name="goods_images">
+    <column id="580" parent="272" name="goods_images">
       <Position>5</Position>
       <Comment>商品图片</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -3343,7 +3352,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="579" parent="272" name="price">
+    <column id="581" parent="272" name="price">
       <Position>6</Position>
       <Comment>订单价格</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -3351,7 +3360,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="580" parent="272" name="measure">
+    <column id="582" parent="272" name="measure">
       <Position>7</Position>
       <Comment>尺寸</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -3359,7 +3368,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="581" parent="272" name="color">
+    <column id="583" parent="272" name="color">
       <Position>8</Position>
       <Comment>商品颜色</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -3367,7 +3376,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="582" parent="272" name="buy_number">
+    <column id="584" parent="272" name="buy_number">
       <Position>9</Position>
       <Comment>购买数量</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3375,7 +3384,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="583" parent="272" name="spec_code">
+    <column id="585" parent="272" name="spec_code">
       <Position>10</Position>
       <Comment>信息编码</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -3383,7 +3392,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="584" parent="272" name="add_time">
+    <column id="586" parent="272" name="add_time">
       <Position>11</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3391,7 +3400,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="585" parent="272" name="upd_time">
+    <column id="587" parent="272" name="upd_time">
       <Position>12</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3399,7 +3408,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="586" parent="272" name="price_tatal">
+    <column id="588" parent="272" name="price_tatal">
       <Position>13</Position>
       <Comment>商品总价</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -3407,12 +3416,12 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="587" parent="272" name="PRIMARY">
+    <key id="589" parent="272" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="588" parent="273" name="id">
+    <column id="590" parent="273" name="id">
       <Position>1</Position>
       <Comment>自增id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3420,7 +3429,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="589" parent="273" name="order_id">
+    <column id="591" parent="273" name="order_id">
       <Position>2</Position>
       <Comment>订单id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3428,7 +3437,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="590" parent="273" name="original_status">
+    <column id="592" parent="273" name="original_status">
       <Position>3</Position>
       <Comment>原始状态</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -3436,7 +3445,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="591" parent="273" name="new_status">
+    <column id="593" parent="273" name="new_status">
       <Position>4</Position>
       <Comment>最新状态</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -3444,7 +3453,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="592" parent="273" name="msg">
+    <column id="594" parent="273" name="msg">
       <Position>5</Position>
       <Comment>操作描述</Comment>
       <DataType>varchar(255)|0s</DataType>
@@ -3452,7 +3461,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="593" parent="273" name="creator">
+    <column id="595" parent="273" name="creator">
       <Position>6</Position>
       <Comment>创建-用户id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3460,7 +3469,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="594" parent="273" name="creator_name">
+    <column id="596" parent="273" name="creator_name">
       <Position>7</Position>
       <Comment>创建人-姓名</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -3468,7 +3477,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="595" parent="273" name="add_time">
+    <column id="597" parent="273" name="add_time">
       <Position>8</Position>
       <Comment>创建时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3476,24 +3485,24 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="596" parent="273" name="order_id">
+    <index id="598" parent="273" name="order_id">
       <ColNames>order_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="597" parent="273" name="original_status">
+    <index id="599" parent="273" name="original_status">
       <ColNames>original_status</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="598" parent="273" name="new_status">
+    <index id="600" parent="273" name="new_status">
       <ColNames>new_status</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="599" parent="273" name="PRIMARY">
+    <key id="601" parent="273" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="600" parent="274" name="id">
+    <column id="602" parent="274" name="id">
       <Position>1</Position>
       <Comment>支付日志id</Comment>
       <DataType>bigint(20) unsigned|0s</DataType>
@@ -3501,7 +3510,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="601" parent="274" name="user_id">
+    <column id="603" parent="274" name="user_id">
       <Position>2</Position>
       <Comment>用户id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3509,7 +3518,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="602" parent="274" name="trade_no">
+    <column id="604" parent="274" name="trade_no">
       <Position>3</Position>
       <Comment>支付平台交易号</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -3517,7 +3526,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="603" parent="274" name="buyer_user">
+    <column id="605" parent="274" name="buyer_user">
       <Position>4</Position>
       <Comment>支付平台用户帐号</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -3525,7 +3534,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="604" parent="274" name="pay_price">
+    <column id="606" parent="274" name="pay_price">
       <Position>5</Position>
       <Comment>支付金额</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -3533,7 +3542,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="605" parent="274" name="total_price">
+    <column id="607" parent="274" name="total_price">
       <Position>6</Position>
       <Comment>订单实际金额</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -3541,7 +3550,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="606" parent="274" name="description">
+    <column id="608" parent="274" name="description">
       <Position>7</Position>
       <Comment>订单名称</Comment>
       <DataType>varchar(255)|0s</DataType>
@@ -3549,7 +3558,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="607" parent="274" name="payment_name">
+    <column id="609" parent="274" name="payment_name">
       <Position>8</Position>
       <Comment>支付方式名称</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -3557,7 +3566,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="608" parent="274" name="business_type">
+    <column id="610" parent="274" name="business_type">
       <Position>9</Position>
       <Comment>业务类型（ 0订单, 1厂家结算，2经销商退款）</Comment>
       <DataType>tinyint(1) unsigned|0s</DataType>
@@ -3565,7 +3574,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="609" parent="274" name="add_time">
+    <column id="611" parent="274" name="add_time">
       <Position>10</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3573,12 +3582,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="610" parent="274" name="PRIMARY">
+    <key id="612" parent="274" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="611" parent="275" name="id">
+    <column id="613" parent="275" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3586,7 +3595,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="612" parent="275" name="pid">
+    <column id="614" parent="275" name="pid">
       <Position>2</Position>
       <Comment>权限父级id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3594,7 +3603,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="613" parent="275" name="name">
+    <column id="615" parent="275" name="name">
       <Position>3</Position>
       <Comment>权限名称</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -3603,7 +3612,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="614" parent="275" name="control">
+    <column id="616" parent="275" name="control">
       <Position>4</Position>
       <Comment>控制器名称</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -3612,7 +3621,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="615" parent="275" name="action">
+    <column id="617" parent="275" name="action">
       <Position>5</Position>
       <Comment>方法名称</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -3621,7 +3630,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="616" parent="275" name="sort">
+    <column id="618" parent="275" name="sort">
       <Position>6</Position>
       <Comment>排序</Comment>
       <DataType>tinyint(3)|0s</DataType>
@@ -3629,7 +3638,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="617" parent="275" name="is_show">
+    <column id="619" parent="275" name="is_show">
       <Position>7</Position>
       <Comment>是否显示（0否，1是）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -3637,7 +3646,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="618" parent="275" name="icon">
+    <column id="620" parent="275" name="icon">
       <Position>8</Position>
       <Comment>图标class</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -3646,7 +3655,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="619" parent="275" name="add_time">
+    <column id="621" parent="275" name="add_time">
       <Position>9</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3654,12 +3663,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="620" parent="275" name="PRIMARY">
+    <key id="622" parent="275" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="621" parent="276" name="id">
+    <column id="623" parent="276" name="id">
       <Position>1</Position>
       <Comment>自增id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3667,7 +3676,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="622" parent="276" name="pid">
+    <column id="624" parent="276" name="pid">
       <Position>2</Position>
       <Comment>父id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3675,7 +3684,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="623" parent="276" name="name">
+    <column id="625" parent="276" name="name">
       <Position>3</Position>
       <Comment>名称</Comment>
       <DataType>varchar(255)|0s</DataType>
@@ -3683,7 +3692,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="624" parent="276" name="level">
+    <column id="626" parent="276" name="level">
       <Position>4</Position>
       <Comment>级别类型（1:一级[所有省], 2：二级[所有市], 3:三级[所有区县], 4:街道[所有街道]）</Comment>
       <DataType>tinyint(4) unsigned|0s</DataType>
@@ -3691,7 +3700,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="625" parent="276" name="letters">
+    <column id="627" parent="276" name="letters">
       <Position>5</Position>
       <Comment>城市首字母</Comment>
       <DataType>varchar(3)|0s</DataType>
@@ -3699,7 +3708,7 @@
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="626" parent="276" name="sort">
+    <column id="628" parent="276" name="sort">
       <Position>6</Position>
       <Comment>排序</Comment>
       <DataType>tinyint(3) unsigned|0s</DataType>
@@ -3707,7 +3716,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="627" parent="276" name="is_enable">
+    <column id="629" parent="276" name="is_enable">
       <Position>7</Position>
       <Comment>是否启用（0否，1是）</Comment>
       <DataType>tinyint(1) unsigned|0s</DataType>
@@ -3715,7 +3724,7 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="628" parent="276" name="add_time">
+    <column id="630" parent="276" name="add_time">
       <Position>8</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3723,7 +3732,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="629" parent="276" name="upd_time">
+    <column id="631" parent="276" name="upd_time">
       <Position>9</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3731,24 +3740,24 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="630" parent="276" name="pid">
+    <index id="632" parent="276" name="pid">
       <ColNames>pid</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="631" parent="276" name="sort">
+    <index id="633" parent="276" name="sort">
       <ColNames>sort</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="632" parent="276" name="is_enable">
+    <index id="634" parent="276" name="is_enable">
       <ColNames>is_enable</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="633" parent="276" name="PRIMARY">
+    <key id="635" parent="276" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="634" parent="277" name="id">
+    <column id="636" parent="277" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3756,7 +3765,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="635" parent="277" name="name">
+    <column id="637" parent="277" name="name">
       <Position>2</Position>
       <Comment>角色名称</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -3765,7 +3774,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="636" parent="277" name="is_enable">
+    <column id="638" parent="277" name="is_enable">
       <Position>3</Position>
       <Comment>是否启用（0否，1是）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -3773,7 +3782,7 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="637" parent="277" name="add_time">
+    <column id="639" parent="277" name="add_time">
       <Position>4</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3781,7 +3790,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="638" parent="277" name="upd_time">
+    <column id="640" parent="277" name="upd_time">
       <Position>5</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3789,12 +3798,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="639" parent="277" name="PRIMARY">
+    <key id="641" parent="277" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="640" parent="278" name="id">
+    <column id="642" parent="278" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3802,7 +3811,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="641" parent="278" name="role_id">
+    <column id="643" parent="278" name="role_id">
       <Position>2</Position>
       <Comment>角色id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3810,7 +3819,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="642" parent="278" name="power_id">
+    <column id="644" parent="278" name="power_id">
       <Position>3</Position>
       <Comment>权限id</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3818,7 +3827,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="643" parent="278" name="add_time">
+    <column id="645" parent="278" name="add_time">
       <Position>4</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3826,12 +3835,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="644" parent="278" name="PRIMARY">
+    <key id="646" parent="278" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="645" parent="279" name="id">
+    <column id="647" parent="279" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3839,7 +3848,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="646" parent="279" name="description">
+    <column id="648" parent="279" name="description">
       <Position>2</Position>
       <Comment>内容描述</Comment>
       <DataType>mediumtext|0s</DataType>
@@ -3847,7 +3856,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="647" parent="279" name="url">
+    <column id="649" parent="279" name="url">
       <Position>3</Position>
       <Comment>内容文件地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -3856,7 +3865,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="648" parent="279" name="add_time">
+    <column id="650" parent="279" name="add_time">
       <Position>4</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3864,7 +3873,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="649" parent="279" name="title">
+    <column id="651" parent="279" name="title">
       <Position>5</Position>
       <Comment>标题</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -3873,7 +3882,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="650" parent="279" name="area_id">
+    <column id="652" parent="279" name="area_id">
       <Position>6</Position>
       <Comment>所属片区ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3881,12 +3890,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="651" parent="279" name="PRIMARY">
+    <key id="653" parent="279" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="652" parent="280" name="id">
+    <column id="654" parent="280" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -3894,7 +3903,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="653" parent="280" name="pid">
+    <column id="655" parent="280" name="pid">
       <Position>2</Position>
       <Comment>上级ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3902,7 +3911,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="654" parent="280" name="u_name">
+    <column id="656" parent="280" name="u_name">
       <Position>3</Position>
       <Comment>业务员姓名</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -3911,7 +3920,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="655" parent="280" name="mobile">
+    <column id="657" parent="280" name="mobile">
       <Position>4</Position>
       <Comment>手机号，即登录账号</Comment>
       <DataType>varchar(15)|0s</DataType>
@@ -3920,7 +3929,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="656" parent="280" name="pwd">
+    <column id="658" parent="280" name="pwd">
       <Position>5</Position>
       <Comment>登录密码</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -3929,7 +3938,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="657" parent="280" name="area_id">
+    <column id="659" parent="280" name="area_id">
       <Position>6</Position>
       <Comment>所属片区ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3937,7 +3946,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="658" parent="280" name="email">
+    <column id="660" parent="280" name="email">
       <Position>7</Position>
       <Comment>邮箱</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -3946,7 +3955,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="659" parent="280" name="image">
+    <column id="661" parent="280" name="image">
       <Position>8</Position>
       <Comment>业务员头像</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -3955,7 +3964,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="660" parent="280" name="id_card">
+    <column id="662" parent="280" name="id_card">
       <Position>9</Position>
       <Comment>身份证号</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -3964,7 +3973,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="661" parent="280" name="idcard_fphoto">
+    <column id="663" parent="280" name="idcard_fphoto">
       <Position>10</Position>
       <Comment>身份证照片正面</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -3973,7 +3982,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="662" parent="280" name="idcard_bphoto">
+    <column id="664" parent="280" name="idcard_bphoto">
       <Position>11</Position>
       <Comment>身份证反面</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -3982,7 +3991,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="663" parent="280" name="lower_count">
+    <column id="665" parent="280" name="lower_count">
       <Position>12</Position>
       <Comment>下级业务员数量</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3990,7 +3999,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="664" parent="280" name="add_time">
+    <column id="666" parent="280" name="add_time">
       <Position>13</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3998,7 +4007,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="665" parent="280" name="upd_time">
+    <column id="667" parent="280" name="upd_time">
       <Position>14</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4006,7 +4015,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="666" parent="280" name="status">
+    <column id="668" parent="280" name="status">
       <Position>15</Position>
       <Comment>状态（0正常, 1禁止登录）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -4014,7 +4023,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="667" parent="280" name="province">
+    <column id="669" parent="280" name="province">
       <Position>16</Position>
       <Comment>所在省</Comment>
       <DataType>varchar(10)|0s</DataType>
@@ -4023,7 +4032,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="668" parent="280" name="city">
+    <column id="670" parent="280" name="city">
       <Position>17</Position>
       <Comment>所在市</Comment>
       <DataType>varchar(10)|0s</DataType>
@@ -4032,7 +4041,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="669" parent="280" name="description">
+    <column id="671" parent="280" name="description">
       <Position>18</Position>
       <Comment>个人简述</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -4041,7 +4050,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="670" parent="280" name="kind">
+    <column id="672" parent="280" name="kind">
       <Position>19</Position>
       <Comment>业务员分类，0为经销商业务员，1为厂商业务员</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -4049,12 +4058,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="671" parent="280" name="PRIMARY">
+    <key id="673" parent="280" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="672" parent="281" name="id">
+    <column id="674" parent="281" name="id">
       <Position>1</Position>
       <Comment>分类id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -4062,7 +4071,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="673" parent="281" name="pid">
+    <column id="675" parent="281" name="pid">
       <Position>2</Position>
       <Comment>父id</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -4070,7 +4079,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="674" parent="281" name="name">
+    <column id="676" parent="281" name="name">
       <Position>3</Position>
       <Comment>名称</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -4078,7 +4087,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8_general_ci</Collation>
     </column>
-    <column id="675" parent="281" name="min_price">
+    <column id="677" parent="281" name="min_price">
       <Position>4</Position>
       <Comment>最小价格</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -4086,7 +4095,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="676" parent="281" name="max_price">
+    <column id="678" parent="281" name="max_price">
       <Position>5</Position>
       <Comment>最大价格</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -4094,7 +4103,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="677" parent="281" name="is_enable">
+    <column id="679" parent="281" name="is_enable">
       <Position>6</Position>
       <Comment>是否启用（0否，1是）</Comment>
       <DataType>tinyint(1) unsigned|0s</DataType>
@@ -4102,7 +4111,7 @@
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="678" parent="281" name="sort">
+    <column id="680" parent="281" name="sort">
       <Position>7</Position>
       <Comment>顺序</Comment>
       <DataType>tinyint(3) unsigned|0s</DataType>
@@ -4110,7 +4119,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="679" parent="281" name="add_time">
+    <column id="681" parent="281" name="add_time">
       <Position>8</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -4118,7 +4127,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="680" parent="281" name="upd_time">
+    <column id="682" parent="281" name="upd_time">
       <Position>9</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -4126,20 +4135,20 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="681" parent="281" name="pid">
+    <index id="683" parent="281" name="pid">
       <ColNames>pid</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="682" parent="281" name="is_enable">
+    <index id="684" parent="281" name="is_enable">
       <ColNames>is_enable</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="683" parent="281" name="PRIMARY">
+    <key id="685" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="684" parent="282" name="id">
+    <column id="686" parent="282" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(10) unsigned|0s</DataType>
@@ -4147,7 +4156,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="685" parent="282" name="alipay_account">
+    <column id="687" parent="282" name="alipay_account">
       <Position>2</Position>
       <Comment>支付宝账号</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -4156,7 +4165,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="686" parent="282" name="wechat_code">
+    <column id="688" parent="282" name="wechat_code">
       <Position>3</Position>
       <Comment>微信收款二维码</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -4165,7 +4174,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="687" parent="282" name="bank_account">
+    <column id="689" parent="282" name="bank_account">
       <Position>4</Position>
       <Comment>银行卡账号</Comment>
       <DataType>varchar(30)|0s</DataType>
@@ -4174,7 +4183,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="688" parent="282" name="bank_name">
+    <column id="690" parent="282" name="bank_name">
       <Position>5</Position>
       <Comment>银行卡账号验证姓名</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -4183,7 +4192,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="689" parent="282" name="name">
+    <column id="691" parent="282" name="name">
       <Position>6</Position>
       <Comment>企业名用户名</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -4192,7 +4201,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="690" parent="282" name="pwd">
+    <column id="692" parent="282" name="pwd">
       <Position>7</Position>
       <Comment>登录密码</Comment>
       <DataType>varchar(100)|0s</DataType>
@@ -4201,7 +4210,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="691" parent="282" name="status">
+    <column id="693" parent="282" name="status">
       <Position>8</Position>
       <Comment>状态（0正常, 1禁止登录）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -4209,7 +4218,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="692" parent="282" name="mobile">
+    <column id="694" parent="282" name="mobile">
       <Position>9</Position>
       <Comment>手机号码</Comment>
       <DataType>varchar(15)|0s</DataType>
@@ -4218,7 +4227,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="693" parent="282" name="email">
+    <column id="695" parent="282" name="email">
       <Position>10</Position>
       <Comment>电子邮箱（最大长度60个字符）</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -4227,7 +4236,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="694" parent="282" name="avatar">
+    <column id="696" parent="282" name="avatar">
       <Position>11</Position>
       <Comment>用户头像地址</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -4236,7 +4245,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="695" parent="282" name="province">
+    <column id="697" parent="282" name="province">
       <Position>12</Position>
       <Comment>所在省</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -4245,7 +4254,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="696" parent="282" name="city">
+    <column id="698" parent="282" name="city">
       <Position>13</Position>
       <Comment>所在市</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -4254,7 +4263,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="697" parent="282" name="address">
+    <column id="699" parent="282" name="address">
       <Position>14</Position>
       <Comment>详细地址</Comment>
       <DataType>varchar(150)|0s</DataType>
@@ -4263,7 +4272,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="698" parent="282" name="integral">
+    <column id="700" parent="282" name="integral">
       <Position>15</Position>
       <Comment>积分</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4271,7 +4280,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="699" parent="282" name="salesman_id">
+    <column id="701" parent="282" name="salesman_id">
       <Position>16</Position>
       <Comment>所属业务员ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4279,7 +4288,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="700" parent="282" name="add_time">
+    <column id="702" parent="282" name="add_time">
       <Position>17</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4287,7 +4296,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="701" parent="282" name="upd_time">
+    <column id="703" parent="282" name="upd_time">
       <Position>18</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4295,7 +4304,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="702" parent="282" name="licence_id">
+    <column id="704" parent="282" name="licence_id">
       <Position>19</Position>
       <Comment>营业执照ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4303,7 +4312,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="703" parent="282" name="order_count">
+    <column id="705" parent="282" name="order_count">
       <Position>20</Position>
       <Comment>总共完成订单数</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4311,7 +4320,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="704" parent="282" name="sell_count">
+    <column id="706" parent="282" name="sell_count">
       <Position>21</Position>
       <Comment>总共完成销售额</Comment>
       <DataType>decimal(10,2 digit)|0s</DataType>
@@ -4319,7 +4328,7 @@
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="705" parent="282" name="area_id">
+    <column id="707" parent="282" name="area_id">
       <Position>22</Position>
       <Comment>所属片区ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4327,12 +4336,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="706" parent="282" name="PRIMARY">
+    <key id="708" parent="282" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="707" parent="283" name="id">
+    <column id="709" parent="283" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -4340,7 +4349,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="708" parent="283" name="user_id">
+    <column id="710" parent="283" name="user_id">
       <Position>2</Position>
       <Comment>地址所属经销商ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4348,7 +4357,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="709" parent="283" name="alias">
+    <column id="711" parent="283" name="alias">
       <Position>3</Position>
       <Comment>地址别名</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -4357,7 +4366,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="710" parent="283" name="name">
+    <column id="712" parent="283" name="name">
       <Position>4</Position>
       <Comment>收货人姓名</Comment>
       <DataType>varchar(60)|0s</DataType>
@@ -4366,7 +4375,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="711" parent="283" name="tel">
+    <column id="713" parent="283" name="tel">
       <Position>5</Position>
       <Comment>收货人联系电话</Comment>
       <DataType>varchar(15)|0s</DataType>
@@ -4375,7 +4384,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="712" parent="283" name="province">
+    <column id="714" parent="283" name="province">
       <Position>6</Position>
       <Comment>所在省</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -4384,7 +4393,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="713" parent="283" name="city">
+    <column id="715" parent="283" name="city">
       <Position>7</Position>
       <Comment>所在市</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -4393,7 +4402,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="714" parent="283" name="county">
+    <column id="716" parent="283" name="county">
       <Position>8</Position>
       <Comment>所在县/区</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -4402,7 +4411,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="715" parent="283" name="address">
+    <column id="717" parent="283" name="address">
       <Position>9</Position>
       <Comment>详细地址</Comment>
       <DataType>varchar(80)|0s</DataType>
@@ -4411,7 +4420,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="716" parent="283" name="lng">
+    <column id="718" parent="283" name="lng">
       <Position>10</Position>
       <Comment>经度</Comment>
       <DataType>decimal(13,10 digit)|0s</DataType>
@@ -4419,7 +4428,7 @@
       <DefaultExpression>&apos;0.0000000000&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="717" parent="283" name="lat">
+    <column id="719" parent="283" name="lat">
       <Position>11</Position>
       <Comment>纬度</Comment>
       <DataType>decimal(13,10 digit)|0s</DataType>
@@ -4427,7 +4436,7 @@
       <DefaultExpression>&apos;0.0000000000&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="718" parent="283" name="is_default">
+    <column id="720" parent="283" name="is_default">
       <Position>12</Position>
       <Comment>是否默认地址（0否, 1是）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -4435,7 +4444,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="719" parent="283" name="is_delete_time">
+    <column id="721" parent="283" name="is_delete_time">
       <Position>13</Position>
       <Comment>是否删除（0否，1删除时间戳）</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4443,7 +4452,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="720" parent="283" name="add_time">
+    <column id="722" parent="283" name="add_time">
       <Position>14</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4451,7 +4460,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="721" parent="283" name="upd_time">
+    <column id="723" parent="283" name="upd_time">
       <Position>15</Position>
       <Comment>更新时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4459,12 +4468,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="722" parent="283" name="PRIMARY">
+    <key id="724" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="723" parent="284" name="id">
+    <column id="725" parent="284" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -4472,7 +4481,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="724" parent="284" name="user_id">
+    <column id="726" parent="284" name="user_id">
       <Position>2</Position>
       <Comment>经销商ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4480,7 +4489,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="725" parent="284" name="type">
+    <column id="727" parent="284" name="type">
       <Position>3</Position>
       <Comment>操作类型（0减少, 1增加）</Comment>
       <DataType>tinyint(1)|0s</DataType>
@@ -4488,7 +4497,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="726" parent="284" name="original_integral">
+    <column id="728" parent="284" name="original_integral">
       <Position>4</Position>
       <Comment>原始积分</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4496,7 +4505,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="727" parent="284" name="new_integral">
+    <column id="729" parent="284" name="new_integral">
       <Position>5</Position>
       <Comment>最新积分</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4504,7 +4513,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="728" parent="284" name="msg">
+    <column id="730" parent="284" name="msg">
       <Position>6</Position>
       <Comment>操作原因</Comment>
       <DataType>varchar(500)|0s</DataType>
@@ -4513,7 +4522,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="729" parent="284" name="operation_id">
+    <column id="731" parent="284" name="operation_id">
       <Position>7</Position>
       <Comment>操作人员ID，若为0，则为自行消费</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4521,7 +4530,7 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="730" parent="284" name="add_time">
+    <column id="732" parent="284" name="add_time">
       <Position>8</Position>
       <Comment>添加时间</Comment>
       <DataType>int(11)|0s</DataType>
@@ -4529,12 +4538,12 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="731" parent="284" name="PRIMARY">
+    <key id="733" parent="284" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="732" parent="285" name="id">
+    <column id="734" parent="285" name="id">
       <Position>1</Position>
       <Comment>自增ID</Comment>
       <DataType>int(11) unsigned|0s</DataType>
@@ -4542,7 +4551,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="733" parent="285" name="licence_number">
+    <column id="735" parent="285" name="licence_number">
       <Position>2</Position>
       <Comment>营业执照编号</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -4551,7 +4560,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="734" parent="285" name="licence_name">
+    <column id="736" parent="285" name="licence_name">
       <Position>3</Position>
       <Comment>营业执照名称</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -4560,7 +4569,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="735" parent="285" name="legal_person">
+    <column id="737" parent="285" name="legal_person">
       <Position>4</Position>
       <Comment>法人代表</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -4569,7 +4578,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="736" parent="285" name="legal_person_tel">
+    <column id="738" parent="285" name="legal_person_tel">
       <Position>5</Position>
       <Comment>法人联系方式</Comment>
       <DataType>varchar(15)|0s</DataType>
@@ -4578,7 +4587,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="737" parent="285" name="legal_person_idcard">
+    <column id="739" parent="285" name="legal_person_idcard">
       <Position>6</Position>
       <Comment>法人身份证号</Comment>
       <DataType>varchar(50)|0s</DataType>
@@ -4587,7 +4596,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="738" parent="285" name="licence_photo">
+    <column id="740" parent="285" name="licence_photo">
       <Position>7</Position>
       <Comment>营业执照图片</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -4596,7 +4605,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="739" parent="285" name="legal_person_fphoto">
+    <column id="741" parent="285" name="legal_person_fphoto">
       <Position>8</Position>
       <Comment>法人身份证照片正面</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -4605,7 +4614,7 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <column id="740" parent="285" name="legal_person_bphoto">
+    <column id="742" parent="285" name="legal_person_bphoto">
       <Position>9</Position>
       <Comment>法人身份证照片反面</Comment>
       <DataType>varchar(1000)|0s</DataType>
@@ -4614,7 +4623,69 @@
       <ColumnKind>normal</ColumnKind>
       <Collation>utf8mb4_general_ci</Collation>
     </column>
-    <key id="741" parent="285" name="PRIMARY">
+    <column id="743" parent="285" name="user_id">
+      <Position>10</Position>
+      <Comment>经销商id</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="744" parent="285" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="745" parent="286" name="id">
+      <Position>1</Position>
+      <Comment>自增ID</Comment>
+      <DataType>int(11) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="746" parent="286" name="user_id">
+      <Position>2</Position>
+      <Comment>用户id</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="747" parent="286" name="images">
+      <Position>3</Position>
+      <Comment>实景图片</Comment>
+      <DataType>varchar(1000)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+      <Collation>utf8mb4_general_ci</Collation>
+    </column>
+    <column id="748" parent="286" name="sort">
+      <Position>4</Position>
+      <Comment>排序</Comment>
+      <DataType>tinyint(3)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="749" parent="286" name="add_time">
+      <Position>5</Position>
+      <Comment>添加时间</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="750" parent="286" name="user_type">
+      <Position>6</Position>
+      <Comment>1为经销商，2为厂商</Comment>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="751" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

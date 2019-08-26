@@ -120,6 +120,15 @@ public class AreaController {
         return map;
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/ListSalesmanByAreaIdKind")
+    @ResponseBody
+    public Map<String, Object> listSalesmanByAreaIdKind(String kind, String areaId, HttpServletResponse httpServletResponse,
+                                                    HttpServletRequest httpServletRequest, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("flag", salesmanService.listSalesmanUserByAreaIdKind(Integer.parseInt(kind), Integer.parseInt(areaId)));
+        return map;
+    }
+
     @RequestMapping(method = RequestMethod.POST, value = "/DeleteSalesman")
     @ResponseBody
     public Map<String, Object> deleteSalesman(String salesmanId, HttpServletResponse httpServletResponse,
@@ -131,7 +140,7 @@ public class AreaController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/AddSalesman")
     @ResponseBody
-    public Map<String, Object> addSalesman(String name, String mobile, String idCard, String province, String city, String areaId,
+    public Map<String, Object> addSalesman(String name, String email, String mobile, String idCard, String province, String city, String areaId,
                                            String pid, String kind, String status, HttpServletRequest httpServletRequest,
                                            HttpServletResponse httpServletResponse, ModelMap modelMap){
         Map<String, Object> map = new HashMap<String, Object>();
@@ -139,7 +148,7 @@ public class AreaController {
             map.put("flag", "0");
             map.put("error", "业务员上级和其身份不符");
         }else{
-            map.put("flag", salesmanService.addSalesman(name, mobile, idCard, province, city, areaId, pid, kind, status));
+            map.put("flag", salesmanService.addSalesman(name, email, mobile, idCard, province, city, areaId, pid, kind, status));
             map.put("error", "账号已存在(即手机号已存在)");
         }
         return map;

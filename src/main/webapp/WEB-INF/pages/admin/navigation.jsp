@@ -137,10 +137,10 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">非工作人员管理</span><span class="fa arrow"></span></a>
+                <a id="nonStaff" href="#"><i class="fa fa-desktop"></i> <span class="nav-label">非工作人员管理</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="contacts.html">经销商档案</a></li>
-                    <li><a href="profile.html">厂商档案</a></li>
+                    <li id="nonStaffAgencyRecord"><a href="/Admin/NonStaff/AgencyRecord">经销商档案</a></li>
+                    <li id="nonStaffFactoryRecord"><a href="/Admin/NonStaff/FactoryRecord">厂商档案</a></li>
                 </ul>
             </li>
             <li>

@@ -150,7 +150,7 @@ public class SalesmanUserDaoImpl implements SalesmanUserDao {
                 lSalesmanUserEntity1.setKind(lSalesmanUserEntity.getKind());
 
             try{
-                session.update(lSalesmanUserEntity);
+                session.update(lSalesmanUserEntity1);
                 transaction.commit();
             }catch (Exception e){
                 System.out.println("SalesmanUserDao中Session操作出错！");
@@ -214,6 +214,28 @@ public class SalesmanUserDaoImpl implements SalesmanUserDao {
         try {
             list = session.createNamedQuery("SALESMAN_USER.AREA_ID", LSalesmanUserEntity.class)
                     .setParameter("areaId", areaId).getResultList();
+        }catch (IllegalArgumentException e){
+            System.out.println("SalesmanUserDao查询语句出现问题");
+            e.printStackTrace();
+        }
+        session.close();
+        return list;
+    }
+
+    /**
+    * @Description: 通过片区ID和类别进行查询
+    * @Param: int
+    * @return:  List<LSalesmanUserEntity>
+    * @Author: DBC
+    * @Date: 2019/8/26
+    */
+    @Override
+    public List<LSalesmanUserEntity> listByAreaIdKind(int kind, int areaId) {
+        Session session = sessionFactory.openSession();
+        List<LSalesmanUserEntity> list = null;
+        try {
+            list = session.createNamedQuery("SALESMAN_USER.AREA_ID_KIND", LSalesmanUserEntity.class)
+                    .setParameter("areaId", areaId).setParameter("kind", (byte)kind).getResultList();
         }catch (IllegalArgumentException e){
             System.out.println("SalesmanUserDao查询语句出现问题");
             e.printStackTrace();

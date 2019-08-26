@@ -1,8 +1,56 @@
 "use struct"
 $(document).ready(function(){
-    $("#commodity").trigger("click");
-    $("#commodityRecord").addClass("active");
+    $("#nonStaff").trigger("click");
+    $("#nonStaffAgencyRecord").addClass("active");
 
+    $("#agencyIntegral").TouchSpin({
+        min: 0,
+        max: 1000000,
+        step: 1,
+        buttondown_class: 'btn btn-white',
+        buttonup_class: 'btn btn-white'
+    });
+
+    //**************************省市选择框
+    $("#agencyProvince").change(function () {
+        $.ajax({
+            method: "POST",
+            url: "/Admin/Area/ListCity",
+            dataType: "json",
+            data: {"pid" : $(this).val()},
+            success: function (data) {
+                var html = '<option value="0" selected="selected">请选择市</option>';
+                for(i=0;i<data.flag.length;i++){
+                    html += '<option value="'+data.flag[i].id+'">'+data.flag[i].name+'</option>';
+                }
+                $("#agencyCity").html(html);
+            },
+            error: function(){}
+        });
+    });
+
+    //**************************片区级联
+    $("#agencyArea").change(function () {
+        $.ajax({
+            method: "POST",
+            url: "/Admin/Area/ListSalesmanByAreaIdKind",
+            dataType: "json",
+            data: {"kind":"1", "areaId":$(this).val()},
+            success: function (data) {
+                var html = '<option value="0" selected="selected">请选择上级业务员,可不选</option>';
+                for(i=0;i<data.flag.length;i++){
+                    if(data.flag.pid == 0)
+                        html += '<option value="'+data.flag[i].id+'">'+data.flag[i].uName+'(顶级业务员)</option>';
+                    else
+                        html += '<option value="'+data.flag[i].id+'">'+data.flag[i].uName+'</option>';
+                }
+                $("#agencyPid").html(html);
+            },
+            error: function(){}
+        });
+    });
+
+    //*********************列表
     /* Init DataTables */
     var oTable = $('#editable').DataTable({
         dom: '<"html5buttons"B>lTfgitp',
@@ -32,7 +80,7 @@ $(document).ready(function(){
             },
         ],
         ajax: {
-            url: "/Admin/Commodity/CommodityList",
+            url: "/Admin/NonStaff/AgencyUserList",
             method: "POST",
             dataType: "json",
             data: {},
@@ -55,45 +103,57 @@ $(document).ready(function(){
         },
         columns: [
             {
-                "data": "title",
+                "data": "name",
                 "class": "text-center",
             },
             {
-                "data": "kindName",
+                "data": "mobile",
                 "class" : "text-center",
             },
             {
-                "data": "model",
+                "data": "areaId",
                 "class" : "text-center",
             },
             {
-                "data": "material",
-                "class" : "text-center",
-            },
-            {
-                "data": "structure",
-                "class" : "text-center",
-            },
-            {
-                "data": "gStyle",
-                "class" : "text-center",
-            },
-            {
-                "data" : "gUse",
-                "class" : "text-center",
-            },
-            {
-                "data" : "saleMethod",
-                "class" : "text-center",
-            },
-            {
-                "data" : "isShelves",
+                "data" : "salesmanId",
                 "class" : "text-center",
                 "render" : function(data, type, row) {
                     if(data==0){
-                        return '已下架<i class="fa fa-times text-navy"></i>';
+                        return '无所属业务员</i>';
                     }else if(data==1){
-                        return '上架中<i class="fa fa-check text-navy"></i>';
+                        return data;
+                    }
+                    return "";
+                },
+            },
+            {
+                "data" : "province",
+                "class" : "text-center",
+            },
+            {
+                "data" : "city",
+                "class" : "text-center",
+            },
+            {
+                "data" : "integral",
+                "class" : "text-center",
+            },
+            {
+                "data" : "orderCount",
+                "class" : "text-center",
+            },
+            {
+                "data" : "sellCount",
+                "class" : "text-center",
+            },
+            {
+                "data" : "status",
+                "class" : "text-center",
+                "render" : function(data, type, row) {
+                    if(data==0){
+                        return '禁止登陆<i class="fa fa-times text-navy"></i>';
+                    }else if(data==1){
+                        return '正常<i class="fa fa-check text-navy"></i>';
                     }
                     return "";
                 },
@@ -112,7 +172,7 @@ $(document).ready(function(){
         var number =  $(this).attr('data-id');
         swal({
             title: "确定删除?",
-            text: "你将永久性删除编码为 " + $(this).attr('data-id') + " 的商品！",
+            text: "你将永久性删除编号为 " + $(this).attr('data-id') + " 的业务员！",
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
@@ -122,14 +182,14 @@ $(document).ready(function(){
         }, function () {
             $.ajax({
                 method: "POST",
-                url: "/Admin/Commodity/DeleteCommodity",
+                url: "/Admin/NonStaff/DeleteAgencyUser",
                 dataType: "json",
-                data: {"id" : number},
+                data: {"salesmanId" : number},
                 success: function (data) {
                     if(data.flag == "1"){
                         swal({
                             title: "删除成功!",
-                            text: "已经成功将编码为 " + number + " 的商品移除！",
+                            text: "已经成功将编号为 " + number + " 的业务员移除！",
                             type: "success",
                             confirmButtonText: "确定",
                         },function(){window.location.reload();});
@@ -154,29 +214,34 @@ $(document).ready(function(){
         });
     }).on('click','.js-edit',function(){
         var number =  $(this).attr('data-id');
-        window.location.href = "/Admin/Commodity/GoodDetails/" + number;
+        window.location.href = "/Admin/NonStaff/AgencyUserDetails/" + number;
     });
 
-    var infoSubmit = $( '.ladda-button-demo' ).ladda();
+    var infoSubmit = $('#addUserInfo').ladda();
     infoSubmit.click(function () {
-        var $goodTile = $("#goodTitle").val();
-        var $goodAfterSale = $("#goodAfterSale").val();
-        var $goodKindName = $("#goodKindName").val();
-        var $goodModel = $("#goodModel").val();
-        var $goodMaterial = $("#goodMaterial").val();
-        var $goodStruct = $("#goodStructure").val();
-        var $goodStyle = $("#goodStyle").val();
-        var $goodUse = $("#goodUse").val();
-        var $goodSaleMethod = $("#goodSaleMethod").val();
-        var $goodUnit = $("#goodUnit").val();
-        var $goodShelves = $("#goodShelves").val();
-        var $goodHome = $("#goodHome").val();
+        var $agencyName = $("#agencyName").val();
+        var $agencyMobile = $("#agencyMobile").val();
+        var $agencyEmail = $("#agencyEmail").val();
+        var $agencyAdress = $("#agencyAdress").val();
+        var $agencyIntegral = $("#agencyIntegral").val();
+        var $agencyProvince = $("#agencyProvince option:selected").html();
+        var $agencyCity = $("#agencyCity option:selected").html();
+        var $agencyArea = $("#agencyArea").val();
+        var $agencyPid = $("#agencyPid").val();
+        var $agencyStatus = $("#agencyStatus").val();
 
-        if($goodTile == "" || $goodAfterSale == "" || $goodKindName == "" || $goodModel == "" || $goodMaterial == "" ||
-            $goodStruct == "" || $goodStyle =="" || $goodUse == "" || $goodSaleMethod == ""){
+        if($agencyName == "" || $agencyMobile == "" ||
+            $agencyProvince == "" || $agencyCity == "" || $agencyArea == "0"){
             swal({
                 title: "警告！",
                 text: "输入项各项不能为空",
+                type: "warning",
+                confirmButtonText: "确定",
+            });
+        }else if($agencyMobile.length != 11){
+            swal({
+                title: "警告！",
+                text: "手机号必须为11位",
                 type: "warning",
                 confirmButtonText: "确定",
             });
@@ -184,40 +249,27 @@ $(document).ready(function(){
             infoSubmit.ladda( 'start' );
             $.ajax({
                 method: "POST",
-                url: "/Admin/Commodity/AddCommodity",
+                url: "/Admin/NonStaff/AddAgencyUser",
                 dataType: "json",
-                data: {"title": $goodTile, "afterSale":$goodAfterSale, "kindName":$goodKindName, "model":$goodModel,
-                    "material":$goodMaterial, "struct":$goodStruct, "style":$goodStyle, "use":$goodUse, "saleMethod":$goodSaleMethod,
-                    "unit":$goodUnit, "shelves":$goodShelves, "home":$goodHome},
+                data: {"name": $agencyName, "mobile":$agencyMobile, "email":$agencyEmail, "address":$agencyAdress,
+                    "integral":$agencyIntegral, "province":$agencyProvince, "city":$agencyCity, "areaId":$agencyArea, "pid":$agencyPid, "status":$agencyStatus},
                 success: function (data) {
                     infoSubmit.ladda( 'stop' );
                     if(data.flag != "1"){
                         swal({
                             title: "添加失败！",
-                            text: "商品名称已存在",
+                            text: data.error,
                             type: "error",
                             confirmButtonText: "确定",
                         });
                     }else{
                         swal({
                             title: "添加成功！",
-                            text: "已为您同步至商品信息列表",
+                            text: "已为您同步至经销商信息列表，初始化密码为：123456",
                             type: "success",
                             confirmButtonText: "确定",
                         },function () {
                             window.location.reload();
-                            /*$('#editable').dataTable().fnAddData( [
-                                $goodTile,
-                                $goodKindName,
-                                $goodModel,
-                                $goodMaterial,
-                                $goodStruct,
-                                $goodStyle,
-                                $goodUse,
-                                $goodSaleMethod,
-                                data.shelves,
-                                '<span class="btn btn-primary btn-xs ml-5 js-edit" data-id="'+data.id+'">编辑</span> <span class="btn btn-danger btn-xs ml-5 js-delete" data-id="'+data.id+'">删除</span>',
-                            ] );*/
                         });
                     }
                 },

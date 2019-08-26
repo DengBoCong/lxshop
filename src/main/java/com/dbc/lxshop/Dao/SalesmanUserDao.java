@@ -10,6 +10,7 @@ public interface SalesmanUserDao {
     public boolean updateSalesmanUser(LSalesmanUserEntity lSalesmanUserEntity);
     public List<LSalesmanUserEntity> list();
     public List<LSalesmanUserEntity> listByAreaId(int areaId);
+    public List<LSalesmanUserEntity> listByAreaIdKind(int kind, int areaId);
     public LSalesmanUserEntity listById(int userId);
     public List<LSalesmanUserEntity> listByKind(int kind);
     public List<LSalesmanUserEntity> listTop();

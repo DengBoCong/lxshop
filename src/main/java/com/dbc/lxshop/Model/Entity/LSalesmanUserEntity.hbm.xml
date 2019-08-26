@@ -65,6 +65,7 @@
     </class>
     <query name="SALESMAN_USER.MOBILE"><![CDATA[from LSalesmanUserEntity where mobile = :mobile]]></query>
     <query name="SALESMAN_USER.AREA_ID"><![CDATA[from LSalesmanUserEntity where areaId = :areaId]]></query>
+    <query name="SALESMAN_USER.AREA_ID_KIND"><![CDATA[from LSalesmanUserEntity where areaId = :areaId and kind = :kind]]></query>
     <query name="SALESMAN_USER.PID_0"><![CDATA[from LSalesmanUserEntity where pid = 0]]></query>
     <query name="SALESMAN_USER.KIND"><![CDATA[from LSalesmanUserEntity where kind = :kind]]></query>
     <query name="SALESMAN_USER.ORDER_BY.NAME"><![CDATA[from LSalesmanUserEntity order by uName]]></query>

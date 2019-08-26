@@ -222,9 +222,10 @@ $(document).ready(function(){
         var $salesmanPid = $("#salesmanPid").val();
         var $salesmanKind = $("#salesmanKind").val();
         var $salesmanStatus = $("#salesmanStatus").val();
+        var $salesmanEmail = $("#salesmanEmail").val();
 
         if($salesmanName == "" || $salesmanMobile == "" || $salesmanIdCard == "" || $salesmanProvince == "" || $salesmanCity == "" ||
-            $salesmanArea == "0"){
+            $salesmanArea == "0" || $salesmanEmail == ""){
             swal({
                 title: "警告！",
                 text: "输入项各项不能为空",
@@ -244,7 +245,7 @@ $(document).ready(function(){
                 method: "POST",
                 url: "/Admin/Area/AddSalesman",
                 dataType: "json",
-                data: {"name": $salesmanName, "mobile":$salesmanMobile, "idCard":$salesmanIdCard, "province":$salesmanProvince,
+                data: {"name": $salesmanName, "email":$salesmanEmail, "mobile":$salesmanMobile, "idCard":$salesmanIdCard, "province":$salesmanProvince,
                     "city":$salesmanCity, "areaId":$salesmanArea, "pid":$salesmanPid, "kind":$salesmanKind, "status":$salesmanStatus},
                 success: function (data) {
                     infoSubmit.ladda( 'stop' );

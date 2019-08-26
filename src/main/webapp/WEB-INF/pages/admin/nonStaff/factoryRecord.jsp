@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Power
-  Date: 2019/8/25
-  Time: 15:29
+  Date: 2019/8/26
+  Time: 11:08
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -20,13 +20,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>丽星平台 | 片区业务员</title>
+    <title>丽星平台 | 厂商档案</title>
     <link href="<%=basePath%>/static/admin/css/bootstrap.min.css" rel="stylesheet">
     <link href="<%=basePath%>/static/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="<%=basePath%>/static/admin/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
     <link href="<%=basePath%>/static/admin/css/animate.css" rel="stylesheet">
     <link href="<%=basePath%>/static/admin/css/plugins/ladda/ladda-themeless.min.css" rel="stylesheet">
     <link href="<%=basePath%>/static/admin/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="<%=basePath%>/static/admin/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
     <link href="<%=basePath%>/static/admin/css/style.css" rel="stylesheet">
     <script src="<%=basePath%>/static/admin/js/jquery-2.1.1.js"></script>
 </head>
@@ -37,16 +38,16 @@
         <%@include file="../header.jsp"%>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>片区业务员</h2>
+                <h2>厂商档案</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="<%=basePath%>/Admin/Summary/Profile">首页</a>
                     </li>
                     <li>
-                        <a>片区管理</a>
+                        <a>非工作人员管理</a>
                     </li>
                     <li class="active">
-                        <strong>片区业务员</strong>
+                        <strong>厂商档案</strong>
                     </li>
                 </ol>
             </div>
@@ -58,7 +59,7 @@
                 <div class="col-lg-12">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>片区业务员列表</h5>
+                            <h5>厂商档案列表</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                     <i class="fa fa-chevron-up"></i>
@@ -73,7 +74,7 @@
                         </div>
                         <div class="ibox-content">
                             <div class="">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">添加业务员</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">添加厂商</button>
                                 <a onclick="fnClickAddRow();" href="javascript:void(0);" class="btn btn-success ">下载模板</a>
                                 <a onclick="fnClickAddRow();" href="javascript:void(0);" class="btn btn-warning ">批量操作</a>
                             </div>
@@ -83,17 +84,17 @@
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
                                             <i class="fa fa-laptop modal-icon"></i>
-                                            <h4 class="modal-title">添加业务员</h4>
-                                            <small class="font-bold">添加业务员时，请仔细核对内容信息，一经添加，将同步全系统数据库！</small>
+                                            <h4 class="modal-title">添加厂商</h4>
+                                            <small class="font-bold">添加厂商时，请仔细核对内容信息，一经添加，将同步全系统数据库！</small>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="form-group"><label>业务员名称</label> <input id="salesmanName" type="text" placeholder="请输入业务员名称" class="form-control" value=""></div>
-                                            <div class="form-group"><label>手机号</label> <input id="salesmanMobile" type="text" placeholder="请输入手机号" class="form-control" value=""></div>
-                                            <div class="form-group"><label>身份证号</label> <input id="salesmanIdCard" type="text" placeholder="请输入身份证号" class="form-control" value=""></div>
-                                            <div class="form-group"><label>身份证号</label> <input id="salesmanEmail" type="text" placeholder="请输入邮箱号" class="form-control" value=""></div>
+                                            <div class="form-group"><label>厂商名称*</label> <input id="factoryName" type="text" placeholder="请输入厂商名称" class="form-control" value=""></div>
+                                            <div class="form-group"><label>手机号*</label> <input id="factoryMobile" type="text" placeholder="请输入手机号" class="form-control" value=""></div>
+                                            <div class="form-group"><label>邮箱号</label> <input id="factoryEmail" type="text" placeholder="请输入邮箱号" class="form-control" value=""></div>
+                                            <div class="form-group"><label>详细地址</label> <input id="factoryAdress" type="text" placeholder="请输入详细地址" class="form-control" value=""></div>
                                             <div class="form-group">
-                                                <label>选择所在省</label>
-                                                <select id="salesmanProvince" class="form-control m-b" name="account">
+                                                <label>选择所在省*</label>
+                                                <select id="factoryProvince" class="form-control m-b" name="account">
                                                     <option value="0" selected="selected">请选择省</option>
                                                     <c:forEach items="${ProvinceList}" var="items">
                                                         <option value="${items.id}">${items.name}</option>
@@ -101,14 +102,14 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>选择所在市</label>
-                                                <select id="salesmanCity" class="form-control m-b" name="account">
+                                                <label>选择所在市*</label>
+                                                <select id="factoryCity" class="form-control m-b" name="account">
                                                     <option value="0" selected="selected">请选择市</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>选择所属片区</label>
-                                                <select id="salesmanArea" class="form-control m-b" name="account">
+                                                <label>选择所属片区*</label>
+                                                <select id="factoryArea" class="form-control m-b" name="account">
                                                     <option value="0" selected="selected">请选择片区</option>
                                                     <c:forEach items="${AreaList}" var="items">
                                                         <option value="${items.id}">${items.name}</option>
@@ -117,36 +118,20 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>选择上级</label>
-                                                <select id="salesmanPid" class="form-control m-b" name="account">
-                                                    <option value="0" selected="selected">请选择上级业务员,若为顶级业务员可不选</option>
-                                                    <%--<c:forEach items="${SalesmanList}" var="items">
-                                                        <c:if test="${items.pid == 0}">
-                                                            <option value="${items.id}">${items.uName}(顶级业务员)</option>
-                                                        </c:if>
-                                                        <c:if test="${items.pid != 0}">
-                                                            <option value="${items.id}">${items.uName}</option>
-                                                        </c:if>
-                                                    </c:forEach>--%>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>选择类别</label>
-                                                <select id="salesmanKind" class="form-control m-b" name="account">
-                                                    <option value="3" selected="selected">顶级业务员</option>
-                                                    <option value="1">经销商业务员</option>
-                                                    <option value="2">厂商业务员</option>
+                                                <select id="factoryPid" class="form-control m-b" name="account">
+                                                    <option value="0" selected="selected">请选择上级业务员,可不选</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>状态</label>
-                                                <select id="salesmanStatus" class="form-control m-b" name="account">
+                                                <select id="factoryStatus" class="form-control m-b" name="account">
                                                     <option value="1" selected="selected">正常</option>
                                                     <option value="0">禁止登陆</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button id="addSalesmanInfo" type="button" class="ladda-button ladda-button-demo btn btn-primary block full-width m-b"  data-style="zoom-in">提交</button>
+                                            <button id="addUserInfo" type="button" class="ladda-button ladda-button-demo btn btn-primary block full-width m-b"  data-style="zoom-in">提交</button>
                                         </div>
                                     </div>
                                 </div>
@@ -154,30 +139,28 @@
                             <table class="table table-striped table-bordered table-hover " id="editable">
                                 <thead>
                                 <tr>
-                                    <th>业务员名称</th>
+                                    <th>经销商名称</th>
                                     <th>手机号</th>
                                     <th>所属片区ID</th>
                                     <th>上级ID</th>
-                                    <th>身份证号</th>
-                                    <th>下级数量</th>
                                     <th>所在省</th>
                                     <th>所在市</th>
-                                    <th>类别</th>
+                                    <th>完成订单数</th>
+                                    <th>总销售额</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
-                                    <th>业务员名称</th>
+                                    <th>经销商名称</th>
                                     <th>手机号</th>
                                     <th>所属片区ID</th>
-                                    <th>上级ID</th>
-                                    <th>身份证号</th>
-                                    <th>下级数量</th>
+                                    <th>所属业务员ID</th>
                                     <th>所在省</th>
                                     <th>所在市</th>
-                                    <th>类别</th>
+                                    <th>完成订单数</th>
+                                    <th>总销售额</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -204,6 +187,8 @@
 <script src="<%=basePath%>/static/admin/js/plugins/ladda/ladda.jquery.min.js"></script>
 <script src="<%=basePath%>/static/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script src="<%=basePath%>/static/admin/js/plugins/cropper/cropper.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>/pages/adminJs/areaSalesman.js"></script>
+<script src="<%=basePath%>/static/admin/js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>/pages/adminJs/nonStaffFactory.js"></script>
 </body>
 </html>
+
