@@ -1,5 +1,6 @@
 package com.dbc.lxshop.Controller.Admin;
 
+import com.dbc.lxshop.Model.Entity.LFactoryLicenceEntity;
 import com.dbc.lxshop.Model.Entity.LFactoryUserEntity;
 import com.dbc.lxshop.Model.Entity.LUserEntity;
 import com.dbc.lxshop.Model.Entity.LUserLicenceEntity;
@@ -106,6 +107,7 @@ public class NonStaffController {
         lUserEntity.setAreaId(Integer.parseInt(areaId));
         lUserEntity.setSalesmanId(Integer.parseInt(pid));
         lUserEntity.setStatus((byte)Integer.parseInt(status));
+        lUserEntity.setUpdTime(DateUtil.NewDateInt());
         map.put("flag", agencyUserService.updateAgencyUser(lUserEntity));
         return map;
     }
@@ -159,6 +161,14 @@ public class NonStaffController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/FactoryUserDetails/{factoryId}")
     public String factoryUserDetails(@PathVariable int factoryId, ModelMap modelMap){
+        LFactoryUserEntity lFactoryUserEntity = factoryUserService.listOneFactoryUserById(factoryId);
+        modelMap.addAttribute("AgencyInfo", lFactoryUserEntity);
+        modelMap.addAttribute("ProvinceList", salesmanService.listProvince());
+        LFactoryLicenceEntity lFactoryLicenceEntity = factoryUserService.listFactoryLicenceById(lFactoryUserEntity.getLicenceId());
+        if (lFactoryUserEntity.getLicenceId() == 0) lFactoryLicenceEntity = new LFactoryLicenceEntity();
+        else modelMap.addAttribute("LicenceInfo", lFactoryLicenceEntity);
+        modelMap.addAttribute("AgencyPhotoList", agencyUserService.listUserPhotoByType(2, factoryId));
+        modelMap.addAttribute("AGENCYUSER_ID", factoryId);
         /*modelMap.addAttribute("SalesmanInfo", areaService.listOneSalesmanUser(salesmanId));
         modelMap.addAttribute("ProvinceList", salesmanService.listProvince());
         modelMap.addAttribute("SalesmanList", areaService.listSalesmanUser());
@@ -205,6 +215,8 @@ public class NonStaffController {
         lFactoryUserEntity.setAreaId(Integer.parseInt(areaId));
         lFactoryUserEntity.setSalesmanId(Integer.parseInt(pid));
         lFactoryUserEntity.setStatus((byte)Integer.parseInt(status));
+        lFactoryUserEntity.setAddTime(DateUtil.NewDateInt());
+        lFactoryUserEntity.setUpdTime(DateUtil.NewDateInt());
         lFactoryUserEntity.setPwd(DigestUtils.md5DigestAsHex("123456".getBytes()));
         map.put("flag", factoryUserService.addFactoryUser(lFactoryUserEntity));
         return map;
@@ -336,6 +348,181 @@ public class NonStaffController {
         map.put("flag", agencyUserService.updateAgencyUserPhoto(photoId, sort));
         return map;
     }
+
+    /**
+    * @Description: 更新厂商信息
+    * @Param:
+    * @return:
+    * @Author: DBC
+    * @Date: 2019/8/27
+    */
+    @RequestMapping(method = RequestMethod.POST, value = "/UploadFactoryUserImage")
+    @ResponseBody
+    public Map<String, Object> uploadFactoryUserImage(String tag, String agencyUserId, @RequestParam(value = "imgFile",required=false)MultipartFile imgFile, String imgData,
+                                        HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        String dir = ConfigInfo.factory_images_upload_path + agencyUserId + "/";
+        String path = httpServletRequest.getSession().getServletContext().getRealPath(dir);
+
+        String name = imgFile.getOriginalFilename();
+        //判断文件的MIMEtype
+        String type = imgFile.getContentType();
+        if(type==null || !type.toLowerCase().startsWith("image/")) map.put("flag", "不支持的文件类型，仅支持图片！");
+        System.out.println("file type:"+type);
+        String fileName = new Date().getTime()+""+new Random().nextInt(10000)+""+name.substring(name.lastIndexOf('.'));
+        System.out.println("文件路径："+path+"_"+fileName);
+
+        if(tag.equals("6")){
+            //开始上传
+            File targetFile = new File(path, fileName);
+            //保存
+            try {
+                if(!targetFile.exists()){
+                    targetFile.mkdirs();
+                    imgFile.transferTo(targetFile);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                map.put("flag", "上传失败，出现异常："+e.getMessage());
+            }
+            map.put("flag", agencyUserService.addAgencyUserPhoto("2", Integer.parseInt(agencyUserId), ConfigInfo.url_path+"upload/admin/images/factory/" + agencyUserId + "/" + fileName, "1"));
+            map.put("tag", agencyUserService.listAgencyPhotoId(ConfigInfo.url_path+"upload/admin/images/factory/" + agencyUserId + "/" + fileName, Integer.parseInt(agencyUserId), "2").getId());
+            map.put("image", ConfigInfo.url_path+"upload/admin/images/factory/" + agencyUserId + "/" + fileName);
+            return map;
+        }
+
+        JSONObject joData = JSONObject.fromObject(imgData);
+        // 用户经过剪辑后的图片的大小
+        double x = (double)joData.get("x");
+        double y = (double)joData.get("y");
+        double w =  (double)joData.get("width");
+        double h =  (double)joData.get("height");
+
+        //开始上传
+        File targetFile = new File(path, fileName);
+        //保存
+        try {
+            if(!targetFile.exists()){
+                targetFile.mkdirs();
+                InputStream is = imgFile.getInputStream();
+                ImageCutUtil.cut(is, targetFile, (int)x,(int)y,(int)w,(int)h);
+                is.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("flag", "上传失败，出现异常："+e.getMessage());
+        }
+        LFactoryUserEntity lFactoryUserEntity = new LFactoryUserEntity();
+        lFactoryUserEntity.setId(Integer.parseInt(agencyUserId));
+        lFactoryUserEntity.setUpdTime(DateUtil.NewDateInt());
+        if(tag.equals("1")) {
+            lFactoryUserEntity.setWechatCode(ConfigInfo.url_path+"upload/admin/images/factory/" + agencyUserId + "/" + fileName);
+            map.put("tag", factoryUserService.updateFactoryUser(lFactoryUserEntity));
+        }
+        else if(tag.equals("2")) {
+            lFactoryUserEntity.setAvatar(ConfigInfo.url_path+"upload/admin/images/factory/" + agencyUserId + "/" + fileName);
+            map.put("tag", factoryUserService.updateFactoryUser(lFactoryUserEntity));
+        }
+        else if(tag.equals("3")){
+            LFactoryUserEntity lFactoryUserEntity1 = factoryUserService.listOneFactoryUserById(Integer.parseInt(agencyUserId));
+            LFactoryLicenceEntity lFactoryLicenceEntity = factoryUserService.listFactoryLicenceById(lFactoryUserEntity1.getLicenceId());
+            lFactoryLicenceEntity.setLegalPersonFphoto(ConfigInfo.url_path+"upload/admin/images/factory/" + agencyUserId + "/" + fileName);
+            map.put("tag", factoryUserService.updateFactoryLicence(lFactoryLicenceEntity));
+        }else if (tag.equals("4")){
+            LFactoryUserEntity lFactoryUserEntity1 = factoryUserService.listOneFactoryUserById(Integer.parseInt(agencyUserId));
+            LFactoryLicenceEntity lFactoryLicenceEntity = factoryUserService.listFactoryLicenceById(lFactoryUserEntity1.getLicenceId());
+            lFactoryLicenceEntity.setLegalPersonBphoto(ConfigInfo.url_path+"upload/admin/images/factory/" + agencyUserId + "/" + fileName);
+            map.put("tag", factoryUserService.updateFactoryLicence(lFactoryLicenceEntity));
+        }else if(tag.equals("5")){
+            LFactoryUserEntity lFactoryUserEntity1 = factoryUserService.listOneFactoryUserById(Integer.parseInt(agencyUserId));
+            LFactoryLicenceEntity lFactoryLicenceEntity = factoryUserService.listFactoryLicenceById(lFactoryUserEntity1.getLicenceId());
+            lFactoryLicenceEntity.setLicencePhoto(ConfigInfo.url_path+"upload/admin/images/factory/" + agencyUserId + "/" + fileName);
+            map.put("tag", factoryUserService.updateFactoryLicence(lFactoryLicenceEntity));
+        }
+        map.put("flag", "1");
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/UpdateFactoryUser")
+    @ResponseBody
+    public Map<String, Object> updateFactoryUser(String factoryId, String name, String mobile, String email, String address,
+                                                String province, String city, String areaId, String pid, String status,
+                                                HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        LFactoryUserEntity lFactoryUserEntity = InitEntityUtil.InitLFactoryUserEntity();
+        lFactoryUserEntity.setId(Integer.parseInt(factoryId));
+        lFactoryUserEntity.setName(name);
+        lFactoryUserEntity.setMobile(mobile);
+        if (!email.equals("")) lFactoryUserEntity.setEmail(email);
+        if (!address.equals("")) lFactoryUserEntity.setAddress(address);
+        if(province.equals("")) lFactoryUserEntity.setProvince(province);
+        if(city.equals("")) lFactoryUserEntity.setCity(city);
+        lFactoryUserEntity.setAreaId(Integer.parseInt(areaId));
+        lFactoryUserEntity.setSalesmanId(Integer.parseInt(pid));
+        lFactoryUserEntity.setStatus((byte)Integer.parseInt(status));
+        lFactoryUserEntity.setUpdTime(DateUtil.NewDateInt());
+        map.put("flag", factoryUserService.updateFactoryUser(lFactoryUserEntity));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/UpdateFactoryUserAnay")
+    @ResponseBody
+    public Map<String, Object> updateFactoryUserAnay(String factoryId, String capacity, String quality, String stability,
+                                                 String circumstance, String report, HttpServletRequest httpServletRequest,
+                                                     HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        LFactoryUserEntity lFactoryUserEntity = InitEntityUtil.InitLFactoryUserEntity();
+        lFactoryUserEntity.setId(Integer.parseInt(factoryId));
+        lFactoryUserEntity.setCapacity(capacity);
+        lFactoryUserEntity.setQuality(quality);
+        lFactoryUserEntity.setStability(stability);
+        lFactoryUserEntity.setCircumstance(circumstance);
+        lFactoryUserEntity.setReport(report);
+        lFactoryUserEntity.setUpdTime(DateUtil.NewDateInt());
+        map.put("flag", factoryUserService.updateFactoryUser(lFactoryUserEntity));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/UpdateFactoryPwd")
+    @ResponseBody
+    public Map<String, Object> updateFactoryPwd(String agencyId, HttpServletRequest httpServletRequest,
+                                               HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        LFactoryUserEntity lFactoryUserEntity = new LFactoryUserEntity();
+        lFactoryUserEntity.setId(Integer.parseInt(agencyId));
+        lFactoryUserEntity.setPwd(DigestUtils.md5DigestAsHex("123456".getBytes()));
+        map.put("flag", factoryUserService.updateFactoryUserNon(lFactoryUserEntity));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/UploadFactoryLicenceInfo")
+    @ResponseBody
+    public Map<String, Object> uploadFactoryLicenceInfo(String licenceId, String licenceNumber, String licenceName, String legalPerson,
+                                                       String legalPersonTel, String legalPersonIdCard, HttpServletResponse httpServletResponse,
+                                                       HttpServletRequest httpServletRequest, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        LFactoryLicenceEntity lFactoryLicenceEntity = new LFactoryLicenceEntity();
+        lFactoryLicenceEntity.setLicenceNumber(licenceNumber);
+        lFactoryLicenceEntity.setLicenceName(licenceName);
+        lFactoryLicenceEntity.setLegalPerson(legalPerson);
+        lFactoryLicenceEntity.setLegalPersonTel(legalPersonTel);
+        lFactoryLicenceEntity.setLegalPersonIdcard(legalPersonIdCard);
+        if (licenceId.equals("0")){
+            map.put("flag", factoryUserService.addFactoryLicence(lFactoryLicenceEntity));
+        }else{
+            lFactoryLicenceEntity.setId(Integer.parseInt(licenceId));
+            map.put("flag", factoryUserService.updateFactoryLicence(lFactoryLicenceEntity));
+        }
+        return map;
+    }
+
+
+
+
+
+
+
 
     public void setAreaService(AreaService areaService) {
         this.areaService = areaService;

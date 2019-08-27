@@ -6,34 +6,35 @@
 
     <class name="com.dbc.lxshop.Model.Entity.LFactoryLicenceEntity" table="l_factory_licence" schema="lxshop">
         <id name="id">
-            <column name="id" sql-type="int(11) unsigned"/>
+            <column name="id" sql-type="int(11) unsigned" not-null="true"/>
         </id>
         <property name="licenceNumber">
-            <column name="licence_number" sql-type="varchar(50)" length="50"/>
+            <column name="licence_number" sql-type="varchar(50)" length="50" not-null="true"/>
         </property>
         <property name="licenceName">
-            <column name="licence_name" sql-type="varchar(50)" length="50"/>
+            <column name="licence_name" sql-type="varchar(50)" length="50" not-null="true"/>
         </property>
         <property name="legalPerson">
-            <column name="legal_person" sql-type="varchar(20)" length="20"/>
+            <column name="legal_person" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="legalPersonTel">
-            <column name="legal_person_tel" sql-type="varchar(15)" length="15"/>
+            <column name="legal_person_tel" sql-type="varchar(15)" length="15" not-null="true"/>
         </property>
         <property name="legalPersonIdcard">
-            <column name="legal_person_idcard" sql-type="varchar(50)" length="50"/>
+            <column name="legal_person_idcard" sql-type="varchar(50)" length="50" not-null="true"/>
         </property>
         <property name="licencePhoto">
-            <column name="licence_photo" sql-type="varchar(1000)" length="1000"/>
+            <column name="licence_photo" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="legalPersonFphoto">
-            <column name="legal_person_fphoto" sql-type="varchar(1000)" length="1000"/>
+            <column name="legal_person_fphoto" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="legalPersonBphoto">
-            <column name="legal_person_bphoto" sql-type="varchar(1000)" length="1000"/>
+            <column name="legal_person_bphoto" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
         <property name="userId">
-            <column name="user_id" sql-type="int(11)"/>
+            <column name="user_id" sql-type="int(11)" not-null="true"/>
         </property>
     </class>
+    <query name="FACTORYLICENCE.FACTORY_ID"><![CDATA[from LFactoryLicenceEntity where userId = :userId]]></query>
 </hibernate-mapping>

@@ -43,7 +43,7 @@
         <%@include file="../header.jsp"%>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>经销商详情</h2>
+                <h2>厂商详情</h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="<%=basePath%>/Admin/Summary/Profile">首页</a>
@@ -52,10 +52,10 @@
                         <a>非工作人员管理</a>
                     </li>
                     <li>
-                        <a>经销商档案</a>
+                        <a>厂商档案</a>
                     </li>
                     <li class="active">
-                        <strong>经销商详情</strong>
+                        <strong>厂商详情</strong>
                     </li>
                 </ol>
             </div>
@@ -65,14 +65,48 @@
                 <div class="col-lg-12">
                     <div class="tabs-container">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab-1"> 财务信息</a></li>
-                            <li class=""><a data-toggle="tab" href="#tab-2"> 详情数据</a></li>
-                            <li class=""><a data-toggle="tab" href="#tab-3"> 头像</a></li>
-                            <li class=""><a data-toggle="tab" href="#tab-4"> 营业执照信息</a></li>
-                            <li class=""><a data-toggle="tab" href="#tab-5"> 店面实景图</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab-1"> 综合评估</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-2"> 财务信息</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-3"> 详情数据</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-4"> 头像</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-5"> 营业执照信息</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-6"> 店面实景图</a></li>
                         </ul>
                         <div class="tab-content">
                             <div id="tab-1" class="tab-pane active">
+                                <div class="panel-body">
+                                    <fieldset class="form-horizontal">
+                                        <div class="form-group"><label class="col-sm-2 control-label">生产能力:</label>
+                                            <div class="col-sm-10">
+                                                <textarea id="factoryCapacity" class="form-control" placeholder="填入生产能力" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">产品质量:</label>
+                                            <div class="col-sm-10">
+                                                <textarea id="factoryQuality" class="form-control" placeholder="填入产品质量" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">关系稳定性:</label>
+                                            <div class="col-sm-10">
+                                                <textarea id="factoryStability" class="form-control" placeholder="填入关系稳定性" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">经营状况:</label>
+                                            <div class="col-sm-10">
+                                                <textarea id="factoryCircumstance" class="form-control" placeholder="填入经营状况" rows="10"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label class="col-sm-2 control-label">详细报告文件地址:</label>
+                                            <div class="col-sm-10">
+                                                <textarea id="factoryReport" class="form-control" placeholder="填入详细报告文件地址" rows="10"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <button id="modifyAnayInfoSubmit" data-id="${AGENCYUSER_ID}" type="button" class="ladda-button ladda-button-demo btn btn-primary block full-width m-b"  data-style="zoom-in">提交</button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div id="tab-2" class="tab-pane">
                                 <div class="panel-body">
                                     <fieldset class="form-horizontal">
                                         <div class="form-group"><label class="col-sm-2 control-label">支付宝账号:</label>
@@ -125,7 +159,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="tab-2" class="tab-pane">
+                            <div id="tab-3" class="tab-pane">
                                 <div class="panel-body">
                                     <fieldset class="form-horizontal">
                                         <div class="form-group"><label class="col-sm-2 control-label">经销商名称:</label>
@@ -139,9 +173,6 @@
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">详细地址:</label>
                                             <div class="col-sm-10"><input id="agencyAdress" type="text" class="form-control" placeholder="请输入商品型号" value="${AgencyInfo.address}"></div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">初始积分:</label>
-                                            <div class="col-sm-10"><input id="agencyIntegral" type="text" class="form-control" placeholder="请输入商品材质" value="${AgencyInfo.integral}"></div>
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">选择所在省(当前值${AgencyInfo.province}):</label>
                                             <div class="col-sm-10">
@@ -196,7 +227,7 @@
                                     </fieldset>
                                 </div>
                             </div>
-                            <div id="tab-3" class="tab-pane">
+                            <div id="tab-4" class="tab-pane">
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -233,7 +264,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="tab-4" class="tab-pane">
+                            <div id="tab-5" class="tab-pane">
                                 <div class="panel-body">
                                     <fieldset class="form-horizontal">
                                         <div class="form-group"><label class="col-sm-2 control-label">营业执照编号:</label>
@@ -369,7 +400,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="tab-5" class="tab-pane">
+                            <div id="tab-6" class="tab-pane">
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#photoModal">添加实景图片</button>

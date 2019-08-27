@@ -1,7 +1,66 @@
 "use struct"
 $(document).ready(function () {
     $("#nonStaff").trigger("click");
-    $("#nonStaffAgencyRecord").addClass("active");
+    $("#nonStaffFactoryRecord").addClass("active");
+
+    //**************************综合评估
+    var infoSubmit = $('#modifyAnayInfoSubmit').ladda();
+    infoSubmit.click(function () {
+        var $factoryId = $(this).attr('data-id');
+        var $factoryCapacity = $("#factoryCapacity").val();
+        var $factoryQuality = $("#factoryQuality").val();
+        var $factoryStability = $("#factoryStability").val();
+        var $factoryCircumstance = $("#factoryCircumstance").val();
+        var $factoryReport = $("#factoryReport").val();
+
+        if($factoryCapacity == "" || $factoryQuality == "" ||
+            $factoryStability == "" || $factoryCircumstance == "" || $factoryReport == ""){
+            swal({
+                title: "警告！",
+                text: "输入项各项不能为空",
+                type: "warning",
+                confirmButtonText: "确定",
+            });
+        }else{
+            infoSubmit.ladda( 'start' );
+            $.ajax({
+                method: "POST",
+                url: "/Admin/NonStaff/UpdateFactoryUserAnay",
+                dataType: "json",
+                data: {"factoryId":$factoryId, "capacity": $factoryCapacity, "quality":$factoryQuality, "stability":$factoryStability, "circumstance":$factoryCircumstance,
+                    "report":$factoryReport},
+                success: function (data) {
+                    infoSubmit.ladda( 'stop' );
+                    if(data.flag != "1"){
+                        swal({
+                            title: "修改失败！",
+                            text: data.error,
+                            type: "error",
+                            confirmButtonText: "确定",
+                        });
+                    }else{
+                        swal({
+                            title: "添加成功！",
+                            text: "已为您同步至经销商信息",
+                            type: "success",
+                            confirmButtonText: "确定",
+                        },function () {
+                            window.location.reload();
+                        });
+                    }
+                },
+                error:function () {
+                    swal({
+                        title: "出现错误!",
+                        text: "网络参数出现错误!",
+                        type: "error",
+                        confirmButtonText: "确定",
+                    },function(){});
+                }
+            });
+        }
+    });
+
 
     //****************************财务数据
 
@@ -66,7 +125,7 @@ $(document).ready(function () {
         formData.append("agencyUserId", $(this).attr('data-id'));
         $.ajax({
             method: "POST",
-            url: "/Admin/NonStaff/UploadAgencyUserImage",
+            url: "/Admin/NonStaff/UploadFactoryUserImage",
             dataType: "json",
             contentType:false,// 告诉jQuery不要去设置Content-Type请求头
             processData:false,// 告诉jQuery不要去处理发送的数据
@@ -145,11 +204,11 @@ $(document).ready(function () {
     //**************************详情数据
     var infoSubmit = $('#modifyAgencyInfoSubmit').ladda();
     infoSubmit.click(function () {
+        var $factoryId = $(this).attr('data-id');
         var $agencyName = $("#agencyName").val();
         var $agencyMobile = $("#agencyMobile").val();
         var $agencyEmail = $("#agencyEmail").val();
         var $agencyAdress = $("#agencyAdress").val();
-        var $agencyIntegral = $("#agencyIntegral").val();
         var $agencyProvince = $("#agencyProvince option:selected").html();
         var $agencyCity = $("#agencyCity option:selected").html();
         var $agencyArea = $("#agencyArea").val();
@@ -175,10 +234,10 @@ $(document).ready(function () {
             infoSubmit.ladda( 'start' );
             $.ajax({
                 method: "POST",
-                url: "/Admin/NonStaff/UpdateAgencyUser",
+                url: "/Admin/NonStaff/UpdateFactoryUser",
                 dataType: "json",
-                data: {"name": $agencyName, "mobile":$agencyMobile, "email":$agencyEmail, "address":$agencyAdress,
-                    "integral":$agencyIntegral, "province":$agencyProvince, "city":$agencyCity, "areaId":$agencyArea, "pid":$agencyPid, "status":$agencyStatus},
+                data: {"factoryId":$factoryId, "name": $agencyName, "mobile":$agencyMobile, "email":$agencyEmail, "address":$agencyAdress,
+                    "province":$agencyProvince, "city":$agencyCity, "areaId":$agencyArea, "pid":$agencyPid, "status":$agencyStatus},
                 success: function (data) {
                     infoSubmit.ladda( 'stop' );
                     if(data.flag != "1"){
@@ -215,7 +274,7 @@ $(document).ready(function () {
         var $agencyId = $(this).attr('data-id');
         $.ajax({
             method: "POST",
-            url: "/Admin/NonStaff/UpdateAgencyPwd",
+            url: "/Admin/NonStaff/UpdateFactoryPwd",
             dataType: "json",
             data: {"agencyId":$agencyId},
             success: function (data) {
@@ -302,7 +361,7 @@ $(document).ready(function () {
         formData.append("agencyUserId", $(this).attr('data-id'));
         $.ajax({
             method: "POST",
-            url: "/Admin/NonStaff/UploadAgencyUserImage",
+            url: "/Admin/NonStaff/UploadFactoryUserImage",
             dataType: "json",
             contentType:false,// 告诉jQuery不要去设置Content-Type请求头
             processData:false,// 告诉jQuery不要去处理发送的数据
@@ -360,7 +419,7 @@ $(document).ready(function () {
             $modifyLicenceInfoSubmit.ladda( 'start' );
             $.ajax({
                 method: "POST",
-                url: "/Admin/NonStaff/UploadAgencyLicenceInfo",
+                url: "/Admin/NonStaff/UploadFactoryLicenceInfo",
                 dataType: "json",
                 data: {"licenceId":$licenceId, "licenceNumber": $agencyLicenceNumber,"licenceName":$agencyLicenceName, "legalPerson":$agencyLegalPerson,
                     "legalPersonTel":$agencyLegalPersonTel, "legalPersonIdCard":$agencyLegalPersonIdCard},
@@ -457,7 +516,7 @@ $(document).ready(function () {
         formData.append("agencyUserId", $(this).attr('data-id'));
         $.ajax({
             method: "POST",
-            url: "/Admin/NonStaff/UploadAgencyUserImage",
+            url: "/Admin/NonStaff/UploadFactoryUserImage",
             dataType: "json",
             contentType:false,// 告诉jQuery不要去设置Content-Type请求头
             processData:false,// 告诉jQuery不要去处理发送的数据
@@ -554,7 +613,7 @@ $(document).ready(function () {
         formData.append("agencyUserId", $(this).attr('data-id'));
         $.ajax({
             method: "POST",
-            url: "/Admin/NonStaff/UploadAgencyUserImage",
+            url: "/Admin/NonStaff/UploadFactoryUserImage",
             dataType: "json",
             contentType:false,// 告诉jQuery不要去设置Content-Type请求头
             processData:false,// 告诉jQuery不要去处理发送的数据
@@ -651,7 +710,7 @@ $(document).ready(function () {
         formData.append("agencyUserId", $(this).attr('data-id'));
         $.ajax({
             method: "POST",
-            url: "/Admin/NonStaff/UploadAgencyUserImage",
+            url: "/Admin/NonStaff/UploadFactoryUserImage",
             dataType: "json",
             contentType:false,// 告诉jQuery不要去设置Content-Type请求头
             processData:false,// 告诉jQuery不要去处理发送的数据
@@ -733,7 +792,7 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: "/Admin/NonStaff/UploadAgencyUserImage",
+            url: "/Admin/NonStaff/UploadFactoryUserImage",
             dataType: "json",
             contentType:false,// 告诉jQuery不要去设置Content-Type请求头
             processData:false,// 告诉jQuery不要去处理发送的数据
