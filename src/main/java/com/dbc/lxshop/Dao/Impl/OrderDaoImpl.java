@@ -74,9 +74,7 @@ public class OrderDaoImpl implements OrderDao {
         lOrderEntity1 = (LOrderEntity)session.get(LOrderEntity.class, lOrderEntity.getId());
         if(lOrderEntity1 == null) return false;
         else{
-            if(lOrderEntity.getOrderNo() != null)
-                lOrderEntity1.setOrderNo(lOrderEntity.getOrderNo());
-             if(lOrderEntity.getFactoryId() != 0)
+            if(lOrderEntity.getFactoryId() != 0)
                 lOrderEntity1.setFactoryId(lOrderEntity.getFactoryId());
             if(lOrderEntity.getUserId() != 0)
                 lOrderEntity1.setUserId(lOrderEntity.getUserId());
@@ -273,7 +271,7 @@ public class OrderDaoImpl implements OrderDao {
         List<LOrderEntity> list = null;
         try{
             list = session.createNamedQuery("ORDER.STATUS", LOrderEntity.class)
-                    .setParameter("status", status)
+                    .setParameter("status", (byte)status)
                     .getResultList();
         }catch (IllegalArgumentException e){
             System.out.println("OrderDao查询语句出现问题");

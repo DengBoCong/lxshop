@@ -78,27 +78,27 @@
                                     <fieldset class="form-horizontal">
                                         <div class="form-group"><label class="col-sm-2 control-label">生产能力:</label>
                                             <div class="col-sm-10">
-                                                <textarea id="factoryCapacity" class="form-control" placeholder="填入生产能力" rows="10"></textarea>
+                                                <textarea id="factoryCapacity" class="form-control" placeholder="填入生产能力" rows="10">${AgencyInfo.capacity}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">产品质量:</label>
                                             <div class="col-sm-10">
-                                                <textarea id="factoryQuality" class="form-control" placeholder="填入产品质量" rows="10"></textarea>
+                                                <textarea id="factoryQuality" class="form-control" placeholder="填入产品质量" rows="10">${AgencyInfo.quality}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">关系稳定性:</label>
                                             <div class="col-sm-10">
-                                                <textarea id="factoryStability" class="form-control" placeholder="填入关系稳定性" rows="10"></textarea>
+                                                <textarea id="factoryStability" class="form-control" placeholder="填入关系稳定性" rows="10">${AgencyInfo.stability}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">经营状况:</label>
                                             <div class="col-sm-10">
-                                                <textarea id="factoryCircumstance" class="form-control" placeholder="填入经营状况" rows="10"></textarea>
+                                                <textarea id="factoryCircumstance" class="form-control" placeholder="填入经营状况" rows="10">${AgencyInfo.circumstance}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">详细报告文件地址:</label>
                                             <div class="col-sm-10">
-                                                <textarea id="factoryReport" class="form-control" placeholder="填入详细报告文件地址" rows="10"></textarea>
+                                                <textarea id="factoryReport" class="form-control" placeholder="填入详细报告文件地址" rows="10">${AgencyInfo.report}</textarea>
                                             </div>
                                         </div>
 
@@ -109,9 +109,6 @@
                             <div id="tab-2" class="tab-pane">
                                 <div class="panel-body">
                                     <fieldset class="form-horizontal">
-                                        <div class="form-group"><label class="col-sm-2 control-label">支付宝账号:</label>
-                                            <div class="col-sm-10">${AgencyInfo.alipayAccount}</div>
-                                        </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">支付宝账号:</label>
                                             <div class="col-sm-10"><input id="agencyAlipayAcount" type="text" class="form-control" placeholder="填入需要修改支付宝账号" value="${AgencyInfo.alipayAccount}"></div>
                                         </div>
@@ -286,7 +283,26 @@
                                     </fieldset>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <c:if test="${LicenceInfo.legalPersonFphoto.equals(\" \")}">
+                                            <c:choose>
+                                                <c:when test="${LicenceInfo.legalPersonFphoto == null}">
+                                                    <div id="recommendImage" class="image-crop">
+                                                        <img src="<%=basePath%>/static/admin/img/link.gif">
+                                                    </div>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <c:when test="${LicenceInfo.legalPersonFphoto.equals(\" \")}">
+                                                        <div id="recommendImage" class="image-crop">
+                                                            <img src="<%=basePath%>/static/admin/img/link.gif">
+                                                        </div>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div id="recommendImage" class="image-crop">
+                                                            <img src="${LicenceInfo.legalPersonFphoto}">
+                                                        </div>
+                                                    </c:otherwise>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <%--<c:if test="${LicenceInfo.legalPersonFphoto.equals(\" \")}">
                                                 <div id="recommendImage" class="image-crop">
                                                     <img src="<%=basePath%>/static/admin/img/link.gif">
                                                 </div>
@@ -300,7 +316,7 @@
                                                 <div id="recommendImage" class="image-crop">
                                                     <img src="${LicenceInfo.legalPersonFphoto}">
                                                 </div>
-                                            </c:if>
+                                            </c:if>--%>
                                         </div>
                                         <div class="col-md-6">
                                             <h4>身份证正面效果图</h4>
@@ -324,7 +340,26 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <c:if test="${LicenceInfo.legalPersonBphoto.equals(\" \")}">
+                                            <c:choose>
+                                                <c:when test="${LicenceInfo.legalPersonBphoto == null}">
+                                                    <div id="personBphotoImage" class="image-crop">
+                                                        <img src="<%=basePath%>/static/admin/img/link.gif">
+                                                    </div>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <c:when test="${LicenceInfo.legalPersonBphoto.equals(\" \")}">
+                                                        <div id="personBphotoImage" class="image-crop">
+                                                            <img src="<%=basePath%>/static/admin/img/link.gif">
+                                                        </div>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div id="personBphotoImage" class="image-crop">
+                                                            <img src="${LicenceInfo.legalPersonBphoto}">
+                                                        </div>
+                                                    </c:otherwise>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <%--<c:if test="${LicenceInfo.legalPersonBphoto.equals(\" \")}">
                                                 <div id="personBphotoImage" class="image-crop">
                                                     <img src="<%=basePath%>/static/admin/img/link.gif">
                                                 </div>
@@ -338,7 +373,7 @@
                                                 <div id="personBphotoImage" class="image-crop">
                                                     <img src="${LicenceInfo.legalPersonBphoto}">
                                                 </div>
-                                            </c:if>
+                                            </c:if>--%>
                                         </div>
                                         <div class="col-md-6">
                                             <h4>身份证反面效果图</h4>
@@ -362,7 +397,26 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <c:if test="${LicenceInfo.licencePhoto.equals(\" \")}">
+                                            <c:choose>
+                                                <c:when test="${LicenceInfo.licencePhoto == null}">
+                                                    <div id="licencePhotoImage" class="image-crop">
+                                                        <img src="<%=basePath%>/static/admin/img/link.gif">
+                                                    </div>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <c:when test="${LicenceInfo.licencePhoto.equals(\" \")}">
+                                                        <div id="licencePhotoImage" class="image-crop">
+                                                            <img src="<%=basePath%>/static/admin/img/link.gif">
+                                                        </div>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div id="licencePhotoImage" class="image-crop">
+                                                            <img src="${LicenceInfo.licencePhoto}">
+                                                        </div>
+                                                    </c:otherwise>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            <%--<c:if test="${LicenceInfo.licencePhoto.equals(\" \")}">
                                                 <div id="licencePhotoImage" class="image-crop">
                                                     <img src="<%=basePath%>/static/admin/img/link.gif">
                                                 </div>
@@ -376,7 +430,7 @@
                                                 <div id="licencePhotoImage" class="image-crop">
                                                     <img src="${LicenceInfo.licencePhoto}">
                                                 </div>
-                                            </c:if>
+                                            </c:if>--%>
                                         </div>
                                         <div class="col-md-6">
                                             <h4>营业执照效果图</h4>

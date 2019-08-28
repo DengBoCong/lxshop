@@ -6,37 +6,39 @@
 
     <class name="com.dbc.lxshop.Model.Entity.LFactoryGoodsEntity" table="l_factory_goods" schema="lxshop">
         <id name="id">
-            <column name="id" sql-type="int(11) unsigned"/>
+            <column name="id" sql-type="int(11) unsigned" not-null="true"/>
         </id>
         <property name="factoryId">
-            <column name="factory_id" sql-type="int(11)"/>
+            <column name="factory_id" sql-type="int(11)" not-null="true"/>
         </property>
         <property name="kindName">
-            <column name="kind_name" sql-type="varchar(50)" length="50"/>
+            <column name="kind_name" sql-type="varchar(50)" length="50" not-null="true"/>
         </property>
         <property name="model">
-            <column name="model" sql-type="varchar(50)" length="50"/>
+            <column name="model" sql-type="varchar(50)" length="50" not-null="true"/>
         </property>
         <property name="material">
-            <column name="material" sql-type="varchar(20)" length="20"/>
+            <column name="material" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="structure">
-            <column name="structure" sql-type="varchar(100)" length="100"/>
+            <column name="structure" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
         <property name="style">
-            <column name="style" sql-type="varchar(100)" length="100"/>
+            <column name="style" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
         <property name="use">
-            <column name="use" sql-type="varchar(100)" length="100"/>
+            <column name="use" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
         <property name="saleMethod">
-            <column name="sale_method" sql-type="varchar(20)" length="20"/>
+            <column name="sale_method" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
         <property name="inventory">
-            <column name="inventory" sql-type="varchar(500)" length="500"/>
+            <column name="inventory" sql-type="varchar(500)" length="500" not-null="true"/>
         </property>
         <property name="remark">
-            <column name="remark" sql-type="varchar(1000)" length="1000"/>
+            <column name="remark" sql-type="varchar(1000)" length="1000" not-null="true"/>
         </property>
     </class>
+    <query name="FACTORY_GOODS.FACTORY_ID"><![CDATA[from LFactoryGoodsEntity where factoryId = :factoryId ]]></query>
+    <query name="FACTORY_GOODS.FACTORY_ID_KIND_NAME"><![CDATA[from LFactoryGoodsEntity where factoryId = :factoryId and kindName = :kindName]]></query>
 </hibernate-mapping>

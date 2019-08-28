@@ -76,9 +76,6 @@
                                 <div class="panel-body">
                                     <fieldset class="form-horizontal">
                                         <div class="form-group"><label class="col-sm-2 control-label">支付宝账号:</label>
-                                            <div class="col-sm-10">${AgencyInfo.alipayAccount}</div>
-                                        </div>
-                                        <div class="form-group"><label class="col-sm-2 control-label">支付宝账号:</label>
                                             <div class="col-sm-10"><input id="agencyAlipayAcount" type="text" class="form-control" placeholder="填入需要修改支付宝账号" value="${AgencyInfo.alipayAccount}"></div>
                                         </div>
                                         <div class="form-group"><label class="col-sm-2 control-label">银行卡账号:</label>

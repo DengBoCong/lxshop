@@ -59,18 +59,10 @@
                 </ul>
             </li>
             <li>
-                <a href="mailbox.html"><i class="fa fa-book"></i> <span class="nav-label">订单管理 </span><span class="fa arrow"></span></a>
+                <a id="order" href="#"><i class="fa fa-book"></i> <span class="nav-label">订单管理 </span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li>
-                        <a href="#">订单管理 <span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li><a href="#">全部订单</a></li>
-                            <li><a href="#">待付款</a></li>
-                            <li><a href="#">订单分配</a></li>
-                            <li><a href="#">待发货</a></li>
-                            <li><a href="#">待收货</a></li>
-                        </ul>
-                    </li>
+                    <li id="allOrder"><a href="/Admin/Order/AllOrder">全部订单</a></li>
+                    <li id="orderDistribute"><a href="/Admin/Order/Distribute">订单分配</a></li>
                     <li>
                         <a href="#">退货管理 <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">

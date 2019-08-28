@@ -96,7 +96,7 @@ public class NonStaffController {
                                              String integral, String province, String city, String areaId, String pid, String status,
                                              HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, ModelMap modelMap){
         Map<String, Object> map = new HashMap<String, Object>();
-        LUserEntity lUserEntity = InitEntityUtil.InitLUserEntity();
+        LUserEntity lUserEntity = new LUserEntity();
         lUserEntity.setName(name);
         lUserEntity.setMobile(mobile);
         if (!email.equals("")) lUserEntity.setEmail(email);
@@ -151,6 +151,7 @@ public class NonStaffController {
         LUserEntity lUserEntity = agencyUserService.listOneAgencyUserById(userId);
         modelMap.addAttribute("AgencyInfo", lUserEntity);
         modelMap.addAttribute("ProvinceList", salesmanService.listProvince());
+        modelMap.addAttribute("AreaList", areaService.listAreaInfo());
         LUserLicenceEntity lUserLicenceEntity = agencyUserService.listUserLicenceById(lUserEntity.getLicenceId());
         if (lUserEntity.getLicenceId() == 0) lUserLicenceEntity = new LUserLicenceEntity();
         else modelMap.addAttribute("LicenceInfo", lUserLicenceEntity);
@@ -164,6 +165,7 @@ public class NonStaffController {
         LFactoryUserEntity lFactoryUserEntity = factoryUserService.listOneFactoryUserById(factoryId);
         modelMap.addAttribute("AgencyInfo", lFactoryUserEntity);
         modelMap.addAttribute("ProvinceList", salesmanService.listProvince());
+        modelMap.addAttribute("AreaList", areaService.listAreaInfo());
         LFactoryLicenceEntity lFactoryLicenceEntity = factoryUserService.listFactoryLicenceById(lFactoryUserEntity.getLicenceId());
         if (lFactoryUserEntity.getLicenceId() == 0) lFactoryLicenceEntity = new LFactoryLicenceEntity();
         else modelMap.addAttribute("LicenceInfo", lFactoryLicenceEntity);
@@ -281,10 +283,10 @@ public class NonStaffController {
 
         JSONObject joData = JSONObject.fromObject(imgData);
         // 用户经过剪辑后的图片的大小
-        double x = (double)joData.get("x");
-        double y = (double)joData.get("y");
-        double w =  (double)joData.get("width");
-        double h =  (double)joData.get("height");
+        double x = Double.parseDouble(joData.get("x").toString());
+        double y = Double.parseDouble(joData.get("y").toString());
+        double w =  Double.parseDouble(joData.get("width").toString());
+        double h =  Double.parseDouble(joData.get("height").toString());
 
         //开始上传
         File targetFile = new File(path, fileName);
@@ -305,11 +307,11 @@ public class NonStaffController {
         lUserEntity.setUpdTime(DateUtil.NewDateInt());
         if(tag.equals("1")) {
             lUserEntity.setWechatCode(ConfigInfo.url_path+"upload/admin/images/agency/" + agencyUserId + "/" + fileName);
-            map.put("tag", agencyUserService.updateAgencyUser(lUserEntity));
+            map.put("tag", agencyUserService.updateAgencyUserNon(lUserEntity));
         }
         else if(tag.equals("2")) {
             lUserEntity.setAvatar(ConfigInfo.url_path+"upload/admin/images/agency/" + agencyUserId + "/" + fileName);
-            map.put("tag", agencyUserService.updateAgencyUser(lUserEntity));
+            map.put("tag", agencyUserService.updateAgencyUserNon(lUserEntity));
         }
         else if(tag.equals("3")){
             LUserEntity lUserEntity1 = agencyUserService.listOneAgencyUserById(Integer.parseInt(agencyUserId));
@@ -394,10 +396,10 @@ public class NonStaffController {
 
         JSONObject joData = JSONObject.fromObject(imgData);
         // 用户经过剪辑后的图片的大小
-        double x = (double)joData.get("x");
-        double y = (double)joData.get("y");
-        double w =  (double)joData.get("width");
-        double h =  (double)joData.get("height");
+        double x = Double.parseDouble(joData.get("x").toString());
+        double y = Double.parseDouble(joData.get("y").toString());
+        double w =  Double.parseDouble(joData.get("width").toString());
+        double h =  Double.parseDouble(joData.get("height").toString());
 
         //开始上传
         File targetFile = new File(path, fileName);
@@ -418,11 +420,11 @@ public class NonStaffController {
         lFactoryUserEntity.setUpdTime(DateUtil.NewDateInt());
         if(tag.equals("1")) {
             lFactoryUserEntity.setWechatCode(ConfigInfo.url_path+"upload/admin/images/factory/" + agencyUserId + "/" + fileName);
-            map.put("tag", factoryUserService.updateFactoryUser(lFactoryUserEntity));
+            map.put("tag", factoryUserService.updateFactoryUserNon(lFactoryUserEntity));
         }
         else if(tag.equals("2")) {
             lFactoryUserEntity.setAvatar(ConfigInfo.url_path+"upload/admin/images/factory/" + agencyUserId + "/" + fileName);
-            map.put("tag", factoryUserService.updateFactoryUser(lFactoryUserEntity));
+            map.put("tag", factoryUserService.updateFactoryUserNon(lFactoryUserEntity));
         }
         else if(tag.equals("3")){
             LFactoryUserEntity lFactoryUserEntity1 = factoryUserService.listOneFactoryUserById(Integer.parseInt(agencyUserId));
@@ -450,7 +452,7 @@ public class NonStaffController {
                                                 String province, String city, String areaId, String pid, String status,
                                                 HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, ModelMap modelMap){
         Map<String, Object> map = new HashMap<String, Object>();
-        LFactoryUserEntity lFactoryUserEntity = InitEntityUtil.InitLFactoryUserEntity();
+        LFactoryUserEntity lFactoryUserEntity = new LFactoryUserEntity();
         lFactoryUserEntity.setId(Integer.parseInt(factoryId));
         lFactoryUserEntity.setName(name);
         lFactoryUserEntity.setMobile(mobile);
@@ -472,7 +474,7 @@ public class NonStaffController {
                                                  String circumstance, String report, HttpServletRequest httpServletRequest,
                                                      HttpServletResponse httpServletResponse, ModelMap modelMap){
         Map<String, Object> map = new HashMap<String, Object>();
-        LFactoryUserEntity lFactoryUserEntity = InitEntityUtil.InitLFactoryUserEntity();
+        LFactoryUserEntity lFactoryUserEntity = new LFactoryUserEntity();
         lFactoryUserEntity.setId(Integer.parseInt(factoryId));
         lFactoryUserEntity.setCapacity(capacity);
         lFactoryUserEntity.setQuality(quality);
@@ -480,7 +482,22 @@ public class NonStaffController {
         lFactoryUserEntity.setCircumstance(circumstance);
         lFactoryUserEntity.setReport(report);
         lFactoryUserEntity.setUpdTime(DateUtil.NewDateInt());
-        map.put("flag", factoryUserService.updateFactoryUser(lFactoryUserEntity));
+        map.put("flag", factoryUserService.updateFactoryUserNon(lFactoryUserEntity));
+        return map;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/UpdateFactoryUserFinal")
+    @ResponseBody
+    public Map<String, Object> updateFactoryUserFinal(String factoryId, String agencyAlipayAcount, String agencyBankAccount, String agencyBankName,
+                                                     HttpServletResponse httpServletResponse, ModelMap modelMap){
+        Map<String, Object> map = new HashMap<String, Object>();
+        LFactoryUserEntity lFactoryUserEntity = new LFactoryUserEntity();
+        lFactoryUserEntity.setId(Integer.parseInt(factoryId));
+        lFactoryUserEntity.setAlipayAccount(agencyAlipayAcount);
+        lFactoryUserEntity.setBankAccount(agencyBankAccount);
+        lFactoryUserEntity.setBankName(agencyBankName);
+        lFactoryUserEntity.setUpdTime(DateUtil.NewDateInt());
+        map.put("flag", factoryUserService.updateFactoryUserNon(lFactoryUserEntity));
         return map;
     }
 
@@ -516,13 +533,6 @@ public class NonStaffController {
         }
         return map;
     }
-
-
-
-
-
-
-
 
     public void setAreaService(AreaService areaService) {
         this.areaService = areaService;

@@ -63,6 +63,59 @@ $(document).ready(function () {
 
 
     //****************************财务数据
+    var modifyFinacialInfoSubmit = $('#modifyFinacialInfoSubmit').ladda();
+    modifyFinacialInfoSubmit.click(function () {
+        var $factoryId = $(this).attr('data-id');
+        var $agencyAlipayAcount = $("#agencyAlipayAcount").val();
+        var $agencyBankAccount = $("#agencyBankAccount").val();
+        var $agencyBankName = $("#agencyBankName").val();
+
+        if($agencyAlipayAcount == "" || $agencyBankAccount == "" ||
+            $agencyBankName == ""){
+            swal({
+                title: "警告！",
+                text: "输入项各项不能为空",
+                type: "warning",
+                confirmButtonText: "确定",
+            });
+        }else{
+            modifyFinacialInfoSubmit.ladda( 'start' );
+            $.ajax({
+                method: "POST",
+                url: "/Admin/NonStaff/UpdateFactoryUserFinal",
+                dataType: "json",
+                data: {"factoryId":$factoryId, "agencyAlipayAcount": $agencyAlipayAcount, "agencyBankAccount":$agencyBankAccount, "agencyBankName":$agencyBankName},
+                success: function (data) {
+                    modifyFinacialInfoSubmit.ladda( 'stop' );
+                    if(data.flag != "1"){
+                        swal({
+                            title: "修改失败！",
+                            text: data.error,
+                            type: "error",
+                            confirmButtonText: "确定",
+                        });
+                    }else{
+                        swal({
+                            title: "添加成功！",
+                            text: "已为您同步至经销商信息",
+                            type: "success",
+                            confirmButtonText: "确定",
+                        },function () {
+                            window.location.reload();
+                        });
+                    }
+                },
+                error:function () {
+                    swal({
+                        title: "出现错误!",
+                        text: "网络参数出现错误!",
+                        type: "error",
+                        confirmButtonText: "确定",
+                    },function(){});
+                }
+            });
+        }
+    });
 
     var $wechatCodeImage = $("#wechatCodeImage > img");
     $($wechatCodeImage).cropper({
@@ -185,7 +238,7 @@ $(document).ready(function () {
             method: "POST",
             url: "/Admin/Area/ListSalesmanByAreaIdKind",
             dataType: "json",
-            data: {"kind":"1", "areaId":$(this).val()},
+            data: {"kind":"2", "areaId":$(this).val()},
             success: function (data) {
                 var html = '<option value="0" selected="selected">请选择上级业务员,可不选</option>';
                 for(i=0;i<data.flag.length;i++){
